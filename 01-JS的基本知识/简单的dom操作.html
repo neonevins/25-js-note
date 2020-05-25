@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+    
+    .box p{
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+<div class="box"></div>
+<script>
+  /**
+   *
+   * 查询显示 变量的操作
+   *  console.log 在控制台中打印
+   *  如果做开发的时候不知道变量物体是什么, 你就可以使用显示出来
+   *
+   * 对标签元素进行简单的操作
+   *  1. 给标签添加文字
+   *
+   *  操作主体:
+   *    1. 在JS中拿到这个标签
+   *      通过dom获取这个元素 document
+   *      document 指代的就是整个html结构
+   *      从document中找到专门的 box元素
+   *        querySelector    通过选择器查询元素, 选中满足条件的 第一个 元素
+   *        querySelectorAll 选中满足条件的所有元素
+   *    2. 添加文字
+   *      元素对象.innerHTML 可以插入html结构
+   *        如果在等号右边, 读取值
+   *        如果在等号左边, 赋值
+   *
+   *      innerText 添加内容不解析
+   *
+   *   如果 有 a,b 都是变量
+   *    a = a + b 可以简写成  a += b
+   */
+  
+  // document
+  
+  // console.log(document)
+    
+    // 获取类名叫做box的第一个盒子, 然后交给变量box
+    
+  // let box = document.querySelector(".box")
+  
+  // box的内部改成 "银时真帅"
+  // 第一步操作
+  // box.innerHTML = "<p>江南真帅</p>"
+  // console.log(box.innerHTML)
+  
+  // 第二部操作
+  // box.innerHTML +=  "<p style='font-size: 30px'>火山真漂亮</p>"
+
+  // box.innerHTML = "<img src='https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1539795923,3930387789&fm=26&gp=0.jpg'>"
+  
+  // 那么我想在box里面添加 <div></div>
+  
+  // box.innerText = "<div></div>"
+  
+  
+  
+</script>
+</body>
+</html>
