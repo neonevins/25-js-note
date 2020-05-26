@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 300px;
+      height: 300px;
+      background-color: #ccc;
+      /* border-radius: 30px 50px/40px 20px;  */
+    }
+  </style>
+</head>
+<body>
+<div class="box">sherry真漂亮</div>
+<script>
+
+  /**
+   * 样式操作:
+   *  1. 通过JS 修改元素的样式
+   *
+   *
+   *  通过JS使盒子宽度变宽.
+   *
+   *  元素.style.你想要的样式名 = 你想要的样式值
+   *
+   *  css样式修改不要使用 - 符号
+   *
+   *  如果出现-号需要手动改成小驼峰命名法
+   *
+   *
+   *
+   *
+   */
+  
+  let box = document.querySelector(".box")
+
+  // 修改样式了
+  // box.style.width = "500px"
+  //
+  // box.style.height = "100px"
+  
+  // 修改背景颜色? background-color
+  // box.style.backgroundColor = "rgba(193,85,117,0.73)"
+  
+  // box.style.borderRadius = "30px 50px/40px 20px"
+  
+  
+  // box.onclick = function () {
+  //   // 修改样式了
+  //   box.style.width = "500px"
+  // }
+  
+  // let size = 16
+  // //
+  // // // 点击变大
+  // //
+  // box.onclick = function () {
+  //   // 先算出真实的字体大小
+  //   size += 1
+  //
+  //   // 再设置进去
+  //   box.style.fontSize = size
+  // }
+
+</script>
+</body>
+</html>

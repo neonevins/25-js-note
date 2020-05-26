@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="box">
+
+</div>
+<script>
+  /**
+   * 控制台编程测试
+   *    任何的JS代码都可以放到控制台中执行
+   *
+   * JS的基本数据类型:
+   *  数据: 字体大小, 数字 项目中有特殊含义的
+   *  数据类型: 数字 和 加了引号的东西是不一样的
+   *
+   *  六个: 数值 字符串 布尔类型  undefined null 对象
+   *
+   *  数值类型: 指的是数字: 平常写的就是数字 number
+   *     1 2 3 ... 0
+   *     存在的意义就是方便统计计算的
+   *     如何去判断一个东西是不是数字
+   *
+   *     typeof 关键词: 判断后面紧挨着的内容是什么数据类型
+   *
+   *     一些特殊的数值:
+   *        科学计数法: 形如 1e+12这种也是数值等价于 1 * 10的12次方
+   *        1后面12个0: 很方便的写一些数
+   *        可以表示极大的数也可以表示极小(趋近于0)的数
+   *
+   *        Infinity 也是一个数值: 表示无穷大 -Infinity
+   *          当数值达到一定程度的时候, 就不会去表示了, 会直接变成正无穷
+   *          数值一般情况下做开发: 计算都不会出现极大值, 放心的计算
+   *          非0 / 0 就是: Infinity
+   *
+   *        NaN: not a number 不是一个数字
+   *          一般会出现在数学运算中, 如果计算出错, 不应该计算, 就会得出NaN
+   *
+   *          计算中出现NaN 理论上是程序失败崩溃
+   *          0 / 0  会出现NaN
+   *
+   *        二进制: 0b
+   *
+   *        八进制:  0
+   *
+   *        十六进制: 0xff -> 255
+   *          #ffffff
+   *
+   *      JS中计算存在误差:
+   *        如果是小数运算, 会出现误差, 比如 0.1 + 0.2
+   *        或者自己实现一个算法: 做小数运算.
+   *        怎么避免这个问题: 放缩法
+   *
+   *        原因:
+   *          1. 存储一个数的存储空间有限
+   *          2. 存储也是不精确的, 你没有办法保存一个准确的0.1
+   *        JS中没有 整型 浮点型这种区别
+   *
+   *
+   *  类型统一:
+   *    如果是数学运算, 就一定得出数值类型,
+   *
+   *
+   */
+  
+  let a = 123
+  
+  let b = "123"
+  
+  // console.log(typeof b)
+  
+  
+  console.log(typeof NaN)
+
+
+  /**
+   * 字符串: 引号开头引号结尾包裹的的都是字符串 string
+   *    可以使用 "" 也可以使用 '' 只要保证左右一致就行
+   *    "" 空字符串
+   *    不直接支持换行 需要手动写加法拼接
+   *
+   *  ES6的语法: 模板字符串: ``
+   *    配套使用 ${} 在大括号中添加你要插入的内容
+   *
+   *
+   */
+  
+  let str1 = "江南好帅"
+  let str2 = "神狐好帅"
+  let box = document.querySelector(".box")
+
+  // box.innerHTML = "<p>" + str1 + "</p>" + "<p>" + str2 + "</p>"
+  
+  // box.innerHTML = `<p>${str1}</p><p>${str2}</p>`
+  
+  
+  // 让你非常直观的读出html结构
+  
+  box.innerHTML = `
+    <ul>
+      <li class="${str1}">${str1}</li>
+      <li>${str2}</li>
+    </ul>
+  `
+  
+  
+  
+</script>
+</body>
+</html>
