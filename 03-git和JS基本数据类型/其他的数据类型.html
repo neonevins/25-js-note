@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 基本数据类型
+   *    数值 number
+   *
+   *    字符串 string
+   *      模板字符串写法 ``
+   *      属性: .length 返回字符串的长度 读取长度判断等操作
+   *      访问字符每一位:
+   *        下标开始位置 从 0 开始
+   *
+   *    假设 字符串 str 长度大于 0
+   *    访问这个字符串最后一位
+   *    str[str.length-1]
+   *
+   *  布尔类型: boolean 真假类型: 只有两个值
+   *    true  真
+   *    false 假
+   *
+   *    有什么用?
+   *      判断, 做条件分支, 循环 等等
+   *
+   *      做开发的时候自己规定他的用处含义:
+   *
+   *   关于bool类型变量
+   *    1. 请使用见名知义的单词
+   *    2. 请使用动词或者祈使句
+   *
+   *
+   *
+   *  不能直接使用没有声明的变量
+   *  undefined 未定义 值只有一个 就是 undefined
+   *    1. 声明变量未给定初始值, 值就是 undefined
+   *    2. 访问一个不存在的属性, 值也是 undefined
+   *
+   *  细节: undefined 这个值 不能访问属性
+   *    一旦对undefined访问属性就会报错
+   *
+   *    "Uncaught TypeError: Cannot read property 'b' of undefined"
+   *      要去找b前面的内容, 是前面的内容出错了
+   *
+   *
+   *  null 一个不存在的对象, 空 只有一个值 null
+   *    已经定义了但是此时这个值不存在, 就为 null
+   *    一个用来占位的不存在的对象
+   *    可以使用null清空对象的引用关系
+   *  typeof null 值为 object 这是这门语言设计的时候的规定
+   *
+   *
+   *    null 和 undefined一样不可以访问属性
+   *
+   *
+   *  NaN       数值, 表示计算出错得出来的值
+   *
+   *  undefined 未定义, 没有给定初始值或者访问不到值
+   *
+   *  null      不存在的对象, 用来占位和清空对象, 作为对象的初始值
+   *
+   */
+  
+  // let b = null
+  //
+  // console.log(b.c.d.e.f)
+  
+  
+  
+  // let obj = null
+  //
+  //
+  //
+  // console.log(typeof null) // object
+  
+  
+  // let body = document.querySelector("body")
+  // //
+  // // console.log(body.onclick)
+  //
+  // body.innerText = ""
+
+
+  // let a = "undefined" // 显式的赋值
+  //
+  // // console.log(typeof typeof a) // 等价于 typeof "undefined"
+  //
+  // console.log(a.b.c)
+  //
+  // // let str = "银时"
+  //
+  // console.log(str[-1])
+
+
+  // console.log(document.abc)
+
+  // let a
+  // console.log(b)
+  
+  
+  // isBoy 为 true 表示男   false 表示女
+  // let isGirl = true
+  
+  
+  
+  
+  
+  // let bool = true
+  //
+  // console.log(typeof bool)
+  
+  
+  
+  // let str = "this is string"
+  //
+  // console.log(str[13])
+
+  // console.log(typeof typeof str.length)
+  
+  // console.log(isBoy)
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 对象 object
+   *    一个由若干个属性构成的一个整体就是对象
+   *
+   *    属性值 可以是任意数据类型
+   *
+   * 对象的书写方式:
+   *    {
+   *      属性,
+   *      属性,
+   *    }
+   *    属性   属性名: 属性值
+   *
+   *    {
+   *      属性名: 属性值,
+   *      属性名: 属性值,
+   *    }
+   *
+   *   对象的 访问属性:
+   *      .  访问
+   *        有的时候解决不了问题
+   *      [] 访问
+   *        []中传入一个值 传入的值最好是 字符串
+   */
+  //
+  let person = {
+    name: "sherry",
+    boyFriend: null,
+    isBoy: false,
+    age: 18,
+    167: "cm"
+  }
+
+  // console.log(person[100 + 33 + 34])
+  
+  let a = {
+    b: 1,
+    c: 2
+  }
+
+  let b = "c"
+
+  console.log(a[b])   // 2
+  console.log(a.b)    // 1
+  console.log(a["b"]) // 1
+  
+  
+  
+  
+</script>
+</body>
+</html>
