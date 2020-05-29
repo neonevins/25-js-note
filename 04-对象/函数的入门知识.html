@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div class="box"></div>
+<script>
+  /**
+   *
+   * 在JS中, 函数是一等公民. 非常重要的知识
+   *
+   * 函数: function
+   *    JS定义: 一个能执行的有自己的功能方法(代码的)集合体
+   *
+   *    执行: 达到想要的效果.
+   *
+   *    为什么要有函数:
+   *      大量的相似的代码的, 把特定的功能集合到一起, 封装起来,
+   *      执行变得非常方便和容易理解
+   *
+   *    函数的定义: 类似于关键帧的定义,
+   *      函数声明: 函数不会执行
+   *       function 函数名(){}
+   *       函数名: 类似于变量名: 遵循命名规则,
+   *       大括号里面填写你要执行的代码语句
+   *
+   *       typeof 函数 "function" 不能用typeof对对象进行准确的判断
+   *
+   *    函数的使用: 类似于关键帧的使用
+   *
+   *       函数名() 表示函数执行, 函数调用
+   *
+   *
+   *   函数的输入和函数的输出.
+   *
+   *      函数的参数的传入:
+   *        意义: 让代码执行的时候更加定制化.
+   *        在括号中传入参数, 可以传入若干个参数, 多个参数以逗号分隔
+   *        参数存在哪些地方?
+   *          存在在函数声明的位置:
+   *            接受参数执行的时候传入的参数, 叫形参
+   *            函数的形参不需要变量声明
+   *
+   *          存在在函数执行的位置:
+   *            传入参数的, 叫实参
+   *
+   *
+   *            实参和形参 按 顺序 一一对应的
+   *
+   *       参数对不齐怎么办?
+   *          实参比形参多, 多的部分忽略, 因为没接受
+   *
+   *          实参比形参少, 形参就接受不到值, 就直接是undefined
+   *
+   */
+  
+  function foo(a,b,c){
+    console.log(a,b,c)
+  }
+  
+  foo("鸡蛋")
+  
+  
+  
+  
+  let width = 100
+  
+  let box = document.querySelector(".box")
+  
+  // setWidth(1000) 设置盒子的宽度是1000px
+  // function setWidth(width){
+  //   // 此时width 就是你要设置的宽度
+  //
+  //   box.style.width = width + "px"
+  // }
+  //
+  // setWidth(1000)
+  
+  // r g b
+  // function setBackgroundColor(r, g, b, a){
+  //
+  //   box.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`
+  //   // box.style.backgroundColor = "rgb("+r+","+g+","+b+","+a+")"
+  // }
+  //
+  
+  
+  // 计算一个数的平方:
+  
+  // function calc(num){
+  //   console.log(num * num)
+  // }
+  
+  // 解二元一次方程   a*x^2 + b * x + c = 0
+  
+  function calc(a, b, c){
+    // klkslkdjakljdlk
+  }
+  
+  
+  
+  
+  
+  
+  
+  // function addWidth(){
+  //   width = width + 10
+  //   box.style.width = width + "px"
+  // }
+  //
+  // addWidth()
+  
+  
+  
+  
+  
+  
+  // function say(){
+  //   console.log("小余真帅")
+  // }
+  //
+  // say()
+  //
+  // say()
+  
+  // console.log(typeof say)
+
+
+  /**
+   * 1. 聊天框:
+   *    需求: 需要有一个input button 和 空列表
+   *    input输入完 按 下button 列表中添加一项
+   *    提示: input.value 获取输入内容
+   *
+   *
+   *
+   */
+
+
+
+
+</script>
+</body>
+</html>

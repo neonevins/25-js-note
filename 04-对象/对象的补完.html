@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 万物皆对象. object
+   *    js中几乎所有的数据都可以看成是对象.
+   *    书写方式:
+   *      {
+   *        属性: 属性值,
+   *        属性2: 属性值,
+   *      }
+   *
+   *  在浏览器全局中已经帮你声明了一个变量 name
+   *
+   *  typeof 对象 "object"
+   *
+   *  typeof null "object" 虚无的对象, 空指针
+   *    null: 是一个用来赋值的数据, 作为对象不存在的时候的占位符
+   *      null 其实是上层语言定义出来的
+   *
+   *
+   *  用 typeof 没有办法精确的判断类型
+   *    后面再讲
+   *
+   *    表达式: 最终能够得出一个值的式子
+   *
+   *
+   *  对象属性的增删改查:
+   *      查询:
+   *         obj.a    访问对象的 "a" 属性
+   *         obj[a]   访问对象的 a 属性, 其中a 是变量, a的值需要查询
+   *          中括号中可以添加表达式:
+   *         obj["a"] 同obj.a,  访问对象的 "a" 属性
+   *
+   *      增加: 增加一条属性:
+   *        同设置 也是有三种写法:
+   *          obj.a = 值
+   *          obj["a"] = 值
+   *          obj[a] = 值 设置对象的 a 属性, 其中a 是变量, a的值需要查询
+   *
+   *      修改属性的方式:
+   *         和增加一模一样, 只不过是对已有属性进行设置
+   *
+   *      删除属性:
+   *        delete 属性名.属性值
+   *
+   *    只要 一个物体不是 数字/字符串/布尔类型/undefined/null 那他就是对象
+   *
+   *    特殊的对象:
+   *       数组: 有序的物体的集合: 用中括号包裹
+   *          querySelectorAll 返回的 "可以看成是" 一个数组
+   *          有下标: 0, 1, 2
+   *          有length属性 长度
+   *
+   *       函数: function(){} 操作指南, 也是对象,
+   *
+   *       ...
+   */
+
+  /**
+   *
+   * JS 有六大数据类型
+   *  数值:         计算表示多少等
+   *  字符串:       描述文字
+   *  布尔值:       表示状态或者状态的改变, 真假
+   *  undefined:    表示未定义或者属性不存在
+   *  null:         表示不存在的对象, 清空归零对象 初始化对象
+   *
+   *  对象: 描述物体属性方法的集合, 他是一个整体, 使用对象的时候开发会变得很方便
+   *    ....
+   *
+   */
+  
+  
+  
+  
+  // let studentList = ["童同学", "麻辣烫", "倾城"]
+  // console.log(typeof studentList)
+
+
+  // let a = "name"
+  //
+  //
+  // let obj = {
+  //   name: "银时",
+  //   age: 18,
+  //   skill: "死歌"
+  // }
+
+  // ...
+
+  // delete obj["阿斯达所大所多"]
+  //
+  // console.log(obj)
+  
+  // let s = "sex"
+  
+  // 一年之后
+  // obj.age = obj.age + 1
+  
+  
+  // 增加一条属性:
+  // obj[s] = "男"
+  //
+  // console.log(obj["na" + "me"])
+  
+  // obj.skill1 = "...."
+  
+
+  // let obj2 = null
+  //
+  // console.log(typeof obj2)
+  
+  // console.log(obj.name)
+  
+</script>
+</body>
+</html>
