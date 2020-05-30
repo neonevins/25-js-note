@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<div class="box"></div>
+<script>
+  /**
+   * 函数 功能的集合
+   *    函数声明 函数名是必须的
+   *      function foo(){
+   *        // 需要执行的代码
+   *      }
+   *
+   *
+   *    函数执行
+   *      foo()
+   *
+   *
+   *   函数定制化执行, 同一个函数 传入的参数 不一样, 执行效果就不一样
+   *
+   *       形参: 他是变量
+   *
+   *       实参: 传入的是一个值
+   *
+   *      形参 > 实参  多的形参就是undefined
+   *
+   *       形参 < 实参  多的实参忽略
+   *
+   *
+   *
+   *  表达式: 一个能得出值的东西就是表达式
+   *    运算, 执行, 单句代码都可以看成一个表达式
+   *
+   *  返回值:
+   *      任何的代码 / 表达式 都是有返回值的
+   *
+   *      为什么要有返回值: 他的意义是什么?
+   *          就是在告诉浏览器这行代码执行完了
+   *
+   *          A;
+   *          B;
+   *          C;
+   *          D;
+   *          E;
+   *
+   *
+   * 那函数有返回值吗?
+   *    如果没有定义函数的返回值, 函数的返回值就是 undefined
+   *
+   *
+   * 怎么定义函数返回值
+   *    在函数内部使用 return 返回函数的返回值
+   *
+   *    返回之后函数结束了吗?
+   *      函数立马结束
+   *
+   *
+   * 函数就相当于一个加工中心:
+   *    有输入 有输出
+   *
+   *
+   *    返回: return
+   *    打印: console.log
+   *
+   *   函数声明和函数表达式:
+   *      函数声明
+   *        他是一个声明, 直接声明了一个函数:
+   *          function foo(){}
+   *      函数表达式
+   *        他是一个表达式
+   *        函数表达式中函数可以没有名字, 他的名字是变量名
+   *
+   */
+
+  /**
+   * 阅读代码小技巧:
+   *    函数只要没执行, 咱们就不要读它!
+   *
+   */
+  
+  // let box = document.querySelector(".box")
+  //
+  // let handleClick = function () {
+  //   let f = function () {
+  //     console.log("box被点击了")
+  //   }
+  //   return f
+  // }
+  // // 此时盒子点击是执行handleClick返回的函数
+  // let fn = handleClick()
+  // console.log(fn)
+  // box.onclick = fn
+  // // 等价于
+  // box.onclick = handleClick()
+  
+  
+  // 函数表达式, 此时 函数是作为值而存在的, 函数就是函数表达式
+  // let foo1 = function() {
+  //   console.log("foo1执行")
+  // }
+  //
+  //
+  // // 函数声明
+  // function foo2(){
+  //   console.log("foo2执行")
+  // }
+  
+  
+  
+  // 做一个加法器: 接受两个参数 , 返回 两个参数和的 函数
+  
+  // function sum(num1, num2){
+  //   return num1 + num2
+  // }
+  //
+  //
+  // let a = sum(1, 2)
+  // console.log("a的值是: ", a)
+  
+  
+  // // 制作蛋糕的函数
+  // function foo(){
+  //   return "蛋糕"
+  // }
+  //
+  // let obj = {
+  //   "蛋糕": "好吃"
+  // }
+  //
+  // console.log(obj[foo()])
+
+  // console.log(foo())
+
+
+  // let a = {}
+  // let b = "1"
+  // let c = "2"
+  //
+  // console.log(a[b + c])
+
+
+  // function foo(){
+  //   console.log(123)
+  // }
+  //
+  // foo(2)
+  
+  
+</script>
+</body>
+</html>

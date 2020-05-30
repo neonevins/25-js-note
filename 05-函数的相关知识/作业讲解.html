@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input id="input" type="text"> <button class="btn">发送</button>
+  <ul class="list"></ul>
+<script>
+  /**
+   * 输入框 发送微博类似的效果
+   *
+   * 1. 需求分析, 分析哪些操作流程.
+   *
+   * 用户操作:
+   *    1. 在input输入文本 input.value
+   *    2. 点击发送按钮
+   *      在ul标签里面添加一个li li里面的内容是用户输入的内容
+   */
+  // 获取元素
+  let input = document.querySelector("body #input")
+  let button = document.querySelector(".btn")
+  let list = document.querySelector(".list")
+  // 请第一时间打印你获取的元素
+  console.log(input, button, list)
+  
+  
+  // 点击button按钮发送文本, 修改添加ul里面的内容
+  button.onclick = function () {
+    // 获取用户的输入文本, 单独存储起来
+    // 声明变量, 抄下 input.value此时的值
+    let value = input.value
+    // console.log("button被点击了")
+    // 给ul标签添加一个li li里面添加value
+    // 创建一个li标签的字符串
+    let li = `<li>银时说: ${value} !</li>` // 剩下都是html+css的问题
+    // 添加到 ul 标签中
+
+    // 原先的内容拼接上新的内容
+    list.innerHTML = li + list.innerHTML
+    // 清空input标签
+    input.value = ""
+  }
+  
+  
+  
+</script>
+</body>
+</html>
