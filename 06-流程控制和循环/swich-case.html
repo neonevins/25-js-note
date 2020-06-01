@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * switch...case 判断
+   *    也是条件判断: 对具体的值进行判断, 分支比较的多
+   *    就是if else 的变种
+   *
+   *  丢骰子:
+   *      1 2 3 4 5 6
+   *      每一种情况都对应了一种操作
+   *  用if..else完成业务
+   *
+   *  // 这个代码读起来 很多很乱
+   *
+   *  switch 的 缺陷:
+   *    只能判断相等, 只有命中的情况: ===
+   *
+   *    如果出现范围 是没有办法比较的, 还是只能回到if else 中
+   *    所以开发的时候 请尽量的使用if...else
+   *
+   *  if嵌套的时候请小心判断, 看看情况整理的是否完备.
+   *      尽可能不要嵌套太多层.
+   *
+   *      1. 抽象函数, 把功能区分开, 合并
+   *      2. 注释.
+   *      3.
+   *      if(bool){
+   *        return true
+   *      }else{
+   *        return false
+   *      }
+   *
+   *      return bool
+   *
+   *
+   */
+  // 颁奖的问题
+  // function foo(num){
+  //   if(num > 80){
+  //     return "一等奖" // return : 返回内容, 结束函数
+  //   }
+  //
+  //   if(num > 60){
+  //     return "及格奖"
+  //   }
+  // }
+  
+  // if(A){
+  //   if(B){
+  //     // 的士速递是非得失
+  //     if(C){
+  //     }else if(D){
+  //     }
+  //   }
+  // }
+
+
+  /**
+   * 作业:
+   *  1.
+   */
+
+
+
+
+
+
+
+
+
+
+  // let num = 1
+  // if(num === 1){
+  //   console.log("前进一格")
+  // }else if(num === 2){
+  //   console.log("前进两格")
+  // }else if(num === 3){
+  //   console.log("前进3格")
+  // }else if(num === 4){
+  //   console.log("前进4格")
+  // }else if(num === 5){
+  //   console.log("前进5格")
+  // }else if(num === 6){
+  //   console.log("前进12格")
+  // }else{ // 其余都不满足则执行最后的这个情况
+  //   console.log("骰子丢的姿势不对")
+  // }
+  // 不常用, 知道大致的写法
+  // switch (num) {
+  //   case 1: // 是全等比较
+  //     console.log("前进一格")
+  //     break // 表示结束这个判断, 后续的都不执行了
+  //   case 2:
+  //     console.log("前进2格")
+  //     break
+  //   case 3:
+  //     console.log("前进3格")
+  //     break
+  //   case 4:
+  //     console.log("前进4格")
+  //     break
+  //   case 5:
+  //     console.log("前进5格")
+  //     break
+  //   case 6:
+  //     console.log("前进12格")
+  //     break
+  //   default: // 请写到最后面, 前面都没有匹配成功, 则匹配这个情况
+  //     console.log("骰子丢的姿势不对")
+  // }
+
+  /**
+   * 补充一个概念:
+   *  { // 是什么: 代码块: 用来包裹(若干个)代码, 当成是一个整体
+   *
+   *  }
+   *
+   *  `${}`
+   */
+
+
+  /**
+   * 作业:
+   *    1. 水仙花数判断:
+   *      做一个函数, 判断他是不是水仙花树: 输入一个三位数的字符串, 输出 boolean 值 true 是 false 不是
+   *      水仙花树: 123
+   *        1*1*1
+   *        2*2*2
+   *        3*3*3
+   *        个位数的三次方 加 十位数的三次方 加 百位数的 三次方 等于 这个数本身的, 就是水仙花树
+   *        字符串的每一位的获取
+   *       字符串"123" 如何变成 数字 123
+   *          "123"*1
+   *       数字 123 如何变成字符串 "123"
+   *          123 + ""
+   *      你可以顺便把html+css写了
+   *
+   *
+   *      补充一下: 立即执行函数 , 箭头函数, 设置属性
+   */
+  
+  // let n = 5
+  // n*n*n
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+36+1=? <br>
+<input type="number" class="input"> <button class="btn">提交</button>
+<script>
+  /**
+   * 条件判断和循环.
+   *
+   * 条件判断:
+   *    执行代码的时候选择, 有的执行有的没有执行.
+   *    走路 遇到 分叉口: 选择 A/B
+   *    条件:
+   *      状态的识别: 状态是通过什么识别的.
+   *
+   *
+   *  对输入内容进行判断:
+   *
+   *  1. 如何判断相等:
+   *      A === B
+   *        返回 true  则表示 A 和 B 完全相等
+   *          类型不相等, 肯定不相等
+   *        返回 false 则表示 A 和 B 不相等
+   *
+   *  2. 是否大于
+   *      A > B
+   *  3. 是否小于
+   *      A < B
+   *
+   *
+   *  if 关键词: 假如
+   *    语法
+   *    if(判断条件表达式) 执行的代码(只能是单句)
+   *
+   *    if(判断条件表达式) {
+   *      执行代码(可以是任意句代码)
+   *    }
+   *
+   *  控制代码, 让代码按自己想要的方式去执行
+   *
+   *  非此即彼的并列条件
+   *    两种情况的执行
+   *
+   *    if(判断条件){
+   *      // 为真的情况
+   *    }else{
+   *      // 为假的情况
+   *    }
+   *
+   *
+   *  if(A){
+   *
+   *  }else if(B){
+   *
+   *  }
+   *  与
+   *  if(A){
+   *
+   *  }
+   *  if(B){
+   *
+   *  }
+   *  的区别?
+   *
+   *  6 位数的彩票
+   *    6位 一等奖
+   *    5位 二等奖
+   *    4位 三等奖
+   *    3位 四等奖
+   */
+  
+  // 随堂作业: 实现一个函数, 判断 这个数 是否大于0 , 如果大于0 返回 true 否则 返回 false
+  //
+  // function biggerThanZero(num){
+  //   if (num > 0){
+  //     return true
+  //   }else{
+  //     return false
+  //   }
+  // }
+  
+  // 判断一个数是否是质数?
+  // 判断一个数是否在数据库中
+  // ...
+  
+  // 运用(纯函数): 有输入有输出的函数 做开发
+  
+  // let score = 12
+  // if(biggerThanZero(score)){
+  //   console.log("合格")
+  // }else{
+  //   console.log("离谱")
+  // }
+  
+  
+  
+  
+  
+  
+  
+  // let score = 85
+  //
+  // if(score > 80){
+  //   console.log("优秀奖")
+  // }else if(score > 60){
+  //   console.log("及格奖")
+  // }
+  
+  
+  
+  
+  
+  
+  // let person = {
+  //   name: "阿飞",
+  //   sex: "未知"
+  // }
+  //
+  // if(person["sex"] === "男"){
+  //   console.log("去男厕所")
+  // }else if(person.sex === "女"){
+  //   console.log("去女厕所")
+  // }else{ // 剩余情况都执行
+  //   console.log("憋着")
+  // }
+  
+  
+  
+  
+  
+  // if (false) {
+  //   console.log("执行1")
+  //   console.log("执行2")
+  // }
+  
+  // let num = "37"
+  //
+  //
+  //
+  //
+  // let input = document.querySelector(".input")
+  // let btn = document.querySelector(".btn")
+  // let truePassword = "9527"
+  // btn.onclick = function () {
+  //   console.log(input.value)
+  //   // 把 用户输入的内容和truePassword比较
+  //   if(input.value === truePassword){
+  //     alert("密码正确")
+  //   }
+  // }
+  
+  
+  // btn.onclick = function () {
+  //   let val = input.value
+  //   if(val < num){
+  //     alert("小了")
+  //   }
+  //   if(val === num){
+  //     alert("回答正确")
+  //   }
+  //   if(val > num){
+  //     alert("大了")
+  //   }
+  // }
+  
+</script>
+</body>
+</html>
