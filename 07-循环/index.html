@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 函数:
+   *    函数声明
+   *
+   *    函数执行
+   */
+  /**
+   * 立即执行 函数表达式: IIFE : Immediately Invoked Function Expression
+   *    声明的时候就立马执行了
+   *    匿名函数自执行.
+   *
+   *    讲函数变成表达式: 给函数加括号
+   *
+   *    直接写出函数表达式, 然后加括号就可以执行了.
+   *
+   *    特点: 好处.
+   *      1. 保证函数的私有性, 没有人能再次调用
+   *      2. 节省空间开销: 函数执行完就没用了, 会消失
+   *
+   *   书写方式:
+   *      括号是非常容易引发歧义的
+   *      ()用法:
+   *        1. 函数执行
+   *        2. 表达式表优先级
+   *      需要补齐分号
+   *        需要在IIFE前后添加分号, 作为断句
+   *
+   *        + ! ~ 也可以但是对于返回值 会进行修改
+   *
+   *        而 () 不会
+   */
+  // let a = 3
+  // ;(function(){
+  //   console.log("第一段代码")
+  // })()
+  // ;(function(){
+  //   console.log("第二段代码")
+  // })()
+  // let a = 3
+  // ;(function(x,y){
+  //   console.log(x,y)
+  // })(1,2)
+  
+  // let a = (function () {
+  //     return "666"
+  //   })()
+
+
+  /**
+   * 箭头函数: 非常好用, 写起来简单 推荐大家使用
+   *  执行的时候和普通函数没区别
+   *    等价于 函数表达式的 简写
+   *    ES6 当中的知识:
+   *      使用箭头函数替代 普通的函数表达式
+   *
+   *      ()=>{}
+   *
+   *      删除function 在()和{}中添加 =>
+   *
+   *      1. 在()写形参 和普通函数是一样的
+   *        特殊的, 当只有一个形参的时候, 可以省略 小括号
+   *      2. 如果大括号中只有一个语句并且是 return语句
+   *        可以连同大括号和return一起省略,改成 小括号
+   *
+   *      语法糖: 语法上简写, 用起来很方便的东西
+   *
+   *      还存在别的优势: 作用域 this
+   */
+  
+  // let foo3 = function (x) {
+  //   return x*x
+  // }
+  //
+  // // =>
+  // let foo4 = (x,y) => (x + 2)
+  
+  
+  
+  
+  
+  // let foo1 = function (x, y) {
+  //     return x+y
+  // }
+  //
+  // let foo2 = (x, y) => {
+  //   return x+y
+  // }
+  //
+  // ;((x, y)=>{
+  //   console.log(x+y)
+  // })(1, 2)
+
+
+
+
+
+</script>
+</body>
+</html>

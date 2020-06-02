@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 循环:
+   *      做大量的重复的操作, 交给程序去完成
+   *      页面中生成100个标签
+   *      给每个标签添加属性, 文本...
+   */
+
+  /**
+   * 在控制台打印一百次666:
+   *    交给循环完成
+   *
+   *    确定次数的循环 执行重复的内容
+   *    for循环
+   *      括号里面有三个部分 用分号分隔开来
+   *      A,B,C 这三个部分都是表达式
+   *        A: 初始条件 在初始条件中用一个变量i表示循环次数
+   *        B: 结束判断
+   *          如果这个表达式为真, 循环就没有结束
+   *        C: 状态改变
+   *      for(A;B;C){
+   *        D // 可以有任意行代码
+   *      }
+   *
+   *
+   *      写循环代码, 永远抓住 循环的变量(i,j,k) 的 意义
+   *
+   */
+  // 在控制台中打印100次666
+  // 需要计数
+  
+  // 初始一个变量i初始值为1, 每次循环增加1, 只要i还小于等于100 循环就没有结束
+  for(let i = 1;i<=3;i+=1){
+    console.log(666)
+  }
+  
+  // for循环的标准写法
+  // 为什么要这么去写?
+  // 符合 数组 数组的特征: 下标从0开始
+  
+  // i++
+  
+  // for (let i = 0;i < 3;i++){
+  //   //
+  //   console.log(i)
+  // }
+  
+  
+  let students = [
+    {
+      name: "小羊"
+    },
+    {
+      name: "彭于晏"
+    },
+    {
+      name: "你大哥"
+    }
+  ]
+  // 从0开始, 小于循环次数
+  // for(let i = 0;i < students.length;i++){
+  //   console.log(students[i].name)
+  // }
+  
+  
+  // 倒着输出:
+  // 可以但是没有必要
+  // for(let i = students.length - 1;i>=0;i--){
+  //   console.log(students[i].name)
+  // }
+  
+  // 倒着输出的建议写法:
+  // i 永远表示 序号, 你不会晕
+  for(let i = 0;i < students.length;i++){
+    // key 表示 序号的 反向序号
+    let key = students.length - i - 1
+    console.log(students[key].name)
+  }
+  
+  //
+  
+  
+  
+  // for(let i = 1;i <= students.length;i++){
+  //   console.log(students[i-1].name)
+  // }
+  
+  
+  
+  
+  
+  
+
+  /**
+   * i++ 自增  先返回之前的值, 再自增
+   * i-- 自减
+   * ++i 自增  先自增, 再返回当前的值
+   * --i
+   *
+   * i+=2
+   *
+   *
+   * 总结: 开发的时候请尽量的 一行代码就一个 自增自减
+   */
+  
+  // let a = 3
+  //
+  // console.log( (++a) + (a++) + (a++) ) // 4 + 4 + 5
+  //
+  // console.log( (a++)+(++a)+(++a)) // 6 + 8 + 9
+  
+  
+
+
+</script>
+</body>
+</html>

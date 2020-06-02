@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<ul class="list">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+<script>
+  /**
+   * 1. 给每个li添加一段文本 "这是第几行"
+   * 2. 单数行文字红色, 双数行文字蓝色
+   *
+   * % 取余
+   * !== 不等
+   *
+   */
+  
+  // 是单数 返回 true 双数 返回false
+  function isOdd(n){
+    return n % 2 !== 0;
+  }
+  // 简单的判断单双的函数
+  // let isOdd = n => (n % 2 !== 0)
+  
+  let liList = document.querySelectorAll(".list li")
+  // console.log(liList)
+  
+  // i 表示每一个li的下标, i+1行
+  for(let i = 0;i < liList.length;i++){
+    // 获取到每一个li
+    let li = liList[i]
+    // console.log(li)
+    li.innerText = `这是第${i+1}行`
+    
+    // 判断当前的li是单数还是双数
+    if(isOdd(i+1)){
+      li.style.color = "red"
+    }else{
+      li.style.color = "green"
+    }
+  }
+
+
+  /**
+   * 作业:
+   *    1. 水仙花数升级版:
+   *      找出 100-999 之间的所有的水仙花数
+   *
+   *    2. 尝试一下 9 * 9 乘法表
+   *
+   */
+
+</script>
+
+</body>
+</html>
