@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 写一个函数 三位数 数字, 个位数三次方 + 十位数三次方 + 百位数的三次方 等于数值本身的, 返回true
+   *    否则返回false
+   *    目前不要求 大家对传入的数据进行安全监测
+   *
+   *
+   */
+  
+  let cube = num => num*num*num
+  
+  /**
+   * 传入数判断是否是水仙花数
+   * @param num 可以是一个三位数 也可以是一个三位数的字符串
+   * @returns boolean 函数返回
+   */
+  function checkNum(num){
+    // 三位数拆开 ,拆成 各位 十位 百位
+    
+    // 方法一: 通过字符串访问下标的方法
+    
+    // let n = num + "" // 统一 变成三位数 的 字符串
+    // // 通过下标访问每一个数
+    // let bai = n[0] * 1
+    // let shi = n[1] * 1
+    // let ge  = n[2] * 1
+    // 方法二: 通过数学方法计算每一位
+
+    let n = num * 1 // 统一边昵称数字
+    let ge = n % 10
+    let shi = (n - ge) / 10 % 10
+    let bai = (n - ge - shi * 10) / 100
+    
+    // 算出测试结果
+    let result = cube(bai) + cube(shi) + cube(ge)
+    return result === num*1
+  }
+  // checkNum(789)
+  
+  // 额外作业: 找到 100 到 999 的所有的 水仙花数
+  
+  // for (let i = 100;i < 1000;i++){
+  //   if(checkNum(i)){
+  //     console.log(i)
+  //   }
+  // }
+  
+  
+  
+</script>
+</body>
+</html>

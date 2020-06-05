@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;padding: 0;list-style: none;
+    }
+
+    .table span{
+      display: inline-block;
+      width: 100px;
+      border: 1px black solid;
+      text-align: center;
+    }
+    
+  </style>
+</head>
+<body>
+<ul class="table"></ul>
+
+<script>
+  /**
+   * 99 乘法表:
+   *    至少是二重循环
+   */
+  function setTable(n){
+    let table = document.querySelector(".table")
+    table.innerHTML = ""
+    // i 是什么东西? i表示第i行
+    for (let i = 0;i < n+1;i++){
+      table.innerHTML += `<li>`
+      for (let j = 0;j < i;j++){
+        table.innerHTML += `<span>${j+1} * ${i} = ${(j+1)*i}</span>`
+      }
+      table.innerHTML += `</li>`
+    }
+  }
+  
+  
+  
+</script>
+</body>
+</html>

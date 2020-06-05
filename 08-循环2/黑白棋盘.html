@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+    }
+    .box .small-box{
+      float: left;
+      width: 100px;
+      height: 100px;
+    }
+    .box .black{
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+
+</div>
+<script>
+  // 表示 n 就是 盒子的大小
+  // 假设: 每个盒子的大小是 100px 颜色交错
+  let n = 5
+  let box = document.querySelector(".box")
+  box.style.width = n*100 + "px"
+  box.style.height = n*100 + "px"
+  
+  let isEven = n => n % 2 === 0
+  
+  // i 代表行数
+  for(let i = 0; i < n;i++){
+    // 第几个
+    for(let j = 0; j < n;j++){
+      if(isEven(i+j)){
+        box.innerHTML += `<div class="small-box black"></div>`
+      }else{
+        box.innerHTML += `<div class="small-box"></div>`
+      }
+    }
+  }
+
+  /**
+   * 补充知识: 添加的 innerHTML会有什么问题?
+   */
+
+
+</script>
+</body>
+</html>
