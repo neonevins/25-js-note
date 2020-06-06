@@ -34,6 +34,7 @@
     // i 是什么东西? i表示第i行
     for (let i = 0;i < n+1;i++){
       table.innerHTML += `<li>`
+      // j 当前行的第j个
       for (let j = 0;j < i;j++){
         table.innerHTML += `<span>${j+1} * ${i} = ${(j+1)*i}</span>`
       }

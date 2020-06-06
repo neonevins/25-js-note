@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="box"></div>
+<script>
+  /**
+   * 循环的相关知识, 作业.
+   *
+   * 循环添加的时候 innerHTML的 优化问题
+   */
+  /**
+   * 需求: 我要在页面.box 中添加10个div标签, div内部写 "hello world"
+   *
+   * 存在强大的性能消耗.
+   *  直接用innerHTML 赋值会每次循环都会重新渲染页面,
+   *
+   * 真理: 请尽量不要 反复(大量) 直接操作 dom
+   *
+   * 将操作转到内存中
+   * 先创建一个 字符串: 存储我们得出的最终的结果
+   */
+  // 直接
+  // let box = document.querySelector(".box")
+  // let n = 10000
+  // for (let i = 0; i < n; i++) {
+  //   box.innerHTML += `<div>hello world</div>`// 性能消耗巨大
+  // }
+  
+  
+  // 间接操作 内存中使用字符串的方法
+  // let box = document.querySelector(".box")
+  // let n = 10000
+  // let str = "" // str 就是预先存储 box中的字符串内容
+  //
+  // for (let i = 0; i < n; i++) {
+  //   str += `<div>hello world</div>` // 内存操作, 性能非常高
+  // }
+  // box.innerHTML = str
+  
+  // 布置一个作业: 黑白棋盘, 99乘法表, 代码更新, 重构
+  
+</script>
+</body>
+</html>

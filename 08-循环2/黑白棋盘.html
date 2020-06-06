@@ -27,17 +27,20 @@
 <script>
   // 表示 n 就是 盒子的大小
   // 假设: 每个盒子的大小是 100px 颜色交错
+  // 初始化
   let n = 5
   let box = document.querySelector(".box")
+  // 设置整体棋盘的大小
   box.style.width = n*100 + "px"
   box.style.height = n*100 + "px"
   
   let isEven = n => n % 2 === 0
   
-  // i 代表行数
+  // i 代表行数, 每一行的操作
   for(let i = 0; i < n;i++){
-    // 第几个
+    // j: 每一行的第几个 当前行中的每一个元素该如何添加
     for(let j = 0; j < n;j++){
+      // 任何两个相邻的棋盘的颜色不同, (i+j) 的单双判断颜色
       if(isEven(i+j)){
         box.innerHTML += `<div class="small-box black"></div>`
       }else{
@@ -47,7 +50,7 @@
   }
 
   /**
-   * 补充知识: 添加的 innerHTML会有什么问题?
+   * 补充知识: 添加的 innerHTML 会有什么问题?
    */
 
 

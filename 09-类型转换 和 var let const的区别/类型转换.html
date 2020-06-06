@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 类型转换: JS中6大数据类型: 同类型可以运算的, 不同类型之间(转换之后)能运算的.
+   *    number
+   *    string
+   *    boolean
+   *    undefined
+   *    null
+   *    object
+   *
+   *    动态类型: 类型在操作的过程中会进行转换, 转换成相同的类型进行运算
+   *
+   * 转换方法:
+   *
+   *    任何类型转 字符串 String()
+   *      数值转字符串:
+   *        直接加引号.
+   *
+   *      布尔类型转字符串:
+   *        true -> "true"
+   *        false -> "false"
+   *
+   *      undefined -> "undefined"
+   *
+   *      null -> "null"
+   *
+   *      对象转字符串:
+   *        使用位置:
+   *          1. 有字符串参与的加法运算:
+   *        普通对象:
+   *            一般情况: "[object Object]"
+   *
+   *            特殊的: 调用对象的toString方法, 使用返回值作为转换结果
+   *
+   *        数组:
+   *          去掉中括号, 左右两边加引号, 但是注意每一项是怎么转的
+   *
+   *        函数:
+   *          直接原样复制 左右两边加引号.
+   *
+   *
+   *    任何类型转 数值 Number() 一定会返回一个数值, 不合理的转换就会显示: NaN
+   *      字符串转数值:
+   *        看上去像数值就可以转成数值
+   *        不像的就没法转
+   *
+   *        parseInt: 从首位开始, 选取整数部分
+   *
+   *        parseFloat: 从首位开始, 选取包含小数部分
+   *
+   *      布尔类型转数值:
+   *        true  -> 1
+   *        false -> 0
+   *
+   *       undefined -> NaN // 未定义就是没有初始值, 那肯定不是一个数值
+   *
+   *       null -> 0 // null是一个空对象, 这个对象定义过, 指向了最原始的空间, 起始点, 所以就是 0
+   *
+   *       对象转数值:
+   *          一般情况: NaN
+   *
+   *
+   *    任何类型转 布尔 (在 if for while 判断 中的判断语句里面)
+   *       true: 其余都是为 true 的
+   *
+   *       false: "" 0 NaN undefined null false
+   *
+   *       Boolean() B是大写 传入你想要转布尔类型的方法 转布尔类型
+   *
+   *       !表达式  运算符: 取反
+   *       !(!表达式) 表达式直接转布尔类型
+   *
+   *       判断相等:
+   *          ==  : 允许类型转换之后判断
+   *          === : 不允许类型转换判断(最优先的使用方法)
+   *
+   *          !=  : 不等(允许类型转换)
+   *          !== : 不全等(不允许类型转换)
+   */
+  
+  // let obj = {
+  //   toString: function () {
+  //     return "银时牛逼"
+  //   }
+  // }
+  //
+  // console.log(String(obj))
+
+
+  // 请实现一个对象 o 使得下面的输出内容
+  
+  // let o = {
+  //   v: 1,
+  //   toString: function () {
+  //     return this.v++
+  //   }
+  // }
+  //
+  // if(o == 1){
+  //   if(o == 2){
+  //     if(o == 3){
+  //       console.log("执行")
+  //     }
+  //   }
+  // }
+  
+  
+  
+  
+  // 结论: 对象转数值的时候底层是调用了这个对象的toString方法
+  // let obj = {
+  //   toString: function () {
+  //     return 666
+  //   },
+  //   valueOf: function () { // 优先级比: toString
+  //     return 555
+  //   }
+  // }
+  // console.log(Number(obj))
+
+  // console.log(parseFloat("1.555555555555"))
+  // console.log(parseInt("500px"))
+
+
+  // console.log("" == false)
+  // console.log("" === false)
+  
+  
+  
+  
+  // let arr = [1, 2, 3]
+  //
+  // while(arr.length){
+  //   let s = arr.pop() // 从数组arr里面删除最后一个, 返回被删除的那个
+  //   console.log(s)
+  // }
+  
+  // let o = ""
+  //
+  // console.log(Boolean(o))
+
+  // if(o){
+  //   console.log("true 执行")
+  // }else{
+  //   console.log("false 执行")
+  // }
+  
+  // console.log(3 + "2") // "32"
+  //
+  // console.log("32" - 2) // 30
+
+
+  /**
+   * 学习方法的总结:
+   *    类型转换很多情况, 讨论不完的, 多去测试, 多去记忆, 慢慢来,
+   *    不用太担心: 常用的不多.
+   */
+
+
+</script>
+</body>
+</html>
