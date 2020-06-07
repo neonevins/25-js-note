@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   *  类型转换: 规律, A -> B 转换方式
+   *
+   *  运算符 , 运算的过程中涉及到转换, 得出值需要转换的
+   *
+   *  数学运算符:
+   *     先乘除后加减
+   *     +
+   *        数学的加法: 两边都要是非对象的非字符串的内容, 左右同时转数值, 加法
+   *        字符串的加法:
+   *          左右两边都转字符串, 再拼接
+   *     纯数学运算符: 左右两边必须是数值, 如果不是数值, 转成数值
+   *     -
+   *
+   *     * /
+   *     % : 取余, 求余
+   *    ** 次方运算符: A ** B  B个A相乘
+   *
+   *    ()运算符
+   *      一旦你不知道优先级: 最好加上括号!
+   *      添加优先级: 可以让运算按照你想要的优先级进行
+   *
+   *      比如 if() while() for() 请问他们是运算符吗? 他是代码的书写(语法)规范
+   *
+   *      写在函数表达式后面, 表示执行, 并且可以传入参数, 以逗号分隔
+   *
+   *    ! 非运算符: 强行转换成boolean类型, 取反
+   *
+   *    逗号运算符:
+   *      函数参数分隔, 对象属性分隔, 数组分隔
+   *
+   *      参与的表达式返回什么?
+   *        A,B,C 的表达式
+   *          先计算A, 再计算B, 再计算C, 再返回C
+   *
+   *        以表达式的形式执行多条语句
+   *          需要去拿到最终的内容, 通过前面的运算
+   *
+   *
+   */
+  
+  // function getResult(b) {
+  //   return b**2 //
+  // }
+  // let a = 3
+  // let b
+  //
+  // let result = (++a,b = a+2,getResult(b))
+  //
+  // console.log(result)
+
+  // let a = 1,
+  //     b = 2,
+  //     c = 3
+  //
+  // console.log(a, b, c)
+
+
+  // console.log( "2" - true )
+  // console.log("2" / false)
+  
+  // function foo(){
+  //   console.log("123")
+  // }
+  //
+  // foo()
+
+
+  /**
+   * 与或运算符:
+   *    与运算符: &&
+   *        运算符两边都为真, 才会返回真 这种说法是完全错误的!!!!
+   *
+   *    以上的说法全是错的!
+   *
+   *        A && B
+   *          A 为真 则 返回 B
+   *          A 为假 则 返回 A
+   *
+   *     或运算符: ||
+   *        运算符两边只要有真, 就会返回真 这种说法也是完全错误的
+   *
+   *        A || B
+   *          A 为真 则 返回A, 后面管都不用管
+   *          A 为假 则 返回B
+   *
+   *      用法: 常见的初始值赋值
+   */
+
+  /**
+   * 三目运算符:
+   *    表达式中的 if...else
+   *    if(A){
+   *      B // 是若干个代码语句
+   *    }else{
+   *      C // 是若干个代码语句
+   *    }
+   *    没有返回值的
+   *
+   *    转换成三目运算符: 也是一个表达式
+   *    B 和 C 只能是表达式, 也就是不能用 ;分隔
+   *    三目运算符有返回值
+   *    A ? B : C
+   *      A 为真 返回 B
+   *      A 为假 返回 C
+   *
+   *    能不能强行写多个语句? 用逗号运算符.
+   *
+   *    通常写三目运算符就是进行一些简单运算或者判断,
+   *
+   *
+   *    A && B 改成三目运算符 怎么写? A ? B : A
+   *    A || B 改成三目运算符 怎么写? A ? A : B
+   *
+   *    没作业
+   *
+   */
+  
+  // let state = false
+  //
+  // // str 表示一个类名
+  // // let str = state?"active":""
+  // // let str =""
+  // // if(state){
+  // //   str = "active"
+  // // }else{
+  // //   str = ""
+  // // }
+  //
+  //
+  // let dom = document.querySelector(".box")
+  // dom.innerHTML = `<div class="${str}">asdasdas</div>`
+  
+  
+  
+  
+  // let isHappy = 0
+  //
+  // let food = isHappy ? "饭" : "不吃"
+  //
+  // console.log(food)
+
+
+
+
+
+
+  // 这个函数垃圾吗? 那是相当垃圾, 给定一些初始值
+  // function sum(a, b){
+  //   // es5 的初始值写法
+  //   a = a || 0 // a 如果传值了,就用传入的值, 没有传就默认给一个0
+  //   b = b || 0 // b 如果传值了,就用传入的值, 没有传就默认给一个0
+  //   return a + b
+  // }
+  //
+  // console.log(sum())
+  
+  // 如今es6中最标准的写法
+  // function sum(a = 0, b = 0){
+  //   return a + b
+  // }
+  //
+  // sum()
+
+
+  // let obj = {
+  //   a: {
+  //     b: {
+  //       c: 1
+  //     }
+  //   }
+  // }
+  //
+  // console.log(obj.a.b.c)
+  
+  // 做开发的过程中, 很有可能会访问错位置, 后台返回的数据不齐全
+  
+  // console.log(obj.a.c.b) // 这样可能会随时出错的代码健壮性强不强?
+  
+  // 我希望链式访问属性的时候, 遇到 undefined/null就停下来
+  
+  // console.log(obj && obj.a && obj.a.c && obj.a.c.b)
+  
+  
+  // function foo(obj){
+  //   let result = obj && obj.a && obj.a.b
+  //   if(result){
+  //     console.log(result)
+  //   }else{
+  //     alert("输入传入有误")
+  //   }
+  // }
+  //
+  // foo()
+  
+  
+  
+  // let result = {} && 1
+  // console.log(result)
+
+  // console.log(true && false) // false
+  // console.log(true && true)  // true
+  // console.log(false && true) // false
+  
+  //
+  // let A = 1
+  // let B = null
+  //
+  // console.log(A && B) // 2
+
+
+  // let isHappy = false
+  //
+  //
+  // // isHappy == true 和 isHappy 有啥区别?
+  //
+  // // (( isHappy == true ) == true) == true
+  //
+  // let isHungry = false
+  //
+  // if( isHappy && isHungry ){
+  //   console.log("撸串去")
+  // }
+
+
+</script>
+</body>
+</html>
