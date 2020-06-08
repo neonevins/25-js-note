@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   *
+   * https://www.caniuse.com/ 查询代码的生效浏览器版本
+   *
+   *
+   * 作用域: (前端第一大难点, 重点)
+   *    面试 涉及 开发的时候
+   *    变量的生效范围
+   *
+   *    变量是怎么声明的?
+   *      var    声明变量 ES5 被淘汰掉, 不推荐使用,
+   *        缺点:
+   *          1. 变量提升: 变量声明的时候提升到最开始的位置
+   *            声明变量可以在使用之后, 不符合预期
+   *          2. 可以重复声明, 引起歧义
+   *          3. function 其实也是变量声明
+   *
+   *      let    声明变量 ES6
+   *         优点:
+   *          1. 声明前不能使用, 保证代码的执行顺序
+   *          2. 在let 之前有: 暂时性死区, 不允许访问或者调用
+   *          3. 不允许重复声明, 一旦声明就会报错
+   *
+   *      const  声明常量(不会发生变化的量) ES6
+   *        后续进行赋值操作就会报错. 优点: 不允许修改, 修改直接会报错, 保证安全
+   *           1. 常量名全部大写
+   *           2. 一定要在声明变量的时候就设置初始值
+   *
+   *
+   *     变量提升:
+   *        代码执行
+   *          1. 预编译阶段, 不会执行代码的
+   *            识别代码是否被声明了
+   *            函数声明, 也存在变量提升: 函数是JS一等公民
+   *          2. 执行阶段
+   */
+  // foo1()
+  // foo2()
+  // foo3()
+  //
+  // var foo1 = function(){
+  //   console.log("foo1")
+  // }
+  // function foo2(){ // 函数声明, 也存在
+  //   console.log("foo2")
+  // }
+  // let foo3 = function(){
+  //   console.log("foo3")
+  // }
+  
+  // { // 代码块
+  //
+  // }
+  //
+  
+  
+    // const OBJ = {
+    //   a: "银时"
+    // }
+    //
+    // OBJ.b = "阿飞" // 修改属性
+    
+    // const num = 123
+    //
+    // num + 1
+  
+  // console.log(a)
+  
+  // console.log(a)
+  // var a // 任何在这行之前的a的操作都会被报错
+  
+  
+  // console.log(a)
+  
+  
+  
+  // foo()
+  // var foo = function () { // 函数表达式也会引起误会
+  //   console.log(1)
+  // }
+  
+  // function foo(){}
+  
+  
+  
+  
+  
+  // var a
+  // var a
+  // var a
+  // console.log(a)
+  
+  
+  
+  // console.log(a)
+  // var a = 3 // 两步代码 var a; a = 3
+  
+  
+  
+  
+  
+  // const STR = "diub21u9bdjbjdajishduihaisu" // 秘钥
+
+  // var a = 3
+  
+</script>
+</body>
+</html>

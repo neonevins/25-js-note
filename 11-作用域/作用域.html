@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 作用域: 变量的生效范围, 有限的
+   *    全局作用域: ES5
+   *      直接写在最外面的变量拥有的作用域是全局作用域,
+   *      任何地方都可以访问的, 那就是全局
+   *    函数作用域: ES5
+   *      在函数内部声明的变量, 他就会在函数内部生效
+   *
+   *    块级作用域: ES6
+   *
+   *
+   *    变量访问的时候, 从哪到哪的?
+   *      从内到外, 内部没有才去外部
+   *
+   *
+   *
+   *    变量提升:
+   *      提升到当前函数作用域的最开头
+   *
+   *    函数传参永远是值传递
+   *
+   *    值类型:
+   *       数值 字符串 布尔 undefined null
+   *
+   *    引用类型:
+   *       对象是引用类型:
+   *        变量 指向 堆中存储的对象
+   *
+   *    对象的存储空间:
+   *        内存中:
+   *          栈: 存储具体的值, 普通的数据类型, 任何的赋值操作都是抄作业
+   *          堆: 只会保留索引, 不是抄作业, 而是记录地址
+   *
+   */
+  
+  // let a = {
+  //   name: "黄金"
+  // }
+  //
+  // let b = a // b进入了探险小组
+  //
+  // a.name = "狗屎"
+  // //
+  // a = { //
+  //   name: "钻石"
+  // }
+  //
+  // console.log(b.name)
+  
+  
+  // let a = "ddd"
+  // a = 123
+  // console.log(b)
+  
+  
+  
+  // 全局声明的3 任何位置都可以访问
+  // let a = 3
+  // let b = 6
+  // function foo(a){ // 形参相当于在函数内部声明变量, 函数内部访问的时候就一定会访问内部的a
+  //   // let a = 2
+  //   a = 2
+  //   console.log(a)
+  // }
+  // //
+  // foo(a) // ()里面写的是啥? 表达式, 返回值, 传递的是值
+  // console.log(a)
+  //
+  
+  // console.log(123)
+
+
+
+    let a = {
+      n: 1
+    }
+    function foo(a){ // 形参相当于在函数内部声明变量, 函数内部访问的时候就一定会访问内部的a
+      // let a = 2
+      a.n = 3
+      a = 2
+      console.log(a)
+    }
+    //
+    foo(a) // ()里面写的是啥? 表达式, 返回值, 传递的是值
+    console.log(a)
+  
+  // foo() 不加a会是什么样  函数不接受形参会怎么样..
+  
+  // 分不清的就画图: 变量指向对象, 而不是变量指向变量
+  
+  // 下一堂课再讲一遍
+  
+  
+  
+</script>
+</body>
+</html>
