@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 作用域: 变量的生效范围. 在哪些地方可以进行访问
+   *    全局作用域:
+   *      写在最外层的
+   *    函数作用域:
+   *      函数内部声明的变量, 只能在函数内部访问
+   *
+   *    块级作用域: ES6 伴随着let const 一起出现
+   *      代码块内部声明的变量:
+   *      var 声明的变量 是可以突破代码块被外界访问
+   *      let/const 声明的变量 是锁定在代码块中的
+   *        可以让我们的代码变得更加的安全
+   *
+   *
+   *    函数传值传: 值 而不是变量
+   *
+   *
+   *    普通类型(值类型)
+   *      除了对象都是普通类型, 在赋值的过程中, 抄作业
+   *
+   *    引用类型
+   *      记录了谁使用这个对象
+   *
+   *
+   *    在JS中使用 === 比较对象的时候, 其实是从内存中判断他们是不是同一个堆, 属于同一个内存空间
+   *
+   */
+  
+  
+  
+  //
+  // let a = {
+  //   name: "银时"
+  // }
+  //
+  // let b = a
+  //
+  // console.log(a === b) // 完全是相同的东西, 在
+  //
+  // b.name = "sherry"
+  //
+  // console.log(a)
+  
+  // let obj1 = {}
+  // let obj2 = {}
+  //
+  // console.log(obj1 === obj2)
+
+
+  // let a = {
+  //   name: "银时"
+  // }
+  // //
+  // function foo(b) { // 函数一开始就立马声明了一个变量
+  //   // a = 2 // 我改的是谁?
+  //   b.name = "sherry"
+  //   b = { //
+  //     name: "阿飞"
+  //   }
+  //   b.name = "银时"
+  //   return b
+  // }
+  // let c = foo(a)
+  // //
+  // console.log(a === c)
+  // console.log(a.name, c.name)
+  
+  
+  // 值类型的传值
+  // let a = 1
+  //
+  // function foo(a) { // 函数一开始就立马声明了一个变量
+  //   a = 2 // 我改的是谁?
+  //   console.log(a)
+  // }
+  // foo(a)
+  // console.log(a)
+  
+  
+  
+</script>
+</body>
+</html>

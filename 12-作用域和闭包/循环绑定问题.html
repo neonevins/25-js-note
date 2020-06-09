@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<ul class="list">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+</ul>
+<script>
+  /**
+   * 点击每一个li打印每一个li的innerHTML
+   *    限制要求, 请不要使用let/const, var
+   *
+   *    console.dir() // 强行展开对象
+   */
+    // liList就是li的数组, 里面有四个元素
+    
+    // var
+    
+  var liList = document.querySelectorAll(".list li")
+  
+  // console.dir(liList[0])
+  //
+  // for (var i = 0; i < liList.length; i++) {
+  //   // 循环绑定点击事件
+  //   liList[i].onclick = function () {
+  //     // console.log(liList, i) //
+  //     console.log(liList[i].innerHTML)
+  //   }
+  //   // console.log(liList[i])
+  // }
+  // // 循环结束, 会停在 4 的位置
+  // console.log(i)
+  // /**
+  //  * 这个问题难受吗?
+  //  *  那是相当难受!!!!
+  //  *    es6之前没有let/const这种块级作用域, 只要写出循环绑定就会翻车
+  //  */
+
+
+  // for (let i = 0; i < 5; i++) {
+  //   console.log(i)
+  // }
+  // 这里有几个块级作用域?? 一次性生成了5个独立的块级作用域
+
+  // for (let i = 0; i < liList.length; i++) {
+  //   // 循环绑定点击事件
+  //   liList[i].onclick = function () {
+  //     // console.log(liList, i) //
+  //     console.log(liList[i].innerHTML)
+  //   }
+  //   console.log(liList[i])
+  // }
+  // {
+  //   let i = 0
+  //   // 循环绑定点击事件
+  //   liList[i].onclick = function () {
+  //     // console.log(liList, i) //
+  //     console.log(liList[i].innerHTML)
+  //   }
+  //   // console.log(liList[i])
+  // }
+  // {
+  //   let i = 1
+  //   // 循环绑定点击事件
+  //   liList[i].onclick = function () {
+  //     // console.log(liList, i) //
+  //     console.log(liList[i].innerHTML)
+  //   }
+  //   // console.log(liList[i])
+  // }
+  
+  
+  
+  
+  
+</script>
+</body>
+</html>

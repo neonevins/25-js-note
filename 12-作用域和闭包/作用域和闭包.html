@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 作用域是一直都存在的吗?
+   *    作用域是代码(函数)运行的时候才存在的, 运行开始创建, 运行结束销毁
+   *
+   *
+   *    浏览器帮我们将没有用的作用域给销毁掉, 节省内存.
+   *
+   *    他凭啥知道哪些作用域没有用?
+   *      我们没有办法再去访问这个作用域里面任何变量, 是不是就消失了
+   *
+   *
+   *    函数运行完函数的作用域会销毁
+   *
+   *    只要函数里面的变量 还存在被访问的可能性, 函数作用域就不会消失
+   *
+   *
+   *    被访问的可能性是有另一个可能执行的函数创建出来的
+   *
+   *
+   */
+  
+  // 非常简单的累加器
+  
+  function addCreator(){ // 加法器创建函数
+    let result = 0
+    return function (n) {
+      return result += n
+    }
+  }
+  
+  let add1 = addCreator()
+  
+  let add2 = addCreator()
+  
+  // 闭包的缺陷: 内存开销非常大, 会存在 内存溢出, 内存泄露
+  
+  // var a = 3
+  
+  // function foo(){
+  //   let a = 3 // 怎么样让这个a还有可能被别的函数访问
+  //   function foo2(){ // 只要这个函数还有机会执行, 外面的foo的作用域就不该消失
+  //     console.log(a)
+  //   }
+  //   return foo2 // 将里面的函数return出去
+  // }
+  //
+  // let foo3 = foo()
+  // foo3()
+  //
+  // /**
+  //  *
+  //  *
+  //  */
+  //
+  // function gongchang(){
+  //   let str = "招童工"
+  //   function phone(){
+  //     console.log(str)
+  //   }
+  //   return phone
+  // }
+  // let zhengju = gongchang() //
+  // zhengju()
+  
+  
+  
+  
+  
+  /**
+   * 1. foo执行完了, 理论上foo的作用域该消失
+   * 2. 但是foo里面的变量a被另外一个函数引用, 这个函数还存在执行的可能性
+   * 3. 此时foo的作用域不会消失
+   *
+   * 我们称foo2为闭包函数.
+   *
+   * 闭包的定义:
+   *    一个函数引用了一个执行完成了的函数的作用域里面的值, 就是闭包函数
+   */
+
+
+
+
+  // function foo(){
+  //   var a = 3
+  //   return a
+  // }
+  //
+  // // 访问的是值
+  // let b = foo()
+  //
+  // console.log(b)
+  
+  // function foo(){
+  //   var a = 1
+  //   a++
+  //   console.log(a)
+  // }
+  //
+  // // 生成函数作用域
+  // foo()
+  // // 销毁函数作用域
+  //
+  // // 生成函数作用域
+  // foo()
+  // // 销毁函数作用域
+
+
+  /**
+   * 作业:
+   *    理解清楚闭包是什么,具有哪些特性, 怎么写出来闭包.
+   *  不使用let, 用var, 不能使用 this
+   *    循环绑定点击事件, 请使用闭包实现.
+   *      至少使用两种不同的方式实现循环绑定
+   *    循环绑定电视事件, 请使用闭包实现.
+   *
+   */
+  
+  
+  ;(function () {
+    // 从作用域的角度分析一下它有什么优点?
+  })();
+
+
+
+</script>
+</body>
+</html>
