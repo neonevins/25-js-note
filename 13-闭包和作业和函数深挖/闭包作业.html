@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<ul class="list">
+  <li>文字</li>
+  <li>文字</li>
+  <li>文字</li>
+  <li>文字</li>
+  <li>文字</li>
+</ul>
+<span class="btn">清除缓存</span>
+<script>
+  /**
+   * 循环绑定问题:
+   *
+   *
+   * 闭包最核心的功能: 状态保留
+   */
+  // 最基本的形状
+  // ES5 解决全局变量i循环绑定指向不正确的问题
+  var liList = document.querySelectorAll(".list li")
+  // 循环之前初始化循环长度
+  // 方案1
+  // for(var i = 0,length = liList.length;i < length;i++){ // for循环存在一个简化方法. 访问属性这步操作其实会消耗性能
+  //
+  //   // 让每一个函数里面都有各自独立的i: 闭包的知识
+  //   //
+  //   liList[i].onclick = (function (j) {
+  //     // 每次执行都有一个单独的j被保留下来, 这个j就是循环当时运行的i
+  //     var index = 0
+  //     return function () {
+  //       index++
+  //       liList[j].innerHTML = "文字" + index
+  //     }
+  //   })(i)
+  // }
+  //
+  // let btn = document.querySelector(".btn")
+  //
+  // btn.onclick = function () {
+  //   // // 如何释放内存
+  //   for(var i = 0,length = liList.length;i < length;i++){
+  //     liList[i].onclick = null
+  //     // 让访问闭包的那个函数没有办法访问了, 作用域就释放掉了
+  //     // 释放成功没有要看你能不能再访问那个函数
+  //   }
+  //   alert("缓存清除成功")
+  // }
+  
+  // 总结 如何表述: 闭包是什么? 有什么用? 有什么缺点? 怎么解决?
+  
+  for(var i = 0,length = liList.length;i < length;i++){
+    (function (j) {
+      let index = 0
+      liList[j].onclick = function () {
+        index++
+        liList[j].innerHTML = "文字" + index
+      }
+    })(i)
+  }
+  
+  
+  
+</script>
+</body>
+</html>
