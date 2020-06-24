@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 函数深挖:
+   *    arguments:ES5的知识 参数对象, 他不存在全局之中, 只存在于函数中.
+   *      callee 指向了这个函数, 我们知道这个函数是谁?
+   *      length 实参参数个数
+   *      描述的函数接受的参数形成的一个对象
+   *
+   *      不定参数传参, 获取每一项了
+   *
+   * 尽量不要在 函数内部调用自己. 形成栈溢出
+   *
+   *
+   *  箭头函数(es6)不是一个纯粹的函数, 而是一个函数表达式, 所以不存在arguments
+   *
+   *
+   *  es6中arguments的替代品: ... 剩余参数
+   *    剩余:
+   *    第一种用法:
+   *      打包参数的能力, 后续的参数打包到一起
+   *      前面若干个参数可以分开传递, 最后加上...rest 可以将剩余参数打包到一起
+   *
+   *    第二种用法:
+   *      分发参数的能力, 将数组拆分成一项一项的内容
+   *
+   */
+  
+  // function foo1(...rest){ // 形参: 接受参数, 入
+  //   console.log(rest)
+  // }
+  // foo1(1, 2, 2, 3, 4)
+  //
+  //
+  // let arr = [1, 2, 3, 4, 5]
+  
+  // console.log(...[1, 2, 3, 4, 5]) // 实参: 传递参数, 出
+  
+  
+  // let arr1 = [1, 2]
+  // let arr2 = [3, 4]
+  //
+  // console.log(...[arr1, arr2])
+  
+  // let obj1 = {a: 1}
+  //
+  // let obj2 = {
+  //   b: 2,
+  //   c: 3
+  // }
+  //
+  // console.log({...obj1,...obj2})
+  
+  
+
+  // function foo(name, age, ...r){
+  //   console.log(name, age, r)
+  // }
+  //
+  // foo("银时", 19, 12, 31, 23, 12, 3, 123) //
+  //
+  // //
+  // let f = (...rest) => {
+  //   for(let i = 0;i < rest.length; i++){
+  //     // ...
+  //   }
+  // }
+  
+  
+
+  /**
+   * 做一个sum函数, 接受若干个数值, 返回他们的和?
+   *
+   */
+
+  /**
+   * 如何在使用箭头函数的情况下接受不定参?
+   */
+
+  
+  
+  
+  
+  // function f() {
+  //   console.log(arguments)
+  // }
+  
+  
+  
+  // function sum(){
+  //   let result = 0
+  //   for(let i = 0,length = arguments.length;i < length;i++){
+  //     result += arguments[i] // 每次将每一项实参累加起来
+  //   }
+  //   return result
+  // }
+
+
+
+
+
+  // function foo(){
+  //   console.log(arguments)
+  // }
+  // foo("大", "家", "好")
+  
+  // IIFE
+  // ;(function(){
+  //   // 内部能不能访问这个函数
+  //   // console.log(arguments.callee)
+  //   arguments.callee()
+  // })()
+  
+  // 栈溢出, 不是无限循环,
+  // 栈: 作用域, 一层一层的叠起来
+  // function foo(){
+  //   foo()
+  // }
+  //
+  // foo()
+  
+  
+</script>
+</body>
+</html>
