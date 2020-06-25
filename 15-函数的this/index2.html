@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<ul class="list">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+</ul>
+<script>
+  /**
+   * 点击每一个盒子li, 打印他里面的内容
+   */
+  // let liList = document.querySelectorAll(".list li") // 数组
+  //
+  // for(var i = 0, l = liList.length;i < l;i++){
+  //   liList[i].onclick = function () {
+  //     console.log(this.innerHTML)
+  //     // 调用这个函数的对象, 因为这个函数被绑定到li标签中, 所以函数的调用者就是那个li
+  //   }
+  // }
+
+  /**
+   * 找到正确的this
+   */
+  
+  let obj = {
+    a: {
+      b: {
+        c: {
+          d: function () {
+            console.log(this)
+          }
+        }
+      }
+    }
+  }
+  
+  
+  // 这个函数怎么调用?
+  // obj.a.b.c.d()
+  // 此时的this指向谁?
+
+  // console.log(obj.a.b.c.d) // 是什么?
+  // let fn = obj.a.b.c.d
+  // fn() // 打印什么? fn看不出来调用者, 那么就是window
+  
+  
+  // let o = {
+  //   fn: function () {
+  //     console.log(this)
+  //
+  //     function f() {
+  //       console.log(this)
+  //     }
+  //     f()
+  //   }
+  // }
+  //
+  // o.fn() // 两次this
+  
+  // 分别是什么?
+
+
+
+</script>
+</body>
+</html>

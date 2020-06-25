@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+
+<script>
+  /**
+   * 按 wsad 让盒子在页面中移动
+   *    w: 上
+   *    s: 下
+   *    a: 左
+   *    d: 右
+   */
+
+  /**
+   * 键盘事件: 和鼠标事件非常类似
+   *    鼠标点击事件: onclick
+   *
+   *    键盘按下事件: onkeydown
+   *
+   *    一般是 window 感知这个键盘事件
+   *
+   *    函数有个参数e
+   */
+  
+  
+  
+  
+  // 盒子模块
+  // 什么样的代码是最容易理解的 ??
+  
+  // box.moveBotton() //
+  
+  // 实现一个这样的box 可以 调用这几个方法同时让页面的元素跟着移动
+  
+  // planA 粗糙版
+  // let box = {
+  //   el: document.querySelector(".box"), // 你需要操作的元素
+  //   x: 0, // 盒子x坐标
+  //   y: 0, // 盒子y坐标
+  //   moveRight: function () {
+  //     // 计算盒子坐标的偏移量
+  //     this.x += 10
+  //     // 修改元素的位置
+  //     this.el.style.transform = `translate(${this.x}px, ${this.y}px)`
+  //   },
+  //   moveLeft: function () {
+  //     this.x -= 10
+  //     // 修改元素的位置
+  //     this.el.style.transform = `translate(${this.x}px, ${this.y}px)`
+  //   },
+  //   moveUp: function () {
+  //     this.y -= 10
+  //     // 修改元素的位置
+  //     this.el.style.transform = `translate(${this.x}px, ${this.y}px)`
+  //   },
+  //   moveBottom: function () {
+  //     this.y += 10
+  //     // 修改元素的位置
+  //     this.el.style.transform = `translate(${this.x}px, ${this.y}px)`
+  //   },
+  // }
+  
+  
+  
+  
+  
+  // box.moveRight()
+
+  
+  // 键盘模块
+  // window.onkeydown = function (e) {
+  //   switch (e.key) {
+  //     case "w":
+  //       box.moveUp()
+  //       break
+  //     case "s":
+  //       box.moveBottom()
+  //       break
+  //     case "d":
+  //       box.moveLeft()
+  //       break
+  //     case "a":
+  //       box.moveRight()
+  //       break
+  //   }
+  // }
+
+
+
+  // planB 精细版
+  let keyMap = {
+      w: {
+        vx: -1,
+        vy: -1
+      },
+      s: {
+        vx: 1,
+        vy: 1,
+      },
+      a: {
+        vx: -1,
+        vy: 1,
+      },
+      d: {
+        vx: 1,
+        vy: -1,
+      }
+    }
+    
+  let box = {
+    el: document.querySelector(".box"), // 你需要操作的元素
+    x: 0, // 盒子x坐标
+    y: 0, // 盒子y坐标,
+    moveTo: function(target){
+      // 按下的按键不是 wsad 就直接退出
+      if(!["w", "s", "a", "d"].includes(target)){
+        return
+      }
+      // 抽象了 按键 和 速度变化的映射关系
+      // 按键和速度变化配置表
+      this.x += keyMap[target].vx*10 // 根据键盘按键查询表中对应速度变换并且计算出对应的值
+      this.y += keyMap[target].vy*10
+      this.el.style.transform = `translate(${this.x}px, ${this.y}px)`
+    }
+  }
+  
+  window.onkeydown = function (e) {
+    box.moveTo(e.key)
+  }
+  
+  
+  
+  
+  
+  
+  
+  // 存在很多地方可以优化
+  
+  // 运动框架:
+  
+  
+  // 箭头函数的this 和 this 的修改
+  
+</script>
+</body>
+</html>

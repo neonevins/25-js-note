@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * arguments
+   *    length: 参数个数
+   *    callee: 函数本身
+   *    类似数组的遍历
+   * 解构赋值:
+   *    ...
+   *      接受值的时候: 打包
+   *      传输值的时候: 拆开
+   */
+  //
+  // let [a, ...b] = [1, 2, 3]
+  //
+  // console.log(b)
+  //
+  
+  // function foo(a, ...b){
+  //
+  // }
+  // foo(1, 2, 3)
+
+
+  /**
+   * 函数的
+   *    this: 这个函数的调用主体对象, 谁调用了这个函数, 跟她在哪里执行没有关系
+   *
+   *    函数执行, 是谁在执行?
+   *
+   *    1. 我们找不到调用主体是谁, 调用主体就是 window
+   *    2. 对象.函数() this就指向这个对象
+   *
+   *    window: 浏览器对象
+   *
+   *    DOM: document
+   *
+   *    BOM: window(全局对象, 任何地方都可通过window访问)
+   *
+   *    ES
+   *
+   */
+  
+  // function foo() {
+  //   console.log(this === window)
+  // }
+  //
+  // foo() // 浏览器调用了这个函数.
+  
+  
+    // let obj = {
+    //   fn: function () {
+    //     console.log(this)
+    //   }
+    // }
+    //
+    // obj.fn() // 此时打印什么东西?
+
+  /**
+   * 用法:
+   */
+  
+  // 自我介绍函数. 功能强大吗?
+  // function sayName(){ // 谁调用这个函数, 打印调用者的属性
+  //   console.log(`我是${this.name}, 我很开心`)
+  // }
+  // // console.log(intro)
+  // let person1 = {
+  //   name: "阿飞",
+  //   sayName: sayName  // intro属性 属性值是上面定义的函数
+  // }
+  //
+  // let person2 = {
+  //   name: "sherry",
+  //   sayName: sayName
+  // }
+  //
+  // person1.sayName() // person1调用这个函数
+  
+  
+
+  // intro() // 谁在调用这个函数: window
+  
+  // 可以让对象自己调用这个方法
+  
+  
+
+
+
+
+</script>
+</body>
+</html>

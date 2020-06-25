@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 能够交给各自的对象执行.
+   *    思想: 面向对象的思想.
+   */
+  // let sys = {
+  //   data: {
+  //     // ..
+  //   },
+  //   fn1: function () {
+  //
+  //   },
+  //   fn2: function () {
+  //
+  //   },
+  //   fn3: function () {
+  //
+  //   }
+  // } // 清理垃圾 日常任务 收钱 记账
+  //
+  //
+  // // 将对象和功能做成了独立封闭的整理, 不需要知道函数内部的实现逻辑, 解放
+  // sys.fn1()
+  // sys.fn2()
+  // sys.fn3()
+  
+  // ..
+  
+  // // 功能1
+  // function fn1(){
+  //
+  // }
+  // fn1()
+  
+  
+  
+  // 计算器对象: 1.增加1 2.平方  3.输出现在的值
+  
+  // // 没有面向对象:
+  // let result2 = 0
+  //
+  // function add1() {
+  //   result2++
+  // }
+  // function sqr() {
+  //   result2 *= result2
+  // }
+  // function getValue() {
+  //   return result2
+  // }
+  
+  // 使用
+  // add1()
+  // add1()
+  // sqr()
+  // getValue()
+  // 稀碎
+  
+  // 面向对象封装
+  
+  // 对象生成器
+  
+  // function getCalc(){
+  //   return {
+  //     result: 0,
+  //     add1: function () {
+  //       this.result++
+  //     },
+  //     sqr: function () {
+  //       this.result *= this.result
+  //     },
+  //     getValue: function () {
+  //       return this.result
+  //     }
+  //   }
+  // }
+
+  // let calc1 = getCalc()
+  //
+  // calc1.add1() //
+  // calc1.add1()
+  // calc1.sqr()
+  // calc1.getValue()
+  
+</script>
+</body>
+</html>
