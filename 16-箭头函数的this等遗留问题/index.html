@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * this 调用函数的主体对象.
+   *    1. 没有明确的调用者 this -> window
+   *    2. 对象.函数() this -> 对象
+   *
+   * 理解: this存在的意义: 让函数执行的过程中变得更加灵活, 一个函数适用多个对象
+   *
+   * 构造函数 this this 指向改变 箭头函数的 this
+   *
+   */
+  
+  // console.log(this) // 直接指向了浏览器对象 window
+
+  /**
+   * 实现一个函数: 输出 数字 0-9 输出中文零-九
+   */
+  
+  function change(num){
+    switch (num) {
+      case 0:
+        return "零";
+        break
+      case 1:
+        return "一";
+        break
+      case 2:
+        return "二";
+        break
+      case 3:
+        return "三";
+        break
+      case 4:
+        return "四";
+        break
+      case 5:
+        return "五";
+        break
+      case 6:
+        return "六";
+        break
+      case 7:
+        return "七";
+        break
+      case 8:
+        return "八";
+        break
+      case 9:
+        return "九";
+        break
+    }
+  }
+  
+  
+  // 优化: 输入有哪些情况 0 - 9 这 10 种情况
+  // 依赖一个数组来解决, 假设有一个答案参考, 每次输入, 都可以查询这个答案, 直接输出结果
+  
+  // 参考答案表 配置表
+  
+  let changeMap = {
+    0: "零", //
+    1: "一",
+    2: "二",
+    3: "三",
+  }
+  
+  // 思想: 建立一个映射关系, 直接访问这个映射关系 得出答案
+  
+  function change2(num){
+    let changeMap = ["零", "一", "二", "三", "四", "五", "六", "七", "八", "九"]
+    return changeMap[num] //
+  }
+
+
+</script>
+</body>
+</html>

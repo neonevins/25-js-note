@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="box"></div>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+
+<script>
+  /**
+   * this指向的修改
+   *   通常情况下this指向了调用函数的主体对象, 但是我们可以手动修改this的指向
+   *   函数的执行的时候可以主动讲函数的this绑定到另一个对象上, 函数任何时候执行this指向都是那个对象了
+   *      bind: 绑定调用主体, 返回一个函数, 返回的这个函数this指向会绑定到那个对象上
+   *
+   *
+   * 箭头函数，this不对，作用域也不对，箭头函数你还有个啥？
+   *    箭头函数是 es6 新出的内容, 他本质上简化了this的指向, 他解决了普通函数的问题
+   *    定时器的时候
+   *
+   */
+  
+  // let liList = document.querySelectorAll("ul li")
+  
+  
+  
+  
+  // let $ = document.querySelector
+  // let box = $(".box")
+  //
+  // console.log(box)
+
+
+  // let person = {
+  //   name: "银时",
+  //   say: function () {
+  //     console.log(this.name)
+  //   }
+  // }
+  // let p = person.say.bind(person)
+  // p()
+
+  // let o = {
+  //   fn: function () {
+  //     console.log(this)
+  //     function f() {
+  //       console.log(this)
+  //     }
+  //     f.bind(o)()
+  //   }
+  // }
+  // o.fn.bind(window)()  //
+  
+  // this 暂时, 挖个坑 在这 封装的作业
+  
+  
+
+</script>
+</body>
+</html>

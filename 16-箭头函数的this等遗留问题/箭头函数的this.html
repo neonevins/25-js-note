@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 箭头函数的this
+   *    和普通函数的 this 不一样, 箭头函数的this 会 强行绑定 到上下文中
+   *    上下文的this 是什么, 箭头函数里面this就是什么
+   *    上下文? 声明位置的上一行 和 声明位置的下一行
+   *
+   *    精简的总结: 不要把箭头函数想像成函数, 看成一个表达式, 和外面的this一样
+   */
+  
+  // let obj = {
+  //   fn: function () {
+  //     // console.log(this)
+  //     let foo = () => {
+  //       console.log(this)
+  //     }
+  //     return foo
+  //   }
+  // }
+  //
+  // obj.fn() // obj
+  
+  // let f = obj.fn
+  // f() // window
+  
+  // let f = obj.fn()
+  // f() // obj
+  
+  
+  // let foo = () => {
+  //   console.log(this)
+  // }
+  
+  
+  // let obj = {
+  //   foo: {
+  //     foo: {
+  //       foo: () => {
+  //         console.log(this)
+  //       }
+  //     }
+  //   }
+  // }
+  //
+  // // foo()
+  //
+  // obj.foo.foo.foo()
+  
+  
+  // 题目1
+  // let obj = {
+  //   fn: function () {
+  //     let foo = () => {
+  //       console.log(this)
+  //     }
+  //     foo()
+  //   }
+  // }
+  //
+  // let f = obj.fn
+  // obj.fn() // obj
+  // f()      // window
+  
+  // 题目2
+  // let obj = {
+  //   fn: function () {
+  //     let foo = () => {
+  //       console.log(this)
+  //     }
+  //     return foo
+  //   }
+  // }
+  //
+  // let f = obj.fn()  // 此时 才真正生成了 foo
+  // f() //
+
+  // 题目3
+  // let obj = {
+  //   fn: function () {
+  //     let foo = () => {
+  //       console.log(this)
+  //     }
+  //     return foo
+  //   }
+  // }
+  //
+  // let f = obj.fn
+  // f()() //
+  
+  // 题目4
+  
+  // function foo(){
+  //   let fn = () => {
+  //     console.log(this)
+  //   }
+  //   function foo(f){
+  //     f()
+  //   }
+  //   return {
+  //     fn: fn,
+  //     foo: foo
+  //   }
+  // }
+  //
+  // let s = foo()
+  // s.foo(s.fn)
+  
+  
+  
+  
+  
+</script>
+</body>
+</html>
