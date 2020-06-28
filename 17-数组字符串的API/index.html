@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<ul>
+
+</ul>
+<script>
+  /**
+   * 定调: JS开发 最最最常用的一些知识, 处理数据 字符串,数组
+   *    1. 怎么用 (必须)
+   *    2. 边角的特性
+   *    3. 存在的意义, 实现原理
+   *      自己封装一下方法
+   *
+   *    境界: 几乎所有的内置方法我都知道他的实现原理并且能实现
+   *
+   * 字符串的方法:
+   *    非常重要的特性: 字符串无法修改
+   *  看成一个数组
+   *    方法:
+   *      .length 长度字符串的长度 属性 中文英文相同的
+   *        \
+   *
+   *      [] 下标 你可以通过下标访问每一个字符串
+   *        0...
+   *      big
+   *      blink
+   *      等内容都是淘汰的内容
+   *
+   *      charAt 访问下标的 方法 是一个函数
+   *        直接等价于  []
+   *
+   *      charCodeAt 也是访问下标的那个字符, 返回那个字符的编码
+   *        ascii 码
+   *          0 48
+   *          A 65
+   *          a 97
+   *
+   *        String.fromCharCode() 传入若干个数字转换成对应的字符
+   *
+   *        字符串比较大小
+   *
+   *        [25105, 21916, 27426, 20320]
+   *
+   *        concat 连接起来 等价于 + 拼接
+   *          可以接受多个参数
+   *
+   *      正则表达式
+   *
+   *        endsWith(..) 是否以 .. 结尾
+   *           不需要记:
+   *
+   *        includes 查询字符串中是否包含
+   *
+   *        indexOf 查询匹配字符的出现的开始下标
+   *          可以(也可以不)接受第二个参数 表示开始位置
+   *
+   *          查询到了 返回下标
+   *          查询不到 返回 -1
+   *
+   *        lastIndexOf 倒着查询
+   *          永远返回下标. 一定是从做到右的
+   *
+   *
+   *        replace 替换
+   *          查询str
+   *          替换的内容
+   *          只替换一次, 一旦替换成功, 结束了
+   *
+   *
+   *        toLowerCase 只要遇到大写字母转小写字母
+   *        toUpperCase 只要遇到大写字母转小写字母
+   *
+   *        trim 去掉左右两边的空格
+   *          适用于用户输入的时候 修剪左右的空格
+   *
+   *
+   *
+   */
+  
+  // console.log("银时真棒!".repeat(100))
+  
+
+  // let index = "abcabc".lastIndexOf("c")
+  //
+  // console.log("abcabc"[index])
+
+
+  // let str = "银时很帅"
+  //
+  // if(str.indexOf("丑") === -1){
+  //   console.log("查询不到")
+  // }
+
+  // console.log(str.includes("银帅"))
+
+  // 只适合单个字符串
+  // function includes(str, key){
+  //   for(let i = 0;i < str.length;i++){
+  //     if(str[i] === key) return true
+  //   }
+  //   return false
+  // }
+
+  // console.log(includes(str, "很丑"))
+
+
+  // let str = "abc"
+  //
+  // str.length = 5
+  
+  
+  // let str = "abc"
+  //
+  // str[0] = "d"
+  //
+  // console.log(str)
+
+
+  // let str = "1"
+  //
+  // str = str + "2"
+  //
+  // console.log(str)
+
+
+  // let arr = ["1", "2", "3", "4", "5"]
+  //
+  //
+  // function arrayToString(arr){
+  //
+  //   return "".concat(...arr)
+  // }
+  //
+  // console.log(arrayToString(arr))
+
+  // console.log("".concat(...arr))
+
+
+  // let str = "今天很开心"
+  // console.log(str.charAt(1))
+  // 遍历字符串
+  // let ul = document.querySelector("ul")
+  // let result = ""
+  // for(let i = 0;i < str.length;i++){
+  //   result += `<li>${str[i]}</li>`
+  // }
+  // ul.innerHTML = result
+  
+  
+  
+  
+  // let str = "银时真帅"
+  //
+  // console.log(str[3])
+  //
+
+  
+  
+  
+  
+
+  /**
+   * 1. 请自行实现 includes 方法:
+   *    提示: 注意循环的长度 注意 key 的长度 和 str 长度 的 关系
+   *    接受两个参数
+   *        str 需要判断的字符串
+   *        key 传入的比较的字符串
+   *     返回 return
+   *        布尔值
+   *          true  有
+   *          false 没有
+   *
+   * 2. 请自行实现 indexOf 方法:
+   *
+   * 3. 请自己实现一个 replaceAll 的一个方法
+   *    大家自己总结一下, 这个接口该怎么设计
+   *
+   *
+   */
+
+  /**
+   * 学会归纳 某个 api(方法的接口) 的 一些描述.
+   *    1. 接受那几个参数, 参数的范围是什么
+   *    2. 返回什么内容, 表示什么含义
+   *    3. 功能是什么
+   *
+   * 就应该想这些问题.
+   *
+   *
+   */
+
+
+  // function big(str){
+  //   return `<big>${str}</big>`
+  // }
+  
+  // vue 理解 vue 的底层原理实现方法 并且能实现
+  // 多数用框架
+
+  // /**
+  //  * 判断字符串str中是否有字符串key
+  //  * @param str 传入的字符串, 长度不超过 200
+  //  * @param key 长度小于 str
+  //  * @return boolean  true: 有 false 没有
+  //  */
+  // function includes(str, key) {
+  //
+  // }
+  
+  
+  // 裁剪方法 
+  
+</script>
+</body>
+</html>
