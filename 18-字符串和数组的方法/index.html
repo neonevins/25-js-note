@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 字符串的方法:
+   *    进行操作, 查询 修改 剪切 ...
+   *
+   *  JS 思维 用的
+   *
+   *  裁切:
+   *
+   */
+  
+  let str = "好迪真好,你好我好大家好,广州好迪"
+  
+  // 这里有几句话
+  /**
+   * 将一个字符串按逗号切分 成多个片段, 这些多个片段, 可以放到一个数组里面
+   *   split 方法 按要求切割, 切割成多段
+   */
+
+  // console.log(str.split(","))
+
+  // let 排骨 = "肉1骨头肉2骨头肉3骨头肉4"
+  //
+  // console.log(排骨.split("骨头"))
+
+
+  // console.log(排骨)
+
+  /**
+   * 开发中的例子:
+   *    访问网址的时候,
+   *    username=yinshi&password=9527&isAdmin=1
+   *    get 请求发送数据携带在 url中的?号后面 以 & 符号链接多段数据 每段数据 用 = 分隔 前面是
+   *      数据类型
+   *      数据的值
+   */
+  
+  let data = "username=yinshi&password=9527&isAdmin=1"
+  
+  // 后台处理这段数据 该怎么拿到数据?
+  let result = {
+    username: "yinshi",
+    password: "9527",
+    isAdmin: "1"
+  }
+  
+  /**
+   *  函数: 格式化数据
+   *    输入: 字符串
+   *    输出: 对象
+   *
+   */
+  // function format(str){
+  //   // 将每段数据 都分开存放到各自的数组中
+  //   let arr = str.split("&")
+  //   // 遍历arr 拿到每一个 数据片段 二次加工
+  //   // console.log(arr)
+  //   let result = {}
+  //   for(let i = 0, len = arr.length;i < len; i++){
+  //     // subarr 应该是什么结构?
+  //     let subArr = arr[i].split("=")
+  //     // console.log(subArr)
+  //     // 讲切分出来的内容左边放 属性名 右边放属性值
+  //     result[subArr[0]] = subArr[1]
+  //   }
+  //   return result
+  // }
+  //
+  // console.log(format(data))
+
+
+  /**
+   * 期望的数据格式
+   *  {
+   *    属性名: 属性值,
+   *    // ...
+   *  }
+   *
+   *  实现一个函数: formate 整理数据 返回 对象格式的数据
+   */
+  
+  // let str3 = "abc"
+  //
+  // console.log(str3.split()) // ["abc"]
+  //
+  // console.log(str3.split("")) // ["a", "b", "c"] 按字符分隔转成数组
+  
+  
+  // 内部第一行 一定 对 空值进行判断
+
+  // function foo(a){
+  //   console.log(a)
+  // }
+  // foo()
+
+  /**
+   * 裁剪2: 按位置裁剪
+   *    slice(s, e) // s 开始 start  e 结束 end
+   *      找到开始位置 和 结束位置 将中间的部分提取出来
+   *      s 从 s位 开始 包含s这个位置
+   *
+   *      e 到 e位 结束 不包含e这个位置
+   *
+   *      截取的长度是多少? e - s
+   *
+   *      可以只有一个参数:
+   *        slice(s)
+   *          从s位置一直到字符串结束
+   *
+   *  云木同学: 请注意, 一个方法 一般情况下 返回额数据类型 一定是相同的
+   *
+   *      slice 出现负数
+   *
+   *        -1 是最后一位
+   *        -2 倒数第二位
+   *        -n 倒数第n为
+   *
+   *      substr
+   *        from 从哪开始 可以写负数 包含那一位
+   *        length 可以不写 截取的长度
+   *
+   *      substring
+   *        在正数的时候和 slice一致
+   *        但是负数不表示结尾了
+   *          负数表示裁前面的部分
+   *          直接到字符串最前面就停下来了
+   *
+   */
+
+
+</script>
+</body>
+</html>
