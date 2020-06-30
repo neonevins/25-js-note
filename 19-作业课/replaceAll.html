@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * replaceAll 方法
+   */
+  /**
+   * replace
+   *  replace(str, subStr, newStr)
+   *    str 原始字符串
+   *    subStr 查询字符串
+   *    newStr 替换字符串
+   *
+   *  字符串永远没有办法修改, 不如重新生成一个字符串
+   *  返回新的字符串
+   */
+
+  function indexOfByYinShi(str, subStr, start = 0) {
+    // start = start || 0
+    // 将start 改成合理的正数
+    str = String(str)
+    subStr = String(subStr)
+    // 从头到尾进行比较, i表示比较次数
+    // i 表示比较的位置开始的下标
+    let length = str.length - subStr.length + 1
+    let subLength =  subStr.length
+    // let flag = false
+    for (let i = start; i < length; i++) {
+      // j 代表比较的每一位
+      // 代表单次比较的结果
+      let 匹配到单词相同 = true
+      for(let j = 0; j < subLength;j++){
+        if(subStr[j] !== str[i + j]){
+          // 一旦没找到, 标记失败, 直接可以结束循环判断
+          匹配到单词相同 = false
+          break // 从内到外的
+        }
+      }
+      if(匹配到单词相同){
+        // 找到匹配的元素了, 可以交差了
+        return i
+      }
+    }
+    return -1 // 表示都没有
+  }
+  
+
+  function replaceByYinShi(str, subStr, newStr, start = 0){
+    // 表示 查询到的字符串的开始位置
+    let index = indexOfByYinShi(str, subStr, start)
+    // 表示没查到就不做替换
+    if(index === -1){
+      return str
+    }
+    // 查到了, 生成新的字符串
+    // 表示 左边的部分
+    let left = ""
+    // 表示 右边的部分
+    let right = ""
+    // 将left 和 right 生成出来
+    for (let i = 0; i < index; i++) {
+      left += str[i] // 找到左边的部分, 挨个加起来
+    }
+    // 将右边的部分 生成出来
+    for(let i = index + subStr.length;i < str.length;i++){
+      right += str[i]
+    }
+    return left + newStr + right
+  }
+  // "abcdef"  "d" -> "3"
+  // console.log(replaceByYinShi("abcdef", "", "33333333333333333333333333333"))
+
+
+  /**
+   * replaceAll 方法
+   *  他就是replace的 升级版
+   *    str subStr newStr
+   *
+   *    返回一个新数组
+   */
+  function replaceAllByYinShi(str, subStr, newStr){
+    // 替换的开始坐标
+    let start = 0
+    while(indexOfByYinShi(str, subStr, start) > -1){
+      let index = indexOfByYinShi(str, subStr, start) // 从开始位置去找的
+      // console.log(index)
+      str = replaceByYinShi(str, subStr, newStr, index) // 每次replace的时候并没有告诉他改哪里\
+      // console.log(str)
+      start = index + newStr.length
+    }
+    return str
+  }
+
+  // console.log(indexOfByYinShi("你不好, 我好, 大家好", "好", 3))
+  // console.log(replaceAllByYinShi("你好, 我好, 大家好", "好", "不好"))
+
+  /**
+   * 感受:
+   *    自己的东西才是最香的.
+   *
+   *    沿着这条路走下去 -> 底层各种方法都是自己的封装结果
+   */
+  
+  
+  // 工具库: 管理, 统一接口, 统一文档 统一参数, 配置
+  let Yin = {
+    str: {
+      indexOfByYinShi,
+      replaceAllByYinShi,
+      replaceByYinShi,
+    },
+    arr: {
+      //...
+    }
+  }
+  
+
+</script>
+</body>
+</html>

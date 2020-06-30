@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 1. includes 封装
+   *  方法解决的问题: 字符串str 是否 subStr
+   *  设计:
+   *    includes
+   *      接受参数:
+   *        str    原数组
+   *        subStr 子数组
+   *      返回:
+   *        boolean
+   *          true  有
+   *          false 没有
+   */
+  
+  function includesByYinShi(str, subStr){
+    // 边界判断:
+    // 传入的不是字符串 怎么办
+    str = String(str)
+    subStr = String(subStr)
+    // 从头到尾进行比较, i表示比较次数
+    // i 表示比较的位置开始的下标
+    let length = str.length - subStr.length + 1
+    let subLength =  subStr.length
+    // let flag = false
+    for (let i = 0; i < length; i++) {
+      // j 代表比较的每一位
+      // 代表单次比较的结果
+      let result = true
+      for(let j = 0; j < subLength;j++){
+        if(subStr[j] !== str[i + j]){
+          // 一旦没找到, 标记失败, 直接可以结束循环判断
+          result = false
+          break // 从内到外的
+        }
+      }
+      if(result){
+        // 找到匹配的元素了, 可以交差了
+        return {
+          index: i,
+          result  //es6
+        }
+      }
+    }
+    return {
+      index: -1,
+      result: false
+    }
+  }
+  
+  let str = "asd"  // 6
+  let subStr = "s"  // 4
+
+  console.log(includesByYinShi(str, subStr))
+
+  // let arr = ["女", "女", "女", "男"]
+  //
+  // let flag = false
+  // for (let i = 0; i < arr.length; i++) {
+  //   if(arr[i] === "男"){
+  //     flag = true
+  //     break // 优化循环次数
+  //   }
+  // }
+  // console.log(flag)
+
+  
+
+</script>
+</body>
+</html>

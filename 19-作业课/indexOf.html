@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * indexOf:
+   *  ???
+   *  略
+   */
+  function indexOfByYinShi(str, subStr, start = 0) {
+    // start = start || 0
+    // 将start 改成合理的正数
+    str = String(str)
+    subStr = String(subStr)
+    // 从头到尾进行比较, i表示比较次数
+    // i 表示比较的位置开始的下标
+    let length = str.length - subStr.length + 1
+    let subLength =  subStr.length
+    // let flag = false
+    for (let i = start; i < length; i++) {
+      // j 代表比较的每一位
+      // 代表单次比较的结果
+      let 匹配到单词相同 = true
+      for(let j = 0; j < subLength;j++){
+        if(subStr[j] !== str[i + j]){
+          // 一旦没找到, 标记失败, 直接可以结束循环判断
+          匹配到单词相同 = false
+          break // 从内到外的
+        }
+      }
+      if(匹配到单词相同){
+        // 找到匹配的元素了, 可以交差了
+        return i
+      }
+    }
+    return -1 // 表示都没有
+  }
+
+  console.log(indexOfByYinShi("aaa", "a"))
+
+  /**
+   * replaceAll
+   */
+</script>
+</body>
+</html>
