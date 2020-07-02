@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 数组的api:
+   *    length: 数组的长度: 可读 可修改的属性, 让元素消失
+   *    concat:
+   *      方法: 可以传数组, 可以传 多个单独的值
+   *    copyWithin:
+   *      浅拷贝.
+   *
+   *    数组的头尾插入删除
+   *      数组的尾部 插入元素
+   *        .push
+   *          接受多个参数, 按顺序插入, 插入顺序和参数的顺序一致
+   *          返回值: 返回数组的最新的长度
+   *      数组的尾部 删除元素
+   *         .pop
+   *          不接受参数  一次性只能删除一个元素
+   *          返回值: 返回被删除的那个元素
+   *      数组的头部 插入元素
+   *          .unshift
+   *            参数: 多个参数
+   *            返回: 返回
+   *      数组的头部 删除元素
+   *          .shift
+   *            参数: 不接受
+   *            返回: 被删除的元素
+   *    其实是一种数据结构:
+   *        队列:
+   *            []
+   *            添加操作: push方法
+   *            执行完下一个执行: shift方法
+   *
+   *        动画队列 + 运动框架
+   *
+   *    JS 原生自带 优秀的数据结构:
+   *
+   *
+   *    颠倒数组:
+   *      不接受参数
+   *      返回排序的结果(原数组)
+   *      修改元素数组
+   *
+   *
+   */
+  
+  let arr = ["喜洋洋", "若水", "你大哥", "枫叶"]
+  arr.reverse()
+  // console.log(arr)
+  
+  // 这才是正确的做法
+  //
+  // function reverse(arr){
+  //   let newArr = []
+  //   // 对数组拷贝一份
+  //   for (let i = 0;i < arr.length;i++){
+  //     newArr[i] = arr[i]
+  //   }
+  //   //
+  //   for (let i = 0; i < arr.length;i++){
+  //     arr[i] = newArr[arr.length - 1 - i] // 真正的颠倒操作
+  //   }
+  //   return arr
+  // }
+  
+  
+  
+  // 这是典型的 错误 的方法!
+  // function reverse(arr){
+  //   let newArr = []
+  //   for(let i = 0; i < arr.length;i++){
+  //     newArr.unshift(arr[i])
+  //   }
+  //   // arr = newArr
+  //   return newArr
+  // }
+  
+  // 1. 原数组变了吗? 变了!!!
+  // 2. 返回的是什么? 返回的是新数组, 不是原数组
+
+
+  //
+  // console.log(arr.unshift("1", "2", "3")) // 7
+  //
+  // console.log(arr) // 1, 2, 3 ...
+  
+  
+  // 额外的功能拓展 (提示: 注意边界, 特殊情况)
+  // function pop(arr){
+  //   // 作业
+  // }
+  //   function unshift(){
+  //
+  //   }
+  // function shift(){
+  //
+  // }
+  
+  // 通过解构 搞出来
+  // function push(arr, ...rest){
+  //   // 插入元素的个数
+  //   let length = rest.length
+  //   // 原数组的长度
+  //   let oldLength = arr.length
+  //   // 新数组的长度
+  //   arr.length += length
+  //   // 从原数组最后一项结束的位置开始, 到新长度的结束, 挨个添加rest里面的元素
+  //   for(let i = oldLength;i < arr.length;i++){
+  //     //
+  //     arr[i] = rest[i - oldLength]
+  //   }
+  //   return arr.length
+  // }
+  
+  // function push2(arr){
+  //   // console.log(arguments)
+  //   // arguments // 取 1...arguments-1
+  //   let length = arguments.length - 1
+  //   let oldLength = arr.length
+  //   arr.length += length
+  //   console.log(arr)
+  //   for(let i = oldLength;i < arr.length;i++){
+  //     arr[i] = arguments[i - oldLength + 1]
+  //   }
+  //   return arr.length
+  // }
+  
+
+  // console.log(push2(arr, 23, 45, ...[6, 7, 8]))
+
+  // arr.length = arr.length + 1
+  // arr[arr.length - 1] = "你大哥"
+  
+</script>
+</body>
+</html>
