@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 筛选满足条件的元素
+   *  filter 过滤 筛选
+   *    回调函数 筛选条件
+   *      item
+   *      index
+   *      arr
+   *    返回 true -> 保留 返回 false -> 剔除
+   *
+   *  返回一个全新的数组
+   *
+   *  业务场景: 数组, 根据条件找出部分, 都可以用filter
+   *
+   */
+  
+  // let arr = [1, "2", "3", 4, {}, [], undefined]
+  // // 将所有的字符串抽离出来单独形成一个数组
+  //
+  // function filterMethod(item, index, arr){ // 筛选方法
+  //   return typeof item !== "string"
+  // }
+  // let result = arr.filter(filterMethod)
+  // console.log(result)
+  
+  // let arr = [1, "2", -1, 3, "-3"]
+  //
+  // // 请筛选所有大于 0 的 数字
+  //
+  // let result = arr.filter(item => typeof item === "number" && item > 0)
+  //
+  // console.log(result)
+
+  /**
+   * 水仙花数:
+   */
+  let arr = []
+  for (let i = 100; i < 1000; i++) {
+    arr.push(i)
+  }
+  
+  // let arr = new Array(899).fill(0).map((item, index) => index + 100)
+  
+  // let result = arr.filter(num => {
+  //   let str = `${num}`
+  //   return str[0] ** 3 + str[1] ** 3 + str[2] ** 3  === num
+  // })
+  
+  
+  // 小结 : 四个方法 类似 重点总结什么?
+  /**
+   * 1. api的功能, 解决了什么问题
+   * 2. 回调函数,  有无返回值 , 返回值的意义 与 api 功能的关系
+   * 3. api整体返回的结果是什么
+   */
+  
+  /**
+   * 正式布置
+   *  封装
+   *    filter
+   *    some
+   *    every
+   *    forEach
+   */
+
+  /**
+   * forEach
+   *  接受参数: 两个参数
+   *    数组
+   *    回调函数 callback
+   *  不返回
+   *
+   *  forEach 功能
+   *    就是拿出数组里面的每一项 用回调函数执行
+   */
+  // 两个参数的版本
+  // function myForEach(arr, callback){
+  //   for (let i = 0; i < arr.length; i++) {
+  //     callback(arr[i], i, arr)
+  //   }
+  // }
+  //
+  // myForEach(["我", "爱", "你", "们"], function (item, index, arr) {
+  //   console.log(item)
+  // })
+  // 一个参数的版本
+  // map reduce
+
+
+
+</script>
+</body>
+</html>

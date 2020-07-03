@@ -1,0 +1,204 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<ul>
+  <li></li>
+  <li>asd</li>
+  <li>asd</li>
+  <li>qw</li>
+  <li>asdasd</li>
+</ul>
+<script>
+  /**
+   * 1.
+   * push pop shift unshift
+   *  参数 返回
+   *  封装
+   */
+
+  /**
+   * forEach 基础模板:
+   *    遍历数组 拿到每一项进行操作
+   *    接受一个参数: 回调函数
+   *    回调函数 -> 对数组的每一项 下标 数组本身进行操作
+   *      item
+   *      index
+   *      arr
+   *      有返回吗? 需要返回值吗?
+   *      不会改变原数组
+   */
+  // let arr = [1, 2, 3]
+  //
+  // arr.forEach(function (item, index, arr) {
+  //   arr[index]++
+  // })
+  // console.log(arr)
+  //
+  // let arr = [
+  //     {
+  //       v: 1
+  //     },
+  //     {
+  //       v: 2
+  //     },
+  //     {
+  //       v: 3
+  //     }
+  //   ]
+  //
+  // arr.forEach(item => {
+  //   item.v++
+  // })
+  //
+  // console.log(arr)
+
+  /**
+   * every
+   *  判断是否都满足条件
+   *    如果都满足条件, 则返回true
+   *    只要有不满足 则返回false
+   *
+   *    接受一个回调函数
+   *      接受三个参数
+   *        item
+   *        index
+   *        arr
+   *
+   *      返回 布尔值
+   *        当返回 true  表示单项满足条件
+   *        当返回 false 表示单项不满足条件
+   *
+   *   返回 布尔值
+   *      true 所有的都满足条件
+   *      false 存在不满足条件的
+   *
+   *
+   *   相当于 &&
+   *
+   */
+  
+  // let teachers = [
+  //   {
+  //     name: "阿飞",
+  //     age: 20,
+  //   },
+  //   {
+  //     name: "银时",
+  //     age: 19
+  //   },
+  //   {
+  //     name: "云牧",
+  //     age: 22
+  //   },
+  //   {
+  //     name: "sherry",
+  //     age: 19
+  //   }
+  // ]
+  
+  // 需求: 判断是否所有的元素的 age 属性 是否都是大于 18 岁 都满足, 返回 true 否则 返回 false
+  
+  // let result = true // 先假设所有人都满足
+  // // 循环遍历, 一旦发现不满足的就, 改成false
+  // // 最后输出结果
+  // for (let i = 0; i < teachers.length; i++) {
+  //   if(teachers[i].age < 18){
+  //     result = false
+  //   }
+  // }
+  // console.log(result)
+
+  // let result = teachers.every(teacher => teacher.age > 18)
+  // console.log(result)
+  
+  // 对单个人判断
+  // function older(person){
+  //   return person.age > 18
+  // }
+  //
+  // teachers.every(older)
+  
+  
+  // let arr = ["asda", "asd病毒das", "dasd", "asdas", "asdasd"]
+  //
+  // function check(str){
+  //   // 对字符串判断是否 存在 "病毒" 字眼
+  //   return !str.includes("病毒")
+  // }
+  //
+  // // 这个检测是否符合标准?
+  //
+  // console.log(arr.every(check))
+  
+  
+  let arr = [1, {}, [], undefined, null, ""]
+  // 判断这个数组的每一项是否都是字符串?
+  // every
+  
+  // let s = arr.every(function (item) {
+  //   return typeof item === "string"
+  // })
+  
+  // let s = arr.every(item => typeof item === "string")
+  
+  // 下面的代码是什么含义
+
+  s = arr.every(item => typeof item !== "string")
+  
+  // s true 代表了什么? 每一个都不是字符串
+  
+  // s false 代表了什么? 至少存在一个字符串
+
+  /**
+   * some
+   *    一人得道, 鸡犬升天
+   *    只要有一个满足条件 整体 true,
+   *    都不满足 整体 false
+   *    类似于 多个 元素的 ||
+   *
+   *    接受一个参数
+   *      item
+   *      index
+   *      arr
+   *
+   *    返回 和上面的 every一致
+   *      true
+   *      false
+   *
+   *  整体返回:
+   *    true 至少有一个true
+   *    false 全部gg
+   *
+   */
+  
+  // students.every(check)// true -> 全班都对 false -> 有人没做对
+  //
+  // students.some(check) // true -> 至少还有人做对  false -> 一个人都不会做
+  
+  let liList = [...document.querySelectorAll("ul li")] // 此时 liList他不是一个数组, 所以没有every / some方法
+  // let every = [].every.bind(liList) // 拿到数组方法,绑定到liList中
+
+  // 判断所有的li是否都有内容 (全部 -> true)
+  liList.every(li => li.innerHTML.length > 0) // true -> 都有内容 false -> 有空
+  // // 可以改成some吗?
+  liList.some(li => li.innerHTML === "") // false -> 有空 true -> 都有内容
+  // // 判断所有的li是否有没内容的 (存在 -> true)
+  liList.some(li => li.innerHTML === "") // true -> 有空 false -> 都有内容
+  //
+  !liList.every(li => li.innerHTML.length > 0) // true -> 存在为空 false -> 都有内容
+
+  /**
+   * 数组方法操作都是几乎一致, 但是含义不一样
+   *
+   */
+
+</script>
+</body>
+</html>
