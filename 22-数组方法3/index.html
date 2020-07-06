@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 数组的方法:
+   *    forEach 遍历
+   *      回调函数(  )
+   *        item
+   *        index
+   *        array
+   *        回调函数不返回
+   *    不需要返回
+   *    every   判断所有的都满足条件
+   *        回调函数 返回 是否满足条件
+   *      返回 所有都
+   *    some    是否有满足条件的元素
+   *      ...
+   *    filter  筛选出满足条件的元素
+   *      整体 返回赛选之后的结果
+   */
+  
+  // function every(arr, callback){
+  //   for (let i = 0; i < arr.length;i++){
+  //     // 一旦出现了一次不满足, 整体就结束了
+  //     if(!callback(arr[i], i, arr)){
+  //       return false
+  //     }
+  //   }
+  //   return true
+  // }
+  //
+  // let s = every([1, 2, 3], function (item) {
+  //   if(item < 5) return true
+  // })
+  // console.log(s)
+  
+  // function some(arr, callback){
+  //   for (let i = 0; i < arr.length; i++) {
+  //     if(callback(arr[i], i, arr)){
+  //       return true
+  //     }
+  //   }
+  //   return false
+  // }
+  
+  // function filter(arr, callback) {
+  //   let result = []
+  //   for (let i = 0;i < arr.length;i++){
+  //     if(callback(arr[i], i, arr)){
+  //       result.push(arr[i])
+  //     }
+  //   }
+  //   return result
+  // }
+  
+  // let arr = [1, 2, 3, 4, 5]
+  //
+  // let s = filter(arr, item => {
+  //   return item % 2 === 0
+  // })
+
+
+  /**
+   * map react开发核心
+   *  想要将数组每个改变 形成一个新数组
+   *    回调函数:
+   *      item
+   *      index
+   *      arr
+   *    返回值: 每次操作的结果
+   *  整体返回 变化之后的结果
+   *  对原数组不影响
+   *
+   * reduce 统计核心
+   *   形式例外的方法
+   *   解决的问题: 迭代,
+   *      一个参数的情况
+   *        回调函数
+   *          接受四个参数
+   *            total 迭代体, 每次计算的结果就是这个参数
+   *            item  元素
+   *            index 下标
+   *            arr   数组本身
+   *          返回值
+   *            迭代结果
+   *       接受两个参数
+   *        同上(回调函数)
+   *
+   *        迭代初始值:
+   *
+   *
+   */
+  
+  // let arr = [1, 2, 3, 4, 5]
+  // // 计算这个数组的和
+  // let s = arr.reduce(function (x, y) { // x 迭代体 y 每个元素
+  //   return x + y
+  // })
+  // 用字符串拼接
+  
+  // let s = arr.reduce(function (total, item) {
+  //   return total + item
+  // }, "")
+  
+  //
+  // console.log(s)
+  
+  // 计算这个数组的 乘积
+  // let s = arr.reduce(function(total, item){
+  //   return total / item
+  // }, 1)
+
+  // console.log(s)
+  
+  // let students = [
+  //     {
+  //       name: "火锅",
+  //       score: 80,
+  //     },
+  //     {
+  //       name: "你大哥",
+  //       score: 60,
+  //     },
+  //     {
+  //       name: "火山",
+  //       score: 90,
+  //     }
+  //   ]
+  
+  // 计算所有人的成绩和
+  
+  //
+  // let s = students.reduce(function (total, item) { // total 是成绩  item是每个人
+  //   return total + item.score //
+  // }, 0)
+  // console.log(s)
+
+
+  // function map(arr, cb) {
+  //   let result = []
+  //   for (let i = 0; i < arr.length; i++) {
+  //     result[i] = cb(arr[i], i, arr)
+  //   }
+  //   return result
+  // }
+  
+  
+  
+  // let arr = [1, 2, 3]
+  // let n = arr.map(item => item * 2)
+  // console.log(arr)
+
+  //
+  // arr.forEach((item, index, arr) => {
+  //   arr[index] *= 2
+  // })
+  
+  // console.log(arr)
+  
+  // let str = "hdiuqwhiudhiquwhdiuqhiuqwdhiuqhduuiqw"
+  // str.split("")
+  // 作业 1
+  // 请大家写出一个统计字母出现次数的函数 ,统计结果以对象的形式展示
+  // {h: 3, w: 5, }
+  // 提示: 用 reduce
+  
+  // 作业 2
+  // 尝试实现一下 reduce , 注意考虑参数个数
+  // 实现的过程你就会更加理解 reduce 的参数 返回 整体返回 等情况
+  
+  
+  // 数组 排序 sort 将数组按照一定顺序排列
+  // let arr = [3, 2, 1, 23,123,1,23,123,1,23,12,31]
+  //
+  // arr.sort() // 如果不加任何限制 ,会按照每一项的字符串的 ascii编码顺序排列
+  //
+  // console.log(arr)
+
+  /**
+   * sort 排序: sort 方法接受一个参数,
+   *    回调函数: 描述了两个元素之间该怎么排序
+   *      接受两个参数
+   *        left,
+   *        right
+   *       返回: 一个数字
+   *        根据数字的正负选择排序方式
+   *        // 0 表示 保持原样
+   *
+   */
+  // arr.sort(function (x, y) {
+  //   return 0 // 小于 0 的结果
+  // })
+  // console.log(arr)
+  
+  // sort 研究排序的方式
+  
+  let teachers = [
+      {
+        name: "阿飞",
+        age: 19,
+      },
+      {
+        name: "万章",
+        age: 30,
+      },
+      {
+        name: "乌拉",
+        age: 22
+      }
+    ]
+  // 按照年龄顺序将这几个人 按 从 小 到 大排序
+  
+  // teachers.sort(function (x, y) { // x y 表示 任意两个元素
+  //   return x - y
+  // })
+  
+  // sort 方法中比较简单的排序 冒泡排序 选择排序
+  //
+
+  /**
+   * flat 数组扁平化
+   *    多维数组 变成 单维数组的方法
+   */
+  
+  // let arr = [1, [2, 3], [3, 4, [5, 6, [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[7]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+  //
+  // // 展开成 [1, 2, 3, 4, 5, 6]
+  //
+  // // 讲讲数组的 递归 展开法
+  //
+  // // 展开了一层
+  // let s = arr.flat(Infinity)
+  
+  // 补充 splice
+  
+  
+  // let str = "abcdefgh"
+  
+  // 反向输出字符串
+  
+  // 当你理解返回的时候, 你就理解了JS大部分的操作
+  // console.log(str.split("").reverse().join(""))
+</script>
+</body>
+</html>
