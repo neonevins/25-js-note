@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 数组的裁切:
+   *   数组 里面 截取几部分 增加 删除 替换 某些元素
+   *
+   *  splice (修改原数组)
+   *    至少接受一个参数:
+   *
+   *    只接受一个参数
+   *      数值: 操作(增加/删除)的起始位置 下标
+   *      从第一位进行裁剪, 一直裁剪结束
+   *
+   *
+   *    有两个参数的情况
+   *      start 操作的起始位置
+   *
+   *      count 删除的位数
+   *
+   *      对数组任何部分进行删除
+   *
+   *    返回 被裁剪部分形成的数组
+   *
+   *    大于等于三个参数的情况 (都是一样的)
+   *      操作位置,
+   *        从这个元素以及以后删除
+   *        从这个元素前面空隙插入
+   *      可以接受无数个参数
+   *
+   *      第三个参数以及后续 都是 添加
+   *
+   */
+  // let arr = ["大", "家", "好", "吗"]
+  //
+  // // 将大家 替换成 数组里面的内容, 挨个 添加
+  //
+  // let nameList = ["江江", "火山", "大哥", "康康"]
+  //
+  // arr.splice(0, 2, ...nameList)
+  //
+  // console.log(arr)
+  //
+  // // 把大家改成 江江 删除 增加 替换 (删除, 增加)
+  //
+  // arr.splice(0, 2, "江", "江")
+  //
+  
+  //
+  // arr.splice(2, 0, "还", "不")
+  
+  // arr.splice(3, 1)
+  // arr.splice(1, 1)
+  
+  // 多次删除, 1. 精确计算删之后的位置
+  // 2. 从后往前删 (删除后面的部分 前面部分的下标是不会变的)
+  
+  // console.log(arr)
+  
+  // let s = arr.splice(1, 0)
+  //
+  // console.log(arr)
+  
+  // let balls = []
+
+  /**
+   *
+   */
+  
+
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 统计字符串:
+   *   "hduiqhdiuqhwiudhuiqwhdiuqwdhqiwhdu"
+   *   得出一个 {
+   *     a: 3,
+   *     b: 2,
+   *     c: 1,
+   *     e: 5
+   *   }
+   *   推荐: reduce 数组的方法
+   */
+  let str = "aba"
+  
+  function getResult(str) {
+    // 存放结果的对象
+    let result = {}
+    // 字符串转化成为数组
+    let arr = str.split("")
+    // 统计: 统计的结果是对象  ["a", "b", "a"]
+    arr.reduce(function (total, item) {
+      // 判断迭代对象有没有这个字符的属性
+      if(total[item]){
+        // 有说明统计过, 之间是一个数值, 这次直接+1
+        total[item]++
+      }else{
+        // 没有说明还没统计过这个字符串, 那这次统计就是初始值为1
+        total[item] = 1
+      }
+      return total
+    }, result)
+    return result
+  }
+  
+  // 和上面的方法思想一致
+  const getResult2 = str => str.split("").reduce((x,y)=>((x[y]?x[y]++:x[y]=1),x),{})
+  // 理解知识点
+  // 不动脑子的学习体验:
+  
+  // x 迭代体 y 每一个字符
+  
+  // function f(str) {
+  //   return str.split("").reduce((x, y) => ((x[y]?x[y]++:x[y]=1),x),{})
+  // }
+  
+  
+  // 实现以下map方法?
+  // 在这些方法中的 this 问题
+  
+  
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * sort 方法 排序
+   */
+  let arr = [7, 3123,123, 1,123131,231, 8, 4,121233, 6, 9, 5]
+  
+  // 对数组进行排序, 排序结果输出, (输出的结果就是原数组)
+  // 排序算法
+  // 初期 比较简单的排序算法(形成套路的能够解决问题的思想和代码)
+  
+  // 选择排序, 按照大家的思维, 从小到大排序
+  function chooseSort(arr){
+    let result = [] // 记录答案的数组
+    let length = arr.length
+    //
+    for (let i = 0; i < length; i++) {
+      let s = Infinity // 表示无穷大
+      let idx
+      arr.forEach((item, index) => { //
+        if(item < s){
+          idx = index // 抄最小元素的下标
+          s = item // 抄作业
+        }
+      })
+      result.push(s) // arr 中最小的元素就添加进去了
+      arr.splice(idx, 1) // 把这个元素删掉
+    }
+    arr.push(...result) // 得出的答案挨个添加进去
+    return arr // 返回最终的数组
+  }
+  
+  // 冒泡排序  相邻的进行排序
+  function bubbleSort(arr) {
+    // 一次 从左往右的 循环 让最大的元素出现在右边
+    let length = arr.length
+    // 多次排序
+    for (let j = 0; j < length; j++) {
+      for (let i = 0; i < length - 1; i++) {
+        if(arr[i] > arr[i+1]){
+          // 交换这两个人的位置
+          let temp = arr[i]
+          arr[i] = arr[i+1]
+          arr[i+1] = temp
+        }
+      }
+    }
+    return arr
+  }
+</script>
+</body>
+</html>
