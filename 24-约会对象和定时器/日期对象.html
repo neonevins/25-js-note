@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 日期: 时间 API
+   *    1s = 1000 ms
+   *    常用概念:
+   *      怎么获取系统时间, 设置系统时间, 计算系统时间
+   *
+   *      Date 日期对象构造函数
+   *        构造函数: 生成对象
+   *        调用方式不一样
+   *      生成一个时间对象
+   *        new 调用
+   *
+   *    主要是调用他的方法:
+   *      获取具体的时间: 年 月 日 时 分 秒
+   *        getFullYear 获取公元年的时间
+   *        getMonth    获取当前的月份 从 0 开始 实际显示的时候 +1
+   *        getDate     获取当前的日期 从 1 开始的
+   *        getDay      获取星期几 数字 0 代表周天 是一周的开始
+   *        getHours    24小时的时间, 请自行写代码转换
+   *        getMinutes  返回具体的分钟  返回数字 可能位数不够,需要自己补全
+   *        getSeconds
+   *
+   *    代码执行的那一瞬间的时间
+   *
+   */
+  
+  let date = new Date()
+  // console.dir(date)
+  //
+  // console.log("22:02:06")
+  
+  // console.log(typeof Date)
+  
+  // 实现一个函数, 每次执行 返回 "xxxx年xx月xx日 xx:xx:xx"
+  
+  // 自己实现这个效果
+  // function getTime(){
+  //   let date = new Date()
+  //   let years = date.getFullYear()
+  //   let month = date.getMonth() + 1 > 9 ? date.getMonth() + 11 : date.getMonth() + 1
+  // }
+  
+  
+  // 时间的设置?
+  
+  // let date2 = new Date()
+  // // Date传参数, 数字, 表示 从 1970 1 1 00:00:00 开始 到现在这个时间经过的毫秒数
+  // // 设置 10 秒之后的时间
+  // let t1 = date2.valueOf() + 10000 // 10s 之后的时间
+  // let t2 = date2.valueOf() + 1000 * 60 * 60 * 24 * 2 + 1000 * 60 * 60 * 5
+  //
+  // let t1Date = new Date(t1)
+  //
+  // let t2Date = new Date(t2)
+
+  // let date2 = new Date()
+  //
+  // let date3 = new Date(date2.valueOf() + 1000 * 60 * 60 * 24 * 4)
+  
+  
+  // 第二个 函数: 接受两个日期对象, 请计算出相隔多少天/多少小时多少分
+  // 没有任何额外的知识: 考虑的情况很多. 1个月 标准 30天 一年标准 12月 (360天)
+  
+  
+</script>
+</body>
+</html>

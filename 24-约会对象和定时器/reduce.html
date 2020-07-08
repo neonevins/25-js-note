@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * reduce 方法
+   *    功能: 迭代 数组每一项运算, 结果参与到下次运算中
+   *    参数
+   *      一个参数 (以数组第一项作为迭代体, 迭代次数 比数组长度少1)
+   *
+   *      两个参数 (传入的第二个参数为迭代体, 迭代次数和数组长度一致)
+   *        回调函数
+   *          迭代方法
+   *            接受参数:
+   *            total
+   *            item
+   *            index
+   *            arr
+   *            返回:
+   *            返回单次的迭代结果
+   *         迭代体初始值
+   *      reduce返回:
+   *        整体最终的迭代结果
+   *
+   */
+  // function reduce(arr, callback){
+  //   if(arguments.length < 2){
+  //     // 直接抛出一个错误
+  //     throw new Error("参数不齐")
+  //   }
+  //   // 怎么判断传了几个参数?
+  //   // 初始化 result的值 迭代体
+  //   let result = null
+  //   let start = 0
+  //   // 根据参数判断 result 是什么值
+  //   if(arguments.length === 2){
+  //     // 一个参数的情况
+  //     result = arr[0]
+  //     start = 1
+  //   }else{
+  //     // 两个参数的情况 一定传了迭代初始值
+  //     result = arguments[2]
+  //   }
+  //   // 需要进行迭代, 考虑迭代初始值是从哪开始的问题
+  //   for (let i = start; i < arr.length; i++) {
+  //     result = callback(result, arr[i], i, arr) // 包含了迭代的所有内容
+  //   }
+  //   return result
+  // }
+  //
+  // let arr = [1, 2, 3, 4]
+  let fn = function (total, item) {
+    return total + item
+  }
+  let s = reduce(arr)
+
+  console.log(s)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<ul class="list">
+  <li>0</li>
+  <li>1</li>
+  <li>-1</li>
+  <li>2</li>
+  <li>-2</li>
+  <li>3</li>
+  <li>-3</li>
+</ul>
+<script>
+  /**
+   * map
+   */
+  // function myMap(arr, callback){
+  //   let result = []
+  //   for (let i = 0; i < arr.length; i++) {
+  //     result.push(callback(arr[i], i, arr)) // 将每次原酸的结果添加到返回的数组中
+  //   }
+  //   return result
+  // }
+  
+  
+  // 获取这些li中内容大于0的元素形成的数组
+    // 类数组
+  let liList = document.querySelectorAll(".list li")
+
+  // let resultArr = liList.filter(li => li.innerHTML*1 > 0)
+  // console.log(resultArr)
+  
+  // filter 方法是数组才有的方法
+  
+  // liList 没有filter方法, 说明 liList 不是一个数组
+  
+  // 解决这个问题, 这个问题产生的原因
+  // 虽然不是数组, 但是和数组长得一样, 我们可以那数组的方法操作他
+  
+  // let filter = [].filter.bind(liList)
+  
+  // filter 方法通常是谁调用的?  filter前面的东西调用, 回调函数中使用这个东西 this 是不是指向调用主体
+
+  // 推测: 类似于filter方法等所有内容, 在函数中的this指向都指向了 调用他的主体, 也就是那个数组
+
+  // let s = filter(li => li.innerHTML*1 > 0)
+  
+  // let str = "abc"
+  //
+  // // 使用 forEach 打印str里面的每一项
+  //
+  // let forEach = [].forEach.bind(str)
+  //
+  // forEach(item => console.log(item))
+
+  /**
+   * 在JS中方法虽然写着不互通, 但是可以通过修改调用主体, 借用别人的方法的形式解决问题
+   */
+
+  /**
+   * 都是函数的方法, 调用的时候可以修改函数的调用主体
+   * call
+   *   函数.call(调用主体, ...参数)
+   *   直接执行
+   *   从第二个开始, 挨个传, 可以接受 无数个参数
+   * apply
+   *  和call几乎是一致的, 除了传参的时候
+   *  函数接受的参数是一个数组,
+   *
+   * bind
+   *    相当于提前准备好材料: 等待下达指令执行
+   *    返回一个函数
+   */
+  // let str = "abc"
+  // ;[].forEach.call(str, function(item){
+  //   console.log(item)
+  // })
+  
+  // let str = "12345"
+  //
+  //   // 将字符串的每一项作为数字加起来
+  // // console.log(str.split("").reduce((t, item) => item * 1 + t, 0))
+  //
+  // console.log([].reduce.apply(str, [(t, i) => i * 1 + t, 0]))
+  //
+  // // []reduce
+  //
+  // ;console.log([].splice.call(str, 2, 3))
+  
+  
+  // bind 方法的优点:
+  
+  // 可以分两次传参数
+
+  // arguments 是类数组
+  
+  // 进行不定参数的求和
+  function sum(){
+    return [].reduce.call(arguments, (t, i) => t + i)
+  }
+
+  // console.log(sum(1, 2, 3))
+
+  // 最终成绩 : 平时成绩 + 期末成绩
+  
+  // 怎么登记平时成绩
+  
+  // 柯里化
+  // let summer = sum.bind(null, 45)
+  // console.log(summer(46))
+
+</script>
+</body>
+</html>
