@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div class="box"></div>
+<script>
+  /**
+   * 做动画的 时间间隔
+   *    和 显示器刷新频率有关  60hz 120hz
+   *    60hz 1000ms 显示 60 个连续的状态
+   *
+   *    1000 / 60
+   *
+   */
+  
+  
+  let x = 0 // 表示向右的偏移量
+  let box = document.querySelector(".box")
+  // 只要这个函数执行, 就会实时渲染 盒子的位子
+  function render(){
+    box.style.transform = `translateX(${x}px)`
+  }
+  
+  // x 变成 300 了 就反弹回去
+  // x 变成 0   了 就弹回来
+  let v = 5
+  setInterval(function () {
+    // 修改状态
+    x += v
+    
+    if(x >= 300){
+      v = -5
+    }
+    if(x <= 0){
+      v = 5
+    }
+    
+    // 实时渲染
+    render()
+  }, 1000 / 60)
+  
+  
+  
+</script>
+</body>
+</html>

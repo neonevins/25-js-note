@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="btn1">按钮</div>
+<div class="btn2">停!</div>
+<script>
+  /**
+   * JS运行机制: 代码是怎么执行的 执行顺序是什么 ?
+   *  按顺序 从上往下执行
+   *  但凡上面的代码没有执行完, 下面的代码不能执行
+   *
+   * 同步代码: 按顺序依次执行(几乎所有的代码都是同步代码)
+   *
+   * 当同步代码没有执行完成的时候, 执行任何操作都是无效的, 必须要等同步代码执行完
+   *
+   * 异步代码: 执行是完全脱离同步代码的范围, 单独执行的
+   *  只有几种:
+   *    事件也是异步代码
+   *    定时器: 规定了某一个时刻之后再去执行的代码, 定时器
+   *      规定某段时间之后执行 setTimeout
+   *        需要等待执行的代码内容 回调函数
+   *        等待时间: 时间单位(毫秒): 1000ms === 1s
+   *    setTimeout执行之后返回 定时器的编号 就是一个数字
+   *
+   *  同步代码 和 异步代码 关系:
+   *    JS执行永远是 同步代码执行完 异步代码执行
+   *
+   *    异步代码存放的位置:
+   *      调用栈中: 看成两个队伍
+   *
+   *  异步代码 的特点:
+   *    1. 完全不阻塞 页面的渲染 和 JS 代码的执行
+   *    2. 可以修改代码的执行顺序, 形成优先顺序
+   *
+   *
+   *
+   *  定时器的清除:
+   *    clearTimeout()
+   *
+   *    接受一个参数: 定时器的 编号
+   *
+   */
+  
+  // let btn1 = document.querySelector(".btn1")
+  // let btn2 = document.querySelector(".btn2")
+  // let timer = null // 初始一个不存在null的编号
+  // btn1.onclick = function () {
+  //   console.log("炸弹被激活, 5s 之后 爆炸")
+  //   timer = setTimeout(function () {
+  //     console.log("boom")
+  //   }, 5000)
+  // }
+  //
+  // btn2.onclick = function () {
+  //   console.log("炸弹已清除")
+  //   clearTimeout(timer)
+  // }
+  //
+  
+  
+  
+  
+  // 经典的 定时器的面试题: 使用for循环实现 每隔一秒 打印数组里面的每一项
+  
+  // let arr = [1, 2, 3, 4]
+  //
+  // for (var i = 0; i < arr.length; i++) {
+  //   setTimeout((function (i) {
+  //     return function () {
+  //       console.log(arr[i])
+  //     }
+  //   })(i), 1000 * i + 1000)
+  // }
+  //
+  // 1. 让 arr[i] 能正确访问
+  // 2. 让 打印顺序 能正确符合要求
+  
+  
+  
+  
+  // setTimeout(function () {
+  //   console.log("第一段执行")
+  // }, 1000)
+  //
+  // setTimeout(function () {
+  //   console.log("第二段执行")
+  // }, 500)
+  
+  
+  
+
+  // setTimeout(function () {
+  //   alert("请注册")
+  // }, 1000 * 10)
+
+  // setTimeout(function(){
+  //   console.log(arguments)
+  // }, 0)
+  // for (let i = 0; i < 1000000000; i++) {
+  //
+  // }
+  // console.log("同步代码最后一句")
+  
+  
+  // console.log(1)
+  
+  
+  
+  // let div = document.querySelector("div")
+  // div.onclick = function () {
+  //   console.log("点击了")
+  // }
+  // console.log("执行")
+  //
+  // for (let i = 0; i < 1000000000; i++) {
+  //
+  // }
+  // console.log(2)
+</script>
+
+</body>
+</html>
