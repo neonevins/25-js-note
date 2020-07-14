@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .lunbo{
+      margin: 100px auto;
+      width: 400px;
+      height: 300px;
+      background-color: #ccc;
+      overflow: hidden;
+    }
+    .lunbo .list{
+      transition-duration: .8s;
+    }
+    .lunbo li, .lunbo li img{
+      float: left;
+      width: 400px;
+      height: 300px;
+    }
+    .btns{
+      position: absolute;
+      width: 400px;
+      height: 300px;
+      z-index: 10;
+    }
+    .btns div{
+      position: absolute;
+      width: 50px;
+      height: 30px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      font-size: 30px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+    }
+    .btns .left{
+      left: 0;
+      text-align: left;
+    }
+    .btns .right{
+      right: 0;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+<div class="lunbo">
+  <div class="btns">
+    <div class="left"> < </div>
+    <div class="right"> > </div>
+  </div>
+  <ul class="list"></ul>
+</div>
+<script>
+  /**
+   * 轮播图设计思想
+   *    页面中的一个有限区域, 展示多个图片,广告的 效果
+   *    html + css 写过
+   *    在这个基础之上 实现 自动播放 等效果
+   */
+  /**
+   * 1. 写布局
+   */
+  /**
+   * 2. 调整位置
+   *  调整 ul 的位置 (relative left / translateX)
+   */
+  
+  // 根据数据渲染内容
+    
+    // 1. 先向后台请求数据, 根据数据生成页面, 并且这个页面还能满足下面的逻辑
+    
+    // 描述后台返回的数据
+  let imgList = [
+    "./imgs/1.png",
+    "./imgs/2.jpg",
+    "./imgs/3.jpg",
+    "./imgs/1.png",
+    "./imgs/2.jpg",
+    "./imgs/3.jpg",
+  ]
+  
+  // 描述 整个轮播的状态
+  let lunbo = {
+    length: imgList.length,
+    el: document.querySelector(".list"),
+    // 表示当前显示的是第几张
+    current: 0,
+    changeState: function(){
+    
+    },
+    init: function () {
+      let str = ""
+      imgList.forEach(img => {
+        str += `<li><img src="${img}" alt=""></li>`
+      })
+      this.el.style.width = `${400 * this.length}px`
+      this.el.innerHTML = str
+    },
+    register: function(){
+      let leftBtn = document.querySelector(".left")
+      let rightBtn = document.querySelector(".right")
+      leftBtn.onclick = () => {
+        // 修改状态 需要判断边界的
+        this.current++
+        if(this.current >= this.length){ // 这里能保证所有的图片都会渲染出来
+          this.current = this.length - 1
+        }
+        // 渲染状态
+        this.el.style.transform = `translateX(${-400 * this.current}px)`
+      }
+      rightBtn.onclick = () => {
+        // 修改状态
+        this.current--
+        if(this.current < 0){
+          this.current = 0
+        }
+        // 渲染状态
+        this.el.style.transform = `translateX(${-400 * this.current}px)`
+      }
+    }
+  }
+
+  lunbo.init()
+  lunbo.register()
+  
+  
+  // 初始化页面
+  // function init({ul}){
+  //   let str = ""
+  //   imgList.forEach(img => {
+  //     str += `<li><img src="${img}" alt=""></li>`
+  //   })
+  //   ul.style.width = `${400 * length}px`
+  //   ul.innerHTML = str
+  // }
+  
+  // init(state) // 初始化页面布局
+  // register(state) // 注册页面事件
+  // 注册 点击事件
+  // function register({current, el}){
+  //   let leftBtn = document.querySelector(".left")
+  //   let rightBtn = document.querySelector(".right")
+  //   leftBtn.onclick = function(){
+  //     // 修改状态 需要判断边界的
+  //     current++
+  //     if(current >= length){ // 这里能保证所有的图片都会渲染出来
+  //       current = length - 1
+  //     }
+  //     // 渲染状态
+  //     el.style.transform = `translateX(${-400 * current}px)`
+  //   }
+  //   rightBtn.onclick = function(){
+  //     // 修改状态
+  //     current--
+  //     if(current < 0){
+  //       current = 0
+  //     }
+  //     // 渲染状态
+  //     el.style.transform = `translateX(${-400 * current}px)`
+  //   }
+  // }
+  
+  // 先实现功能, 再尝试封装
+  
+  //
+  
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 数学对象:
+   *    数学的常量
+   *      E  复利运算
+   *      PI
+   *
+   *    数学的方法
+   *      取整: 四个
+   *
+   *      random 求随机数 (0-1)
+   *
+   *      利用这个方法算其他的随机情况
+   *
+   *
+   */
+  
+  //
+  function coin(){
+    // 1/2
+    return Math.random() < 0.5;
+  }
+  
+  // 色子 1, 2, 3, 4, 5, 6 每次出现的概率是一致的
+  // 进行一些变形:
+  // function shaizi(){
+  //   return Math.ceil(Math.random() * 6)
+  // }
+  // 能不能验算?
+  // 测试次数过少
+  // let result = {
+  //   1: 0,
+  //   2: 0,
+  //   3: 0,
+  //   4: 0,
+  //   5: 0,
+  //   6: 0
+  // }
+  // for (let i = 0; i < 10000000; i++) {
+  //   result[shaizi()]++
+  // }
+  // console.log(result)
+  
+  // 抽奖问题:
+  //    背后存在的内幕.
+  
+  // 六星卡 2% 5星卡 8% 4星卡 40% 3星卡 50%
+  
+  // 按照上述的概率输出 六星卡 五星卡  ...
+  // 分支情况, 保证 只随机一次
+  // function choose(){
+  //   let result = Math.random()
+  //   if(result < 0.02){
+  //     return "六星卡"
+  //   }
+  //   if(result < 0.10){  // 只有 8% 的概率
+  //     return "五星卡"
+  //   }
+  //   if(result < 0.5){
+  //     return "四星卡"
+  //   }
+  //   return "三星卡" // 这里是百分百吗? 50%
+  // }
+  //
+  // let result = {
+  //   六星卡: 0,
+  //   五星卡: 0,
+  //   四星卡: 0,
+  //   三星卡: 0
+  // }
+  // for (let i = 0; i < 100; i++) {
+  //   result[choose()]++
+  // }
+  
+  // 作业:
+  // 1. getNum  传入两个数: 返回两个数之间的随机整数
+  
+  function getNum(num1, num2){
+    // infinity
+    
+    // num1不是有限 或者 num2 不是有限 直接返回NaN
+    if(!isFinite(num1) || !isFinite(num2)) return NaN
+    // 排除了很多不确定因素
+    let min = Math.ceil(Math.min(num1, num2)) // 易读
+    let max = Math.floor(Math.max(num1, num2))
+    // if(max === min) return max // 两边的范围缩小到同一点
+    
+    // max > min 的情况
+    // 确定随机范围 (max - min + 1) 范围
+    let range = max - min + 1
+    // 范围随机数, 可以是小数
+    let randomNum = range * Math.random()
+    // 取整, 调整位置
+    return Math.floor(randomNum) + min
+  }
+  
+  // 2 - 5 4个结果 差值是3
+  
+
+
+</script>
+</body>
+</html>
