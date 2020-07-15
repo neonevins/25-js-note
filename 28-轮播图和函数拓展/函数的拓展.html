@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 1. 递归函数:
+   *    递归: 每次递出去都要拿回来
+   *      将一个复杂问题 分解成几个简单的问题, 然后重复下去并解决掉
+   *
+   *      1. 问题抽象成为递归的问题
+   *
+   *      2. 写出函数解决它
+   */
+  
+  // 1 + 2 + 3 + ... + 100
+  // 实现一个函数 sum(n) 返回 1+2+3+...+n 的 和
+  
+  // 1. sum(1) = 1
+  
+  // 2. sum(n) = 1 + 2 + 3 + ...+ (n-1) + n
+  
+  // 3. sum(n-1) = 1 + 2 + 3 + ... + (n-1)
+  
+  // sum(n) = sum(n-1) + n
+  
+  // function sum(n){
+  //   if(n === 1) return 1
+  //   return sum(n-1) + n
+  // }
+
+  /**
+   * sum(4) = ((sum(1) + 2) + 3) + 4
+   *
+   */
+  
+  // 1^5 + 2^5 + ... + n^5
+  
+  // sum2(n) 表示 上述的 和 请实现这个函数
+
+  /**
+   * 1. sum2(1) = 1
+   *
+   * 2. sum2(n) = sum2(n-1) + Math.pow(n, 5)
+   *
+   */
+  
+  function sum2(n){
+    if(n === 1) return 1
+    return sum2(n-1) + Math.pow(n, 5)
+  }
+  
+  sum2(10) // 220825
+  
+  let s = new Array(10).fill(0).map((i,j)=>(j+1)**5).reduce((t, c)=> t + c) // 220825
+  
+  // 求阶乘  f(n) = 1*2*3*..*n
+
+  /**
+   * f(1) = 1
+   * f(n) = fn(n-1)*n
+   *
+   */
+  
+  // function factorial(n){
+  //   if(n === 1) return 1
+  //   return n * factorial(n-1)
+  // }
+
+  /**
+   * 斐波拉契 的第 n 项
+   *   斐波拉契数列 任意一项都是相邻前两项的和
+   *   1 1 2 3 5 8 13 21 ...
+   *
+   *   假设 f(n) 表示 第n项的值
+   */
+  /**
+   * f(1) = 1
+   * f(2) = 1
+   *
+   * f(n) = f(n-1) + f(n-2)
+   *
+   * 递归没有记忆 那么 他 将消耗很多时间来算结果
+   *
+   */
+  // 表示之前算的结果存储到这里
+  // let list = {}
+  // function f(n){
+  //   // 已经算出来的 就直接查表
+  //   if(list[n]) return list[n]
+  //
+  //   if(n < 3) {
+  //     list[n] = 1
+  //     return list[n]
+  //   }
+  //   list[n] = f(n - 1) + f(n - 2)
+  //   return list[n]//
+  // }
+
+  /**
+   * 递归作业:
+   *    小明在楼梯第0阶, 现在小明 要上到第 n 阶
+   *
+   *    小明一共有两种上楼梯的方式: 一次 跨 两阶 / 一次 跨 三阶 台阶
+   *
+   *    请设计一个函数 计算 小明 上到 第 n 阶的走法数
+   *
+   *  提示:
+   *    请理解清楚 你设计的函数的意义
+   *    将函数转化成 简单问题
+   *    将最基础的情况(结束条件判断出来)
+   */
+
+  /**
+   * 纯函数:
+   *    函数中的某一种: 有输入 有输出, 中间不会修改任何全局状态 , 纯函数
+   *
+   * 结论: 希望大家多写纯函数.
+   *
+   */
+  
+  // function square(n){
+  //   return n * n
+  // }
+  // let s = square(3)
+  //
+  // let sum = 3
+  //
+  // function add(n){
+  //   sum += n
+  // }
+
+  /**
+   * 偏函数:
+   *    如果一个函数接受若干个参数, 我们可以写成偏函数的形式, 让函数分批次的接受多个参数
+   */
+  
+  // function sum(a, b) {
+  //   return a + b
+  // }
+  // console.log(sum(2, 3))
+
+  // function sum(a){
+  //   return function (b) {
+  //     return a+b
+  //   }
+  // }
+  // sum(2)(3)
+  
+  
+  // let result = function(a){
+  //   return function (b) {
+  //     return a+b
+  //   }
+  // }
+  // setTimeout(function () {
+  //   let a = "第一段的结果"
+  //   result = result(a)
+  // }, Math.random()*1000+500)
+  //
+  // setTimeout(function () {
+  //   let b = "第二段的结果"
+  //   result = result(b)
+  // }, Math.random()*1000+500)
+  
+  
+  // sum(2, 3)
+  
+  // let ss = (...x) => (...y) => (...z) => [...x,...y,...z].reduce((x,y)=>x+y)
+  
+  
+  
+  
+  
+  
+  //
+  // let ss2 = function (x) {
+  //   return function (y) {
+  //     return function (z) {
+  //       return x + y + z
+  //     }
+  //   }
+  // }
+
+
+  /**
+   * 柯里化(currying) 反柯里化
+   *
+   * 节流() 防抖()
+   *
+   *
+   * 提前预习
+   */
+
+
+
+</script>
+</body>
+</html>
