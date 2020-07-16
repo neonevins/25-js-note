@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 上楼梯:
+   *    小明在楼梯第0阶, 现在小明 要上到第 n 阶
+   *
+   *    小明一共有两种上楼梯的方式: 一次 跨 两阶 / 一次 跨 三阶 台阶
+   *
+   *    请设计一个函数 计算 小明 上到 第 n 阶的走法数
+   *
+   *    基本情况:
+   *       n = 5 2->5 3->5
+   *        f(5) = 2
+   *       n = 6 2->4->6 3->6
+   *        f(6) = 2
+   *
+   *       n = 8 是怎么走的?
+   *        只能够从哪个位置走到第8层?
+   *          从第5阶 -> 8
+   *          从第6阶 -> 8
+   *          f(8) = f(5) + f(6)
+   *
+   *       ...
+   *
+   *       f(n) = f(n-2) +f(n-3)
+   *
+   *       f(1) = 0
+   *       f(2) = 1
+   *       f(3) = 1
+   * O(2^N)
+   */
+  let resultMap = []
+  function f(n){
+    if(resultMap[n]) return resultMap[n]
+    if(n <= 1) {
+      resultMap[n] = 0
+      return resultMap[n]
+    }
+    if(n <= 3) {
+      resultMap[n] = 1
+      return resultMap[n]
+    }
+    resultMap[n] = f(n-2) +f(n-3)
+    return resultMap[n]
+  }
+
+
+  /**
+   * 尾递归:
+   *   递归的升级版:
+   *
+   * 普通递归存在的问题:
+   *    调用栈会被保留, 作用域等也会被保留, 内存泄露
+   *    解决:
+   *      直接return 递归函数执行
+   *        内部函数执行的返回结果 和外部函数返回的结果是同一个东西
+   *        所以 浏览器 进行优化
+   *
+   *
+   *    利用参数存储结果, 迭代结果
+   */
+  
+  // function foo(n){
+  //   if(n === 1) return 1
+  //   return n * foo(n-1) // return 的是一个表达式
+  // }
+  
+  // 利用参数存储结果
+
+  // function foo(n, s = 1){ // s 表示最终的结算结果
+  //   if(n === 1) return s
+  //   return foo(n-1, s * n)
+  // }
+
+
+  /**
+   *
+   * 1 1 2 3 5 8 ...
+   */
+  
+  // function ff(n){
+  //   if(n === 1 || n === 2) return 1
+  //   return ff(n-1) + ff(n-2)
+  // }
+  
+  // 不光空间优化 而且时间优化.
+  function ff(n, start = 1, end = 1){
+    if(n === 1) return start
+    if(n === 2) return end
+    return ff(n-1, end, start + end)
+  }
+
+
+  /**
+   * 1. 走楼梯:
+   *  代码,改写成为尾递归的代码.
+   * 2. 汉罗塔
+   *    请用代码实现汉罗塔解法...
+   *    思考清楚汉罗塔的递归解法
+   * 3. 买一个九连环 也可以使用递归解法解决
+   */
+  
+</script>
+</body>
+</html>

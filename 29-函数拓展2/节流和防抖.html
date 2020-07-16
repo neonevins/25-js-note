@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<input type="text">
+
+<button>投票</button>
+<script>
+  /**
+   * 节流和防抖:
+   *   提升性能减小浪费
+   */
+
+  /**
+   * 需求: 关键词搜索
+   *  在input中输入内容的时候会向后台发送请求,返回列表 渲染
+   *
+   *  oninput 在输入的时候 输入事件
+   *
+   *  m e
+   */
+  let input = document.querySelector("input")
+  let timer = null // 防抖操作
+  input.oninput = function(){
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+      // 这里才是发送请求的地方
+      console.log(this.value)
+    }, 1000)
+  }
+  
+  
+
+  /**
+   * 分析一下这个行为:
+   *    霹雳扒拉的输入一段内容: 很快多次执行函数
+   *
+   *    其中只有最后一次是有效的
+   *
+   *  前面的结果过滤掉
+   *
+   *  通过标记 用户输入停止之后才发送请求:
+   *
+   *    多次高频操作, 前面的都忽略, 只保留最后一次结果
+   *
+   *    优点: 减小请求数, 减小 dom操作频率 提升性能
+   *
+   */
+
+  /**
+   *
+   * 节流:
+   *    高频操作:
+   *      不管用户的操作有多频繁, 我们 都 每隔 1s 操作一次
+   *
+   *      只要时间没到 操作就会不生效
+   *
+   */
+  
+  // 每次放一人 每隔 多少时间放一次人
+  let btn = document.querySelector("button")
+  let count = 0
+  ;(function(){
+    let flag = true
+    btn.onclick =  function () {
+      // flag 为 false 就会被拦截
+      if(!flag) return
+      flag = false
+      setTimeout(function () {
+        flag = true
+      }, 1000)
+      console.log(++count)
+    }
+  })()
+  
+
+
+
+</script>
+</body>
+</html>
