@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<input type="text">
+<button>发送</button>
+<script>
+  /**
+   * 正则表达式:
+   *    大小写严格区分的语言
+   *    不是JS独有的内容, 单独的语言 学好了之后
+   *    正确的规则 表达式
+   *
+   *    邮箱 手机号 身份证 等等
+   *
+   *    特点: 写的很少 描述非常强大 非常难读
+   *
+   *    数据类型是什么? 对象 万物皆对象
+   *
+   *    对象的生成方法: new
+   *
+   *    正则表达式的第一种方法: new RegExp
+   *
+   *    正则表达式的第二种写法: //
+   *
+   *        test  测试 字符串中是否有条件的字符
+   *
+   *
+   *        写出正则表达式的时候, 描述的是一段字符串
+   */
+  
+  // let reg = new RegExp("bc") // 匹配字符串中是否有 字母a
+  // let reg = /^银时说/
+  //
+  //   let reg = /很帅$/
+  // let str = "银时说阿飞说: 银时很帅说自己"
+  //
+  // console.log(reg.test(str))
+  
+  // let str = "aa"
+  //
+  // let reg = /^aa$/
+  //
+  // console.log(reg.test(str))
+
+  /**
+   * 深入知识:
+   *    1. 匹配位置: 字符串的开头和结尾
+   *      ^ 匹配开头
+   *      $ 匹配结束
+   */
+
+
+  /**
+   * 选择:
+   *  box fox
+   *
+   *  正则表达式 二选一的情况
+   *  b 或者 是 f
+   *  [] 单个字符的选择
+   *
+   *  [] 中或者的简单写法:
+   *
+   */
+  //
+  // let str = "sjgdhwquygyuwooxahdaw"
+  //
+  // let reg = /[bfo]ox/ //
+  //
+  // console.log(reg.test(str))
+  
+  // 判断一个字符串中是否有 数字 ?
+  
+  // let str = 'asdasd6dasda'
+  // //
+  // let reg = /[0-9]/
+  //
+  // console.log(reg.test(str))
+  
+  // 判断一个字符串中是否有字母:
+  
+  // [0-9]
+  
+  // let reg2 = /[a-zA-Z0-9_.]/
+  
+  // let str = '1728318H2317823'
+  //
+  // console.log(reg2.test(str))
+  
+  // 正则表达式的特殊的符号.
+  /**
+   * 匹配数字:
+   *  \d -> [0-9]
+   *  \s -> 匹配所有的空格缩进换行换页等等...
+   *  \w ->  单个任意普通字符，等价于[0-9A-z_]
+   */
+
+  let reg = /\w/
+  
+  let input = document.querySelector("input")
+  
+  let button = document.querySelector("button")
+  
+  button.onclick = function () {
+    let val = input.value
+    if(!reg.test(val)){
+      console.log("你输入的内容含有非法字符")
+    }
+  }
+  
+  // let str = "ab\n9c"
+  //
+  // console.log(reg.test(str))
+
+
+</script>
+</body>
+</html>
