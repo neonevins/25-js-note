@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<input type="text">
+<p class="result"></p>
+<script>
+  // console.log("<\/script>")
+  /**
+   * 正则表达式(对象): (不限于JS 其他语言都是通用)
+   *    描述(字符串排列,包含,等特点)规则的表达式
+   *    节省很多时间, 代码 写出规则:
+   *      验证手机号码, 邮箱, 密码, 邮编
+   *
+   *     介绍正则表达式常见的 一些 符号 位置 个数 顺序 ... 特殊符号的简写啊...
+   *
+   *     背诵少, 学习的特点写法, 有这个东西, 百度
+   *
+   *    语法:
+   *      1. 生成
+   *        new RegExp(正则表达式的描述) 可以动态拼接,生成的正则表达式
+   *        /正则表达式的描述/  死的正则表达式(不会改变的)
+   *
+   *
+   *      2. 方法:
+   *        正则表达式
+   *          .test
+   *            判断 传入的字符串是否满足正则表达式
+   *              返回: true/false ...
+   *          .exec
+   *            匹配 结果, 将结果的详细信息返回出来, (可以迭代的)
+   *
+   *
+   *       3. 语法的特点:
+   *          ^a 匹配位置 a必须在字符串最开始的位置
+   *
+   *          a$ 匹配位置 a必须要在字符串的结束的位置
+   *
+   *          [abc] 选择某一个匹配 a 或者 b 或者 c
+   *
+   *          [^abc] 只要匹配到 a b c 之外的任意字符就匹配成功了
+   *
+   *          [0-9]  - 表示范围
+   *
+   *          简写:
+   *              [0-9]  <-> \d
+   *              [^0-9] <-> \D 匹配任意一个非数字
+   *
+   *              [0-9a-zA-Z_]  <-> \w
+   *              [^0-9a-zA-Z_] <-> \W
+   *
+   *              任意空格(空格 换行符 缩进 换页) \s
+   *              匹配任意一个非空格   \S
+   *
+   *
+   *
+   *   字符串 还是 正则表达式中 都有特殊的符号:
+   *      \  反斜杠: 转义: 转成另外的一个含义
+   *        只会讲后续紧挨着的一个字符转义
+   *        有特殊含义 -> 无特殊含义
+   *        无特殊含义 -> 有特殊含义
+   *        转不了就直接消失
+   *      /  斜杠
+   *
+   *      "\\\\"
+   */
+  // let reg = new RegExp("a" + "b")
+  
+  // console.log("\/\/")
+  
+  // let reg = /^a\|a$/ // "aba"
+
+
+  // let reg = /[^a-z]/   // 只要找到一个非 a-z的字符就匹配成功了
+  // let reg2 = /^[a-z]/  // a-z任意一个字符串出现在字符串的最开始位置
+  // let reg3 = /^[^a-z]/ // 任意非 a-z 的字符出现在字符串开头位置,就会匹配
+    
+    
+    let reg = /\d/
+
+
+  let input = document.querySelector("input")
+  let p = document.querySelector("p")
+  
+  input.oninput = function () {
+    let str = input.value
+    if(reg.test(str)){
+      p.innerHTML = "你的字符串中含有关键词"
+    }else{
+      p.innerHTML = "失败"
+    }
+  }
+
+
+  /**
+   * 节流防抖作业:
+   *    封装节流函数: (均匀间隔执行)
+   *      throttle
+   *      fn 原始函数
+   *      let f = throttle(fn, 1000)
+   *      f 不停执行
+   *      对应 fn 均匀间隔执行
+   *
+   *    封装防抖函数: (执行完成停止一段时间真正执行)
+   *      debounce
+   *      fn 原始函数
+   *      let f = debounce(fn, 1000)
+   *      f 不停执行
+   *      对应到的 fn 只有等 f 执行完成之后 隔了一秒才执行
+   *
+   */
+
+
+</script>
+</body>
+</html>

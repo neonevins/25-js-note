@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 正则表达式的的方法: 匹配第一个满足条件的字符
+   *
+   *    正则表达式是一个有状态的对象, 匹配结果会记录位置
+   *
+   *    exec方法
+   *      匹配 结果, 将结果的详细信息返回出来, (可以迭代的)
+   *      匹配到 返回数组 (详细信息)
+   *      匹配不到 返回null
+   *
+   *    正则表达式的描述
+   *      /描述/
+   *    正则表达式的匹配模式 (注意的点: 不区分大小写(i), 区分换行(m), 是否全局匹配(g))
+   *      /描述/匹配模式
+   *          区分大小写: i
+   *
+   *          区分换行 m 运行换行之后按照全新的方式匹配
+   *
+   *          全局匹配 g
+   *            一直匹配下去直到结束
+   *
+   *     任意字符:
+   *        . 表示任意字符(包含空格的字符)
+   *
+   *     量词:
+   *       描述前面的正则表达式出现的次数
+   *       正则表达式{出现的次数}
+   *       多一个不行, 少一个不行
+   *
+   *       如果多一个 为 false
+   *       少一个 也为false
+   *       刚好5个 true
+   *
+   *       reg.test()
+   */
+  
+  let reg = /(^a|^)a{5}(^a|$)/ // 5个连续的a
+  
+  let str = "aaaaa"
+
+  console.log(reg.exec(str))
+
+  // let str = "abc \nd"
+  //
+  // let reg = /./g
+  //
+  // while(result = reg.exec(str)){
+  //   console.log(result[0])
+  // }
+  
+  
+  
+  // let reg = /ab/g //
+  // let str = "adcbsbadjabsdjabsndasnbde"
+  // // console.log(reg.exec(str))
+  // // console.log(reg.exec(str))
+  // // console.log(reg.exec(str))
+  // // console.log(reg.exec(str))
+  //
+  // while(result = reg.exec(str)){
+  //   console.log(result["index"])
+  // }
+  
+  
+  
+  // let reg = /a/i //
+  // let str = 'Abc'
+  //
+  // console.log(reg.exec(str))
+  // let data = "cb\na"
+  // // let reg = new RegExp(data, "i")
+  // let reg = /^a/m
+  // console.log(reg.exec(data))
+
+
+</script>
+</body>
+</html>
