@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 正则表达式
+   *
+   *    匹配模式
+   *      i: 忽略大小写
+   *      g: 全局匹配
+   *      m: 换行模式
+   *    描述语句
+   *      正常字符
+   *
+   *      范围 选择
+   *      [abc]
+   *      [^abc]
+   *      [a-z]
+   *      \d
+   *      \s
+   *      \w
+   *
+   *      ^ 最开始的位置
+   *      $ 最后的位置
+   *
+   *      . 表示的是任意字符
+   *
+   *      \. 匹配 .
+   *
+   *      量词:
+   *        前面的匹配内容出现了多少次
+   *        如果在量词中写出了范围, 他会尽可能多的匹配结果
+   *          贪婪模式: 尽可能多的匹配内容
+   *          非贪婪模式: 尽可能少的匹配内容 只需要在量词后面加上一个 ?
+   *
+   *
+   *        {2}
+   *
+   *        {2,5} 匹配2次到5次
+   *
+   *        {0,5} 前面匹配0次
+   *
+   *        {a,} 匹配出现a次以及以上
+   *
+   *        {0,} -> *
+   *
+   *        {1,} -> +
+   *
+   *        {0,1} 要么有(匹配一次)要么没有 -> ?
+   *
+   *
+   */
+  
+  // let reg = /ba??c/ // 匹配字符串 a 0次或者1次 尽可能少的匹配到
+  
+  
+  
+  // let str = "cdaaababaab"
+  //
+  // let reg = /ca?/ // 最不济的情况就是匹配 空 ""
+  //
+  // console.log(reg.exec(str))
+  
+  
+  // let str = "<div>div1</div><div>div2</div>"
+  //
+  // // 正则表达式匹配 div标签 怎么写
+  // let reg = /<div>.*?<\/div>/g
+  //
+  // console.log(reg.exec(str))
+  // console.log(reg.exec(str))
+
+
+  /**
+   *  () 分组的意思 打包
+   *
+   *    捕获 匹配到的括号里面的内容
+   *
+   *  正则表达式 可以参与到
+   *    match   匹配
+   *      字符串方法: 从字符串中匹配出传入的内容
+   *    replace 替换
+   *      替换操作:
+   *        匹配内容:
+   *        替换值
+   *    的操作中
+   *
+   */
+  
+  // let str = "2222-7-21"
+
+  // console.log(str.match(/\d{4}/))
+
+  // 将连续出现的数字替换成为 两个??
+  // console.log(str.replace(/\d+/g, "??"))
+
+  // let str = "银时银时银时银时银时"
+  //
+  // let reg = /(银时){5}/ //
+  //
+  // console.log(reg.exec(str))
+  
+  // function replaceAll(str, key, value){ // str 原字符串 key 查询值 value 替换值
+  //   let reg = new RegExp(key, "g")
+  //   return str.replace(reg, value)
+  // }
+  //
+  // let str = "银时银时银时银时银时"
+  //
+  // console.log(replaceAll(str, "银时", "小飞"))
+  
+  // let str = "2020-07-21"
+  
+  // 匹配年月日
+  // let reg = /(\d*)-(\d*)-(\d*)/
+  
+  // 使用replace 将 字符串 改写成为 月-日-年 的模式
+  
+  // 在 replace方法中 替换内容(第二个参数) 可以使用 $1 $2 ... 表示捕获的内容
+  // console.log(str.replace(reg, "$3/$2/$1"))
+  
+  // 命名捕获组
+
+  // let reg = /(?<years>\d*)-(?<month>\d*)-(?<day>\d*)/
+
+  // let reg = /(?<year>\d*)-(\d*)-(\d*)/
+  // // console.log(str.replace(reg, "$<month>/$<years>/$<day>"))
+  //
+  // console.log(reg.exec(str))
+
+
+  /**
+   * 断言: 非捕获
+   *    推断预测
+   *    (?) 写到括号的一开始 表示 断言
+   *
+   *    (?<=x)y 前置肯定断言 y前面一定要是x, 但是x 不需要捕获
+   *
+   *     y(?=x)  后置肯定断言 y后面一定要是x, 但是x 不需要捕获
+   *
+   */
+  
+  // 匹配 a数字c 这个整体
+  let reg = /(?<=a)\d(?=c)/g
+  
+  let str = "a4ca6cd5f"
+
+  console.log(str.match(reg))
+  
+  // 匹配前面是a并且后面是c的中间的那个数字
+  
+  // 前面是a 后面是c 相当于匹配条件, 条件需要写出来, 但是条件不会捕获到结果中
+  
+  
+  let str2 = "文件:阿飞.mp4;文件:万章.mp4;文件:云牧.avi"
+  
+  // 获取所有的 .mp4的文件的文件名
+  
+  let reg2 = /(?<=文件:).*?(?=\.mp4)/ig
+
+  console.log(str2.match(reg2))
+
+
+  /**
+   *  等号改成! 变成否定的意思
+   *  前置否定断言:
+   *      (?<!x)y  y前面不是x 就匹配y
+   *
+   *  后置否定断言
+   *      y(?!x)   y后面不是x 就匹配y
+   */
+
+  /**
+   * 布置一下阅读作业:
+   *     多去查询一些常见的正则表达式, 然后抄下来.
+   *
+   *     
+   */
+
+</script>
+</body>
+</html>
