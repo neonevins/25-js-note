@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<button>按钮</button>
+<script>
+  /**
+   * 节流 封装 防抖 封装
+   *
+   *
+   *  节流: throttle 定时放人
+   *    改装一个函数:
+   *      改装完成的函数在调用的时候 具有节流特点
+   *      throttle(fn, delay)
+   *
+   *  防抖: debounce
+   *
+   */
+  
+  let button = document.querySelector("button")
+  
+  function throttle(fn, delay){
+    let flag = true // 允许执行
+    return function () {
+      if(!flag) return
+      flag = false
+      setTimeout(() => flag = true, delay)
+      fn()
+    }
+  }
+  //
+  // function run(){
+  //   console.log("这个run执行了")
+  // }
+  //
+  // let f = throttle(run, 3000)
+  //
+  // button.onclick = f
+
+
+  /**
+   * 防抖:
+   *    debounce(fn, delay)
+   *      返回 函数
+   *
+   */
+  
+  function debounce(fn, delay){
+    let timer = null
+    return function () {
+      clearTimeout(timer)
+      timer = setTimeout(fn, delay)
+    }
+  }
+  
+  function say(){
+    console.log("run say")
+  }
+  
+  let f = debounce(say, 1000)
+  button.onclick = f
+  
+  
+  let utils = { // 工具的意思
+    debounce,
+    throttle
+  }
+
+</script>
+</body>
+</html>

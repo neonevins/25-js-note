@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<ul>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
+<script>
+  /**
+   * 面向对象:
+   *    1. 介绍 函数 和 对象 之间的关系
+   *    2. 原型 和 原型链
+   *    3. 对象的继承方法
+   *
+   *    1. 什么是函数? 函数有什么用?
+   *      作用1: 整合封装代码方法, 让调用更加清晰
+   *      作用2: 用来生成对象.
+   *
+   *   任何对象都是由构造函数生成的. 这样的函数是构造函数.
+   *      1. 构造函数 和 普通函数(function ..)有啥区别
+   *         没啥区别. 只是使用方式的区别
+   *      2. 构造函数 是 怎么生成对象的
+   *        通过 new 函数() 方式 就可以生成对象
+   *
+   *   约定俗称的 共识: 构造函数 首字母 大写
+   *
+   *   万物皆对象: 任何数据类型 都是由 构造函数生成的
+   *    (除了 undefined 和 null 是由开发JS的那门语言规定的)
+   *
+   *    构造函数非常厉害 生成对象
+   *
+   *    构造函数 (前辈)  实例对象 (后辈)
+   *        血肉相连 => 基因相连
+   *
+   *     构造函数在生成对象的时候可以 对 对象进行一些设置
+   *        在构造函数中设置this就直接影响生成的对象
+   *
+   *    什么叫对象的基因 ??
+   *      数组 类数组
+   *
+   *
+   *
+   */
+  
+  // let arr = [1, 2, 3]
+  // let liList = document.querySelectorAll("li")
+  
+  
+  // function Foo(){
+  //   this.name = "张三"
+  //   // var b = 3
+  // }
+  //
+  //
+  // let obj = new Foo()
+  // let obj2 = new Foo()
+  
+  
+  // let obj = {} // 包装对象 和 字面量  {} 其实是一个 语法糖
+  //
+  // let num = 3 //
+  
+  // function foo(){
+  //
+  // }
+  
+  // foo() // 普通函数
+  //
+  // new foo() // 构造函数
+
+
+  /**
+   * 对象访问属性是怎么访问的?
+   *   1. 看对象内部有没有这个方法?
+   *   2. 如果没有这个方法, 就去原型中寻找
+   *
+   *   任何对象 都有一个 __proto__ 的属性, 这个属性就是对象的基因, 管这条属性叫 隐式原型
+   *
+   *   这个隐式原型 是从哪里来的 ??
+   *
+   *   constructor 构造者 构造器
+   *
+   *
+   * 任何函数都有一条属性 .prototype 他是这个函数在实例对象的时候 传递的基因
+   *
+   *
+   * 构造函数.prototype === 实例对象.__proto__
+   *
+   *
+   *
+   */
+  // function Foo(){}
+  // // Foo.prototype 一个对象A
+  //
+  // let obj = new Foo()
+  // Foo.prototype.say = "hello"
+  // console.log(obj.say)
+
+  // console.log(obj.constructor)  // obj对象的构造者 返回 Foo 函数
+  
+  // let arr = []
+  //
+  // let Foo = function () {
+  //
+  // }
+  //
+  // for (let i = 0; i < 3000000; i++) {
+  //   arr.push(new Foo())
+  // }
+  //
+  // Foo.prototype.state = "交流过了"
+  
+  // 需要给 arr每个对象都添加一个 属性: state: "交流过了"
+  
+  
+  // arr.forEach(obj => obj.state = "交流过了")
+
+
+  /**
+   * 为什么一个是数组 一个不是数组
+   *    看这两个东西是由什么构造函数生成的
+   *
+   * 什么东西是真正的数组?
+   *    由 Array 构造函数实例出来的才是数组
+   *
+   */
+
+  // let arr = [1, 2, 3]
+  // let liList = document.querySelectorAll("li")
+  //
+  // console.log(arr.constructor)
+  //
+  // console.log(liList.constructor)
+  //
+  // // 自己封装 myReduce .........
+  //
+  // // 怎么样给所有的数组都添加一个公共方法
+  //
+  // Array.prototype.myReduce = function () {
+  //   console.log("myReduce执行")
+  // }
+  
+  
+  // 给任意一个对象添加一个说话的功能 说 "银时牛逼"
+  
+  Object.prototype.say = function () {
+    console.log("银时牛逼")
+  }
+
+
+  /**
+   * 请尝试 封装一下 myNew函数
+   *
+   * myNew(fn)
+   *
+   * // 返回一个实例对象
+   *
+   * 
+   */
+
+
+</script>
+</body>
+</html>
