@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<ul>
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+<script>
+  /**
+   * 构造函数: 普通函数相似 this 执行方法new, 生成对象
+   *
+   * 实例对象: 由构造函数生成的对象
+   *
+   * 原型:
+   *    函数的原型: 任何函数都有prototype属性: 函数用来实例对象, 讲原型添加到对象中
+   *
+   *    对象的隐式原型: 任何的对象都有 __proto__ 属性, 对象的特点类别的信息载体
+   *
+   *    对象访问属性的流程: 对象身上找, 隐式原型中找 ...
+   */
+  
+  function Foo(){
+  
+  }
+  
+  // 1. Foo.prototype 存在吗? 存在
+  // console.log(Foo.prototype)
+  
+  // 2. Foo.__proto__ 存在吗? 存在
+  // console.log(Foo.__proto__)
+  
+  // 3. Foo.prototype 和 Foo.__proto__ 有啥区别?
+  /**
+   * Foo.prototype 是 Foo作为 构造函数的基因 传递给 实例对象
+   *
+   * Foo.__proto__ 是 Foo作为 对象 而从 他的母亲中继承的 属性
+   *
+   * Foo 的构造函数是什么?
+   */
+
+  /**
+   * 函数的构造函数是什么? 谁创建了这个函数?
+   *
+   * 任何函数都是由同一个构造函数( Function )生成出来的
+   */
+  //
+  // function Foo2(){}
+  //
+  // // console.log(Foo.constructor === Function)
+  // // console.dir 通过目录结构展开一个对象
+  // console.dir(Function.prototype)
+  //
+  // // console.log(Foo.call, Foo2.call)
+  //
+  // Function.prototype.myMethod = function () {
+  //   console.log("run method")
+  // }
+  
+  // Array.prototype.foo = function () {
+  //   console.log(this) // 会指向实例对象
+  // }
+  // // Array.prototype.foo() // this -> Array.prototype
+  //
+  // let arr = []
+  // arr.foo() // this ->
+  
+  
+  // 按找 reduce 功能设计 翻版自己生成 myReduce
+  
+  // 原型开发, 相当于自己设计想要的 调用方式一样的功能
+  
+  // let arr = [1, 2, 3, 4]
+  
+  
+  // Array.prototype.myReduce = function(){} // 在原型中添加一个属性
+  
+  // Array.prototype = { // 重新用一个对象表示原型
+  //   myReduce(){
+  //
+  //   }
+  // }
+  //
+  // let arr2 = new Array(1, 2, 3, 4)
+  
+  // arr.myReduce((total, item) => item + total)
+  
+  
+  // 自己添加 myReduce 方法
+  
+  // Array.prototype.myReduce = function (cb, total) {
+  //   let result = this[0] // 会指向实例对象(数组)
+  //   let length = this.length
+  //   let start = 1
+  //   if(arguments.length >= 2){
+  //     result = total
+  //     start = 0
+  //   }
+  //   for (let i = start; i < length; i++) {
+  //     result = cb(result, this[i], i, this)
+  //   }
+  //   return result
+  // }
+  //
+  // let arr = [1, 2, 3]
+  
+  // arr.reduce(callback, inital)
+  
+  // arr.myReduce(function () {
+  //
+  // })
+
+  // console.log(arr.reduce((t, i) => t + i, ""))
+  // console.log(arr.myReduce((t, i) => t + i, ""))
+
+
+  /**
+   * 请使用原型的方式:
+   *  自己封装: forEach filter map every some ... push pop
+   *   shift unshift ...
+   */
+  
+  // Object  Function  window 之间的关系
+
+  /**
+   * window 是最小的, window 是不是对象?
+   *
+   *   Function 和 Object 之间的关系
+   *
+   *   任何对象都是 由 Object 创建出来的
+   *
+   *   任何函数都是 由 Function 创建出来的
+   *
+   *
+   *   Function 是 由 Function 创建出来的 //
+   *
+   *
+   *   Object.prototype 才是基因的源泉
+   *
+   *
+   *   Object.prototype.__proto__ 是(对象访问属性的)原型链的重点
+   *
+   *    万事万物皆对象, 万事万物访问属性的时候都会访问到 Object.prototype中
+   *
+   *    原型链: 对象访问属性, 访问不到 __proto__ 访问 还是不行 __proto__.__proto__ 中
+   *      ... .. .....
+   *
+   *  任何对象都有 toString 方法
+   *
+   *
+   *  Object.prototype.toString 是不是适用所有的数据类型?
+   *    可以将任意的数据类型传进去, 内部是使用了 this 选择调用主体的
+   *
+   *
+   *    鉴别所有数据类型的万能方法.
+   *
+   *    用同一个toString调用 返回的数据结构描述一致
+   *
+   */
+
+  // console.log(Function.constructor === Function)
+  //
+  // console.log(Function.prototype === Function.__proto__) // true
+  //
+  // console.log(Function.prototype === Object.__proto__) // true
+  //
+  //
+  // console.log(3..toString === Object.prototype.toString)
+  
+  function type(value){
+    return ({}).toString.call(value).slice(8, -1).toLowerCase()
+  }
+  
+  // console.log(Object.prototype.toString.call(3))
+  // console.log(Object.prototype.toString.call("3"))
+  // console.log(Object.prototype.toString.call(true))
+  // console.log(Object.prototype.toString.call(undefined))
+  // console.log(Object.prototype.toString.call(null))
+  // console.log(Object.prototype.toString.call(function(){}))
+  // console.log(Object.prototype.toString.call(/asd/))
+  // console.log(Object.prototype.toString.call({}))
+  // console.log(Object.prototype.toString.call([]))
+  // console.log(Object.prototype.toString.call(document.querySelectorAll("body")))
+
+  // let liList = document.querySelectorAll("li")
+  //
+  // NodeList.prototype.reduce = Array.prototype.reduce //
+  //
+  // console.log(liList.reduce((t, i) => t + i.innerHTML,""))
+
+
+  /**
+   * 通过 call 方法 实现 myBind 方法 myBind 需要添加到所有函数中
+   */
+
+  /**
+   * 造100个人
+   */
+
+  function Person(){
+    this.name = "张三"
+    this.age = Math.floor(Math.random()*10) + 10
+    // this.say = function () {
+    //   console.log(`我是${this.name}`)
+    // }
+  }
+  
+  Person.prototype.say = function(){ // 不管在构造函数中还是在原型中, 所有的this都指向 实例对象
+    console.log(`我是${this.age}`)
+  }
+  
+  
+  let arr = []
+  for (let i = 0; i < 100; i++) {
+    arr.push(new Person())
+  }
+  
+  // ... 改装
+
+  /**
+   * 面向对象: 是一种思想: 编排对象, 通过构造者控制,
+   *
+   *    实际代码中只需要给对象下达 指令 就行了
+   *
+   *    vue/react/ng 都是在这样的模型下面 开发
+   *
+   *    class 对象 继承关系
+   *
+   */
+
+
+  /**
+   * new 的 封装
+   */
+
+
+</script>
+</body>
+</html>
