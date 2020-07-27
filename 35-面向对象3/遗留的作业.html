@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 数组方法的封装 reduce map filter every some forEach ...
+   *
+   * map filter
+   *
+   * 后续的其他方法 都是一样的
+   *
+   */
+  Array.prototype.myMap = function (cb) {
+    let result = []
+    for (let i = 0; i < this.length; i++) {
+      result[i] = cb(this[i], i, this)
+    }
+    return result
+  }
+  
+  Array.prototype.myFilter = function (cb) {
+    let result = []
+    for (let i = 0; i < this.length; i++) {
+      if(cb(this[i], i, this)){
+        result.push(this[i])
+      }
+    }
+    return result
+  }
+
+  /**
+   * 任何数组方法, 都可以最后接受一个额外的参数, this的指向对象, 回调函数调用的时候的this
+   */
+
+  /**
+   * 强行自己手动给字符串添加 forEach 方法
+   */
+  String.prototype.forEach = function (cb) {
+    for (let i = 0; i < this.length; i++) {
+      cb(this[i], i, this)
+    }
+  }
+  
+  // String.prototype.reverse = function () {
+  //   return this.split("").reverse().join("")
+  // }
+
+  // String.prototype.reverse = Array.prototype.reverse
+
+  /**
+   * Javascript 设计理念: 鸭子模型
+   *
+   *    看起来像, 用起来也像的东西, 那么就是通用的
+   *
+   * 什么时候再原型上开发: 一通百通
+   *
+   * 设计构造函数: 构造出来的对象具有什么特点
+   */
+
+  /**
+   * 用 call 方法 实现 bind 方法
+   *
+   *    bind
+   *      1. 函数的方法, Function.prototype 中
+   *        接受一个以上的参数
+   *      2. 返回一个函数 这个函数内部this主体一定是 bind方法执行的时候传入的第一个参数
+   *         这个函数的返回内容和 原函数是一致的
+   *
+   */
+  
+  function foo(a, b, c){
+    console.log(a, b, c)
+    console.log(this)
+    return 1
+  }
+  // let o = {name: "o"}
+  // let f = foo.bind(o, 1, 2)
+  //
+  // f.call(3, 4)
+
+  
+  Function.prototype.myBind = function (obj, ...args1) {
+    // this 是原本的函数
+    // console.log(this)
+    let self = this
+    return function (...args2) {
+      // console.log(this)
+      // console.log(self)
+      return self.call(obj, ...args1,...args2)
+    }
+  }
+  let obj = {name: "obj"}
+  // let f = foo.myBind(obj, 1, 2)
+  
+  Function.prototype.myBind = function(obj, ...args1){
+    return (...args2) => (this.call(obj,...args1,...args2))
+  }
+
+  /**
+   * new 的封装
+   *   操作符:
+   *    new Foo(x, y) 原始写法
+   *      返回一个对象
+   *        对象关联到Foo中的this
+   *        对象的原型在Foo.prototype
+   *
+   *    myNew(Foo, x, y)
+   */
+  
+  // function myNew(Foo, ...arg){
+  //   let result = {}
+  //   result.__proto__ = Foo.prototype // 对 result的原型进行修改,指向正确对的对象
+  //   Foo.apply(result, arg)
+  //   return result
+  // }
+  //
+  // let Foo = function (a) {
+  //   this.a = a
+  // }
+  // Foo.prototype.say = function () {
+  //   console.log(this.a)
+  // }
+  //
+  // let oo = myNew(Foo, 1)
+
+
+
+</script>
+</body>
+</html>

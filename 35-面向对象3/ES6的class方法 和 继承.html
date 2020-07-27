@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * class 关键词
+   *
+   * 相当于 整了一个 叫 Foo 的构造函数
+   *
+   *      class Foo中的内部功能     ->    function Foo
+   *
+   *        constructor 构造器      ->    (){}
+   *
+   */
+  // es6 写法 隐藏了代码内部的一些实现
+  class Foo{
+    constructor(a) {
+      this.a = a
+      this.b = 2
+    }
+    f1(){
+      console.log(this.a)
+    }
+    f2(x){
+      console.log(this.b + x)
+    }
+  }
+  
+  // 等价
+  function _Foo(a){
+    this.a = a
+    this.b = 2
+  }
+  _Foo.prototype.f1 = function () {
+    console.log(this.a)
+  }
+  _Foo.prototype.f2 = function (x) {
+    console.log(this.b + x)
+  }
+  
+  let o1 = new Foo(3)
+  let o2 = new _Foo(3)
+
+
+  /**
+   * 继承.
+   *
+   *    有人这个构造函数 每一个人都有名字
+   *
+   *    有动物这个构造函数 每一个动物都有脉搏
+   *
+   *
+   *    这两个类别有什么关系?
+   *
+   */
+   
+  class Animal{
+    constructor() {
+      this.maibo = true
+      this.sex = "女"
+      this.age = 40
+    }
+    say(){
+      this.age++
+    }
+  }
+
+  class Person extends Animal{
+    constructor() {
+      super() // 但凡要继承,需要执行 super() super 是 父类 的 constructor, 执行相当于添加了属性到子类中
+      this.sex = "男"
+      this.name = "张三"
+      this.age = 20
+      // this.kill()
+    }
+    kill(){
+      console.log(this) // 是构造函数 不是 实例
+      // this.maibo = false
+    }
+  }
+  
+  let person = new Person()
+  console.log(person)
+  // 父类的实例对象改变父类属性(改的是父类new出来的实例) 子类通过继承(父类的构造函数) 也会相应改变 对吗？
+
+
+  /**
+   * 静态方法:
+   *   方法前面添加 static 静态的意思
+   *   不允许实例执行, 可以通过构造函数直接访问
+   *   相当于 static 方法直接给函数添加一个方法属性,而不是在原型(prototype)中添加
+   *
+   *   作用: 一般对构造函数初始化的时候进行修饰, 完完全全是构造函数内部的方法,对外不透明, 非常安全
+   *
+   * 
+   */
+
+
+
+</script>
+</body>
+</html>
