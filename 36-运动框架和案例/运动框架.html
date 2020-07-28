@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-color: #222;
+      overflow: hidden;
+    }
+    .box{
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border: 5px black solid;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+<script>
+  /**
+   * 运动框架
+   *
+   * 流星雨:
+   *    天空出现很多小圆点, 落下来, 消失
+   *
+   *    流星: 元素 节点
+   *
+   *    动画效果: css3 过渡 transition 动画 animation
+   *
+   *    自己去描述运动过程. 运动框架.
+   *
+   *    运动: 一共需要已知几个量?
+   *      1. 初始位置  (必须)
+   *      2. 运动速度(向量) 速度大小+方向
+   *      3. 运动时间
+   *      4. 结束位置
+   *
+   *    通过已知 初始位置(s0) 结束位置(s1) 运动时间(t) 三个量做运动模拟
+   *
+   *    假设 开始运动的时刻 t0
+   *
+   *    请问 我们能不能描述出 任意时间tx的 元素的位置sx
+   *
+   *    就可以描述出元素的运动状态了
+   *
+   *    v = (s1 - s0) / t  // 计算速度的公式
+   *
+   *    sx = s0 + (tx - t0) * v // 根据速度 和 时间差 初始位置 算出 元素真实的位置
+   *
+   *
+   *    假设 定位的方式移动元素 left top
+   *
+   *    向右 x+
+   *    向下 y+
+   *
+   *    所有单位都是px
+   *
+   *    全部归纳到一个对象中呢?
+   *
+   *    构造函数来创建
+   */
+   
+  // let ball = document.querySelector(".box")
+  // // let x = 100
+  // // let y = 200
+  // let startPoint = { // 表示开始位置坐标
+  //   x: 100,
+  //   y: 200
+  // }
+  //
+  // let t = 2000 // ms
+  //
+  // let endPoint = {
+  //   x: 500,
+  //   y: 600
+  // }
+  //
+  // 小球的渲染函数
+  // function render(){
+  //   ball.style.left = startPoint.x + "px"
+  //   ball.style.top = startPoint.y + "px"
+  // }
+    // 随机颜色1
+  // `rgb(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)})`
+    // 随机颜色2
+  // "#" + Math.random().toString(16).slice(2,8)
+
+  /**
+   * setTimeout
+   *
+   * setInterval
+   *
+   * requestAnimationFrame 关键帧回调
+   *    传入一个回调函数, 这个回调函数会在下次页面渲染的时候执行
+   *
+   *    保证 函数执行频率 和 页面刷新频率一致
+   */
+  // let time = new Date()
+  // function run(){
+  //   console.log("running")
+  //   let current = new Date()
+  //   if(current - time > 3 * 1000) return
+  //   requestAnimationFrame(run)
+  // }
+  //
+  // run()
+  
+
+
+  class Ball{
+    constructor(x = 1000, y = 0) {
+      // 创建一个小球
+      this.color = "#" + Math.random().toString(16).slice(2,8)
+      this.ball = Ball.init(this.color)
+      // this.startPoint = { // 表示开始位置坐标
+      //   x: 500 + Math.random() * 1000,
+      //   y: Math.random() * 100
+      // }
+      
+      this.startPoint = {
+        x: x,
+        y: y
+      }
+      
+      // 运动时间
+      this.duration = 2000 * Math.random() + 500
+      this.endPoint = {
+        x: this.startPoint.x - 200 - Math.random()*200,
+        y: Math.random() * 100 + 900
+      }
+      // 当前位置
+      this.currentPoint = {
+        x: this.startPoint.x,
+        y: this.startPoint.y
+      }
+      
+      this.speed = {
+        x: (this.endPoint.x - this.startPoint.x) / this.duration,
+        y: (this.endPoint.y - this.startPoint.y) / this.duration
+      }
+      this.animation = this.animation.bind(this) // react 的 解决方法
+      // 进行第一渲染, 让小球出现在你想要的位置
+      this.render(this.startPoint)
+    }
+    // 静态方法
+    static init(color){
+      let div = document.createElement("div") // 返回 页面 节点
+      div.className = "box"
+      // document.body 页面中的body appendChild(往里面添加一个子元素)
+      div.style.borderColor = color
+      document.body.appendChild(div)
+      return div
+    }
+    // 只要执行就渲染开始位置, 渲染传入什么渲染什么
+    render(point){
+      this.ball.style.left = point.x + "px"
+      this.ball.style.top = point.y + "px"
+    }
+    // 开始运动
+    start(){
+      // 怎么样实现运动效果
+      // 记录开始时间
+      this.startTime = new Date()
+      this.animation()
+    }
+
+    // 记录时间的渲染函数
+    animation(){
+      let current = new Date()
+      if(current - this.startTime > this.duration) {
+        // 清除 这个 小球
+        document.body.removeChild(this.ball)
+        return
+      }
+      // 下面就是 真正运动的 一些描述
+      requestAnimationFrame(this.animation)
+      // 计算当前的位置
+      // sx = s0 + (tx - t0) * v
+      this.currentPoint.x = this.startPoint.x + (current - this.startTime) * this.speed.x
+      this.currentPoint.y = this.startPoint.y + (current - this.startTime) * this.speed.y
+      
+      this.render(this.currentPoint)
+    }
+  }
+  
+  // let ball = new Ball()
+  
+  // ball.start() // 一旦执行animation表示运动开始
+  
+  // let ballList = []
+  // let length = 30
+  //
+  //
+  // setInterval(() => {
+  //   let b = new Ball()
+  //   b.start()  // 开始运动
+  //   b.paused() // 暂停
+  //   b = new Ball()
+  //   b.start()
+  //   b = new Ball()
+  //   b.start()
+  //   b = new Ball()
+  //   b.start()
+  //   b = new Ball()
+  //   b.start()
+  //   b = new Ball()
+  //   b.start()
+  // }, 300)
+  
+  
+  
+  // ballList.forEach(ball => ball.start())
+  
+  // onmousemove 鼠标移动的时候触发函数 鼠标移动事件
+  document.onmousemove = function (e) {
+    // e.clientX, e.clientY 鼠标相对于窗口左上角的位置
+    let b = new Ball(e.clientX, e.clientY)
+    b.start()
+  }
+  
+  
+</script>
+</body>
+</html>
