@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+</head>
+<body>
+<script>
+  /**
+   * es6 的 内容
+   *
+   * Symbol: 基本数据类型之一
+   *
+   * 数值 字符串 布尔 undefined null 对象 Symbol
+   *
+   * Symbol 唯一标识符
+   *    特点: 任何两个Symbol都是不相等的
+   *
+   *    保证我们的值是唯一的
+   *
+   *    可以作为属性名存在: 可以保证属性的私有
+   */
+  const key = CryptoJS.enc.Utf8.parse("asd")
+  
+  // jiami函数 传入相同的key 会得到相同的value
+  function jiami(key){
+    return "value"
+  }
+  
+  
+  
+  function getObj(){
+    let s1 = Symbol("1")
+    let s2 = Symbol("1")
+    let obj = {}
+    obj[s1] = "value"
+    return {
+      obj: obj,
+      getKey: function (key) { // "传入密码"
+        // 加密原理
+        // if(jiami(key) === "hj213hj12h3j2hg34jhg2hj3gjh1g23hj1g23hj"){
+        //   return s1
+        // }
+        // 发送给后台, 后台 帮我判断
+      }
+    }
+  }
+  
+  let o = getObj()
+
+  /**
+   * 一百万人的团队:
+   *    每个人都在给o添加属性删除属性
+   *
+   *    都使用 Symbol
+   *
+   */
+  // 如果访问不了s1这个变量, 能不能访问出 "value" 的值
+
+  /**
+   * Symbol.for
+   *   一个判断
+   *   如果你之前用 Symbol.for 生成过 Symbol,那么下次Symbol.for就会返回第一次生成的Symbol
+   *
+   * Symbol.keyFor
+   */
+  
+  let s0 = Symbol("a") // 绝对唯一的
+  
+  let s1 = Symbol.for("a")
+  
+  let s2 = Symbol.for("a")
+  
+  let s3 = Symbol.for("b")
+  
+  // let s4 = s0 // 赋值
+  //
+  // console.log(s4 === s0)
+  
+  // let key1 = Symbol.keyFor()
+
+  // let ss1 = Symbol.for({}) // 调用.toString() 的方法
+  // let ss2 = Symbol.for({})
+  //
+  // console.log(ss1 === ss2)
+  
+  // Symbol.keyFor 传入一个Symbol(以Symbol.for生成的) 返回 他的 字符串描述
+
+  // console.log(a = Symbol.keyFor(s1))
+  //
+  // let sss = Symbol.for(a)
+  
+  // Symbol 和 Symbol.for 关系: Symbol(绝对防御)  Symbol.for(相对防御)
+
+  /**
+   * 1. 添加属性的时候使用
+   *
+   * 做开发的时候, 比较少 用到 symbol
+   */
+  
+  // class Box{
+  //   constructor() {
+  //     let s = Symbol("asd")
+  //
+  //     this[s] = 1
+  //   }
+  //
+  // }
+  // let b = new Box()
+
+  /**
+   * 什么是Symbol? 有什么用?
+   *  可以生成唯一的值的数据结构, 保证属性的私有性
+   *
+   * 怎么保证属性的私有性?
+   *    1. 用函数的闭包保存私有的变量,变量的值是 Symbol
+   *    2. 返回用Symbol加工过的对象
+   *    3. 通过返回一个函数, 校验使用者是否安全,选择性的返回Symbol
+   *
+   *
+   */
+
+
+</script>
+</body>
+</html>

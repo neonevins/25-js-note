@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * Set 数组的升级版
+   *    是一个叫做集合的全新的数据结构, 集合内部的任何两个值都是不相等的
+   *
+   *    什么是数据结构? 我们学过的数据结构有哪些?
+   *
+   *    数据结构 按照一定的规律 方法 存储起来的 形式 数据结构
+   *
+   *    数组(按顺序排列的数据, 队列 链表)
+   *
+   *    // 运动框架的队列知识
+   *
+   *    对象(简单版的map数据结构)
+   *
+   *    Set 和 Array 数据结构相似
+   *
+   *    属性 size 描述set里面元素的个数
+   *
+   *    Set 添加元素 add 方法
+   *
+   *    Set 删除元素 delete 方法
+   *
+   *    Set 清空所有元素的方法 clear
+   *
+   *    Set 查询是否存在某个元素 has
+   *
+   *    Set 对象的遍历(forEach)和枚举(entries)
+   *
+   *    set对象支持 ...解构
+   *
+   *    枚举(entries)
+   *
+   *    枚举键(keys)
+   *
+   *    枚举值(values)
+   *
+   */
+  
+  let s = new Set([1,2,3,4])
+  // s.delete(5)
+  // s.clear()
+  
+  // s.add(1)
+  // s.add(2)
+  // s.add(2)
+  
+  
+  // 数组去重(去除数组中重复的元素)该怎么操作?
+  
+  // function quchong(arr) {
+  //   let result = []
+  //   arr.forEach(item => {
+  //     if(!result.includes(item)){
+  //       result.push(item)
+  //     }
+  //   })
+  //   return result
+  // }
+  
+  // 用set去重 只需要一行代码
+  
+  function quchong(arr){
+    return [...new Set(arr)]
+  }
+  
+  
+  // 尝试 自己 用 class 方式 封装一个 MySet
+  
+  
+  class MySet{
+    constructor(arr = []) {
+      this.size = arr.length
+    }
+    add(){
+    
+    }
+    delete(){
+    
+    }
+    has(){
+    
+    }
+    clear(){
+    
+    }
+    forEach(){
+    
+    }
+  }
+  
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="box1"></div>
+<div class="box2"></div>
+<script>
+  /**
+   * Map 对象的升级版
+   *   直接将对象和对象关联起来
+   *
+   *   Map的数据结构 属性名 可以是对象 属性值 也可以是对象
+   *
+   * 普通对象的局限性:
+   *    对象 映射关系的集合
+   *      key -> value
+   *
+   *      局限性: key只能是字符串
+   *
+   *
+   *      .set (key, value) 都可以是对象
+   *
+   *
+   *      .get(key) 查询key的值返回value
+   */
+
+  let div1 = document.querySelector(".box1")
+  let div2 = document.querySelector(".box2")
+  
+  
+  let style1 = {
+    width: "300px",
+    height: "200px",
+    background: "red",
+  }
+
+  let style2 = {
+    width: "100px",
+    height: "400px",
+    background: "blue",
+  }
+  
+  let map = new Map()
+  map.set(div1, style1)
+  map.set(div2, style2)
+  
+  
+  // MyMap 构造函数的实现
+  // 自行添加 getFromValue 的方法 (查询value 返回所有的满足条件的 key 形成数组)
+  // 自行添加 deleteFromValue
+  
+  
+  // 我们怎么样实现这个数据结构 ?
+  
+  let arr = [
+    {
+      el: div1,
+      style: style1
+    },
+    {
+      el: div2,
+      style: style2
+    }
+  ]
+  
+  // 1. 通过这个数据结构 查询 div1的样式
+  // let result = null
+  // arr.forEach(obj => {
+  //   if(obj.el === div1){
+  //     result = obj.style
+  //   }
+  // })
+  // 2. 通过这个数据结构 查询 style2对应的元素
+  
+</script>
+</body>
+</html>
