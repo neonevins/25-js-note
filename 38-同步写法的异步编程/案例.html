@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // res rej
+  // 起床 => 刷牙 => 吃饭 => 出门
+  // new Promise(res => {
+  //   setTimeout(() => {
+  //     console.log("起床")
+  //     res()
+  //   }, 1000)
+  // })
+  // .then(()=>
+  //   new Promise(res => {
+  //     setTimeout(() => {
+  //       console.log("上厕所")
+  //       res()
+  //     }, 1000)
+  //   })
+  // )
+  // .then(()=>
+  //    new Promise(res => {
+  //      setTimeout(() => {
+  //        console.log("刷牙")
+  //        res()
+  //      }, 1000)
+  //    })
+  // )
+  // .then(() =>
+  //   new Promise(res => {
+  //     setTimeout(() => {
+  //       console.log("吃饭")
+  //       res()
+  //     }, 1000)
+  //   })
+  // )
+  // .then(() =>
+  //   new Promise(res => {
+  //     setTimeout(() => {
+  //       console.log("出门")
+  //       res()
+  //     }, 1000)
+  //   })
+  // )
+  
+  // 直接返回一个promise对象
+  // function job(type, duration){
+  //   return (s) => new Promise((res, rej) => {
+  //     setTimeout(() => {
+  //       let score = Math.floor(Math.random()*20) + s
+  //       console.log(type, score)
+  //       if(Math.random() < 0){
+  //         rej(type)
+  //       }else{
+  //         res(score) // 触发下次执行的方法
+  //       }
+  //     }, duration)
+  //   })
+  // }
+  //
+  // job("起床", 1000)(0)
+  // .then(job("上厕所", 1000))
+  // .then(job("刷牙", 1000))
+  // .then(job("吃饭", 1000))
+  // .then(job("出门", 1000))
+  // .catch((err)=> {
+  //   console.log("catch error", err)
+  // })
+  // .finally(()=>{ // 成功或者失败都会执行的那个内容
+  //   console.log("不管怎么样, 一切都结束了")
+  // })
+  
+  // promise finally 传参 all race 等操作
+  
+  // 传参的问题
+  
+  
+  // 伪代码
+  
+  // 得到一串: 神秘代码
+  
+  // requet("a")
+  //   .then()
+  //   .then()
+  
+  // 一个人做作业:
+  function doWork(name){
+    return new Promise((done) => {
+      setTimeout(function () {
+        console.log(name, "done")
+        done(name)
+      }, Math.random() * 2000)
+    })
+  }
+  let arr = []
+  for (let i = 0; i < 100; i++) {
+    arr.push(doWork(i))
+  }
+  
+  Promise.all(arr)
+    .then(data => {
+      console.log(data)
+    })
+  // Promise.all 接受一个数组,数组里面 放若干个
+  // then 方法接受的数组 是 原promise对象数组每一个得出的结果
+  // promise对象, 只有所有的promise都resole 才会触发下一步的then
+  
+  
+  // doWork("火锅")
+  // .then( name => {
+  //   console.log(name, "完成了")
+  // })
+  //
+  // doWork("火山")
+  // .then( name => {
+  //   console.log(name, "完成了")
+  // })
+  
+  
+  
+  
+</script>
+</body>
+</html>

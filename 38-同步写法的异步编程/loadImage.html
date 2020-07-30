@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<div class="box"></div>
+<script>
+  let box = document.querySelector(".box")
+  
+  let length = 20
+  let imgArray = []
+  
+  for (let i = 0;i < length;i++){
+    let img = document.createElement("img")
+    img.src = `./img/图片 (${i+1}).jpg`
+    box.appendChild(img)
+    // 循环将20个图片添加到 imgList数组中
+    imgArray.push(img)
+  }
+  // 获取 每个img标签的宽度和高度
+  let promiseArr = []
+  
+  imgArray.forEach((img, index) => {
+    // img 图片已经加载完成, 我才能访问他的真实宽高
+    let p = new Promise(done => {
+      img.onload = function(){
+        done({
+          index,
+          width: img.width,
+          height: img.height
+        })
+      }
+    })
+    promiseArr.push(p)
+  })
+  // Promise.all(promiseArr)
+  //   .then(list => {
+  //     console.log(list)
+  //   })
+
+  Promise.race(promiseArr)
+  .then(list => {
+    console.log(list)
+  })
+  
+  
+  // 最快加载出来的图片的编号是多少
+  
+  // 怎么样把每个元素的宽高都同时打印出来
+
+  /**
+   * 加载到页面中的图片 有两种访问途径:
+   *    1. 缓存中寻找(找到了, 用)
+   *    2. 才真正的请求 (ctrl+f5) 强制更新缓存
+   */
+
+</script>
+</body>
+</html>

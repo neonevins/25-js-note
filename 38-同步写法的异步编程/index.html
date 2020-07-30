@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * 异步操作 变成同步 操作
+   *    异步操作: 定时器 异步事件
+   */
+  
+  // setTimeout(function () {
+  //   console.log("data1")
+  // }, 1000)
+  //
+  // setTimeout(function () {
+  //   console.log("data2")
+  // }, 2000)
+  
+  // 执行没有完全等待 上次的执行任务的完成
+
+  /**
+   * 每天早上起来的流程
+   */
+  // q起床
+  function getUp(cb){
+    setTimeout(function () {
+      // 起床完成,可以下一步
+      console.log("起床完成")
+      cb()
+    }, 3000)
+  }
+  
+  function shuaya(){
+    setTimeout(function () {
+      // 刷牙完成,可以下一步
+      console.log("刷牙完成")
+    }, 2000)
+  }
+  
+  function chizhaofan(cb){
+    setTimeout(function () {
+      // 早饭吃完,可以下一步
+      console.log("吃饭")
+      cb()
+    }, 1000)
+  }
+  
+  function chumen(){
+    setTimeout(function () {
+      // 出门完成可以下一步
+    }, 1000)
+  }
+  //
+  // getUp(function () {
+  //   setTimeout(function () {
+  //     console.log("刷牙完成")
+  //     chizhaofan(function () {
+  //       setTimeout(function () {
+  //         console.log("出门")
+  //       }, 1000)
+  //     })
+  //   }, 1000)
+  // })
+  
+  // 回调地狱问题: 回调函数里面写回调函数...
+  
+  // promise 让异步代码在编写维护修改添加等操作的时候变得非常方便
+  
+
+  // getUp()
+  // shuaya()
+  // chizhaofan()
+  // chumen()
+  
+  // 将回调地狱 扁平化 Promise 构造函数 new 生成Promise对象
+  
+  // Promise 在实例化的时候接受一个回调函数作为参数, 这个回调函数是所有异步操作的开端
+  
+  // 回调函数接受两个参数: resolve reject
+  /**
+   * 这两个东西都是函数
+   *  resolve 表示异步操作成功
+   *  reject  表示异步操作失败
+   */
+  let p = new Promise(function (resolve, reject) {
+    // 写上一个异步操作
+    setTimeout(function () {
+      console.log("异步操作1执行完成")
+      resolve()
+    }, 1000)
+  })
+  
+  // promise对象 then 操作 表示接下来做什么
+  p.then(function () {
+    return new Promise(function (resolve, reject) {
+      setTimeout(function () {
+        console.log("异步操作2执行成功")
+        resolve()
+      }, 1000)
+    })
+  })
+   .then(() => {
+     console.log("异步操作3执行成功")
+   })
+  
+  
+  // p
+  //   .then()
+  //   .then()
+  //   .then()
+  //   .then()
+  //   .catch()
+
+  /**
+   * promise的语法特点:
+   *   1. promise接受一个回调函数
+   *   2. 回调函数是第一段异步操作
+   *   3. 回调函数 有 resolve 和 reject 两个函数的形参
+   *   4. resolve() 意味着紧挨着的then执行
+   *   5. then 后续可以挨着then 实现链式调用按顺序执行
+   *   6. then里面的回调函数可以继续返回Promise对象 让下一个then执行
+   *
+   *   7. 如果 promise对象 resolve(data) 下一个then里面可以在形参拿到data
+   */
+  
+  new Promise(function (resolve) {
+    resolve({})
+  })
+  .then(data => {
+    console.log(data)
+  })
+
+
+</script>
+</body>
+</html>
