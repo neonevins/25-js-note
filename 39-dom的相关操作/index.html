@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<!--<ul class="list">-->
+<!--  <li class="li">1</li>-->
+<!--  <li class="li" id="id-li">2</li>-->
+<!--  <li class="li">3</li>-->
+<!--</ul>-->
+
+<ul class="list">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+
+<!--<ul class="list2">-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--  <li></li>-->
+<!--</ul>-->
+
+<script>
+  /**
+   * JS     语法
+   * DOM    元素的特点
+   * BOM    窗口
+   *
+   * dom 相关的操作. 元素讨论
+   *    1. 获取元素
+   *       单个元素的方法:
+   *       document.querySelector     单个元素(通过css选择器)
+   *
+   *       document.getElementById("元素的id") 不要加上 #
+   *
+   *       多个元素的获取方法:
+   *       document.querySelectorAll  元素的类数组, css选择器
+   *
+   *       一定都是 NodeList
+   *
+   *
+   *       ES 5 方法
+   *       通过类名获取元素
+   *       document.getElementsByClassName
+   *       通过标签名获取元素 (tag name)
+   *       document.getElementsByTagName
+   *       通过name属性获取元素
+   *       document.getElementsByName
+   *       ...
+   *       元素也都具有get系列的方法
+   *
+   *       一定都是 htmlCollection
+   *        htmlCollection 非常简陋, 甚至没有任何数组的方法
+   */
+  // let li = document.querySelector(".list li")
+  //
+  // let li2 = document.getElementById("id-li")
+  //
+  // let li3 = document.getElementsByClassName("li")
+  // let li4 = document.querySelectorAll(".li")
+  // let li5 = document.getElementsByTagName("li")
+  
+  
+  // 只用get系列的方法, 怎么获取 list2 里面所有的li
+  // let list2 = document.getElementsByClassName("list2")[0]
+  // let liList = list2.getElementsByTagName("li")
+  // // let liList = document.getElementsByTagName("li")
+  // HTMLCollection.prototype.forEach = Array.prototype.forEach
+  
+  //
+  // ;[].forEach.call(liList,li => {
+  //   li.innerHTML = "<a href='asdasd'>asdasd</a>"
+  // })
+
+
+  /**
+   * 对比 HTMLCollection 和 NodeList 之间的区别
+   */
+  // 反直觉
+  // let collectionLiList = document.getElementsByTagName("li") // 动态的获取元素的
+  // // 瞬间的操作, 符合预期, 可控
+  // let nodeListList = document.querySelectorAll("li") // 静态的获取元素, 这一瞬间 是多少就是多少
+  //
+  // // 获取之后进行操作
+  // // 添加一个li到里面
+  // console.log(nodeListList.length)
+  // let ul = document.querySelector("ul")
+  //
+  // let li = document.createElement("li")
+  // ul.appendChild(li)
+  //
+  // console.log(nodeListList.length)
+  
+  
+  // for(let i = 0;i < collectionLiList.length;i++){
+  //   let ul = document.querySelector("ul")
+  //
+  //   let li = document.createElement("li")
+  //   ul.appendChild(li)
+  // }
+  
+  //
+  // 增加元素: innerHTML innerText + 模板字符串的
+  // 会让之前的元素消失, 会造成破坏
+
+  /**
+   * createElement 生成元素节点,元素对象,单个元素, 存储在内存中
+   *
+   * appendChild
+   */
+  // let ul = document.querySelector("ul")
+  // let li = document.createElement("li")
+  // li.innerHTML = "新增的"
+  //
+  // ul.appendChild(li)
+  
+  // let ul = document.querySelector(".list")
+  // let liList = document.querySelectorAll(".list li")
+  // liList.forEach(li => li.onclick = function () {
+  //   console.log(this.innerHTML)
+  // })
+  
+  // 相当于重新渲染了一遍
+  // 会导致页面重新渲染,生成新的li,之前的li已经消失了
+  // ul.innerHTML = `<li>1</li><li>2</li><li>3</li>` + "<li>4</li>"
+  
+  // let li = document.createElement("li")
+  // li.innerHTML = "4"
+  // ul.appendChild(li)
+  // documentFragment 文档节点片段
+  // let fragment = document.createDocumentFragment()
+  // for (let i = 0; i < 100000; i++) {
+  //   let li = document.createElement("li")
+  //   li.innerHTML = i
+  //   fragment.appendChild(li) // 添加到内容中
+  // }
+  // ul.appendChild(fragment) // 一次性倒进去
+  // 不管怎么样, 建议大家使用fragment 操作逻辑更优秀的
+  // console.log(fragment)
+  
+  
+  // 删除元素: 一定要找到这个元素, 经过家长的允许 找到父元素
+  // 自我毁灭法 , 没有必要单独获取家长
+  // let li = document.querySelector("li")
+  // let ul = document.querySelector(".list")
+  // console.log(li.parentNode)
+  // ul.removeChild(li)
+  // .parentNode.removeChild 以父之名
+  // li.parentNode.removeChild(li)
+  
+  // let liList = document.querySelectorAll("li")
+  // liList.forEach(item => {
+  //   item.onclick = function () {
+  //     this.parentNode.removeChild(this)
+  //   }
+  // })
+  
+  
+  
+  
+
+</script>
+</body>
+</html>
