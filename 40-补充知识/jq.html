@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./jquery.js"></script>
+  <style>
+    .box{
+      position: relative;
+      left: 0;
+      top: 0;
+      width: 300px;
+      height: 300px;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="box">1</div>
+<div class="box">2</div>
+<div class="box">3</div>
+<div class="box">4</div>
+<script>
+  /**
+   * 什么是jquery:
+   *    库  : 字典,工具集合,操作手册
+   *      提供了丰富的工具, 开发写很简单
+   *      解决的问题很有限, 没有思想的
+   *    框架: 外面搭一层钢筋骨架, 大模型
+   *      提供了整个项目的结构, 提供项目所需要的工具
+   *      工程化, 组件化
+   *      webpack
+   *
+   *  jquery:
+   *    学习的底层的思想, 设计
+   *    api: 常见的很快就掌握
+   *    设计思想: write less, do more (写的少,做的多)
+   *
+   *    整体就是一个函数.
+   *    $
+   *    cdn 查询 现成的 jq 代码引入
+   *
+   *    看源码:
+   *      1. 遇到函数声明直接跳过
+   *      2. 最新版看不懂,请看老版本的代码, 一气呵成
+   *
+   *
+   *      $ 就是jquery函数
+   *        理解成为 document.querySelector
+   *
+   *
+   *   链式操作: 可以不停的 .下去 按顺序执行
+   *
+   */
+  // let box = document.querySelectorAll(".box")
+  // box.forEach(item => {
+  //   item.style.color = "red"
+  //   item.style.backgroundColor = "blue"
+  //   item.onclick = function () {
+  //     console.log(this.innerHTML)
+  //   }
+  // })
+
+  // console.log()
+
+  $(".box")
+    // .eq(3) // equal 相等
+    .css({
+      color: "red",
+      backgroundColor: "blue"
+    })
+    .click(function () {
+      $(this)
+        .fadeOut()
+        .fadeIn()
+        .animate({left: "300px"})
+        .animate({top: "300px"})
+        .animate({left: "0px"})
+        .animate({top: "0px"})
+    })
+  
+  // $(".box")
+  //   .eq(1)
+  //   .animate()
+
+
+  /**
+   * Jquery 的 核心 就是 jquery 对象
+   */
+  
+  
+  (function () {
+    function jQuery(){
+      return new jQuery.fn.init()
+    }
+    jQuery.fn.init = function(){
+      this
+    }
+    jQuery.prototype = {
+      css: function () {
+        
+        return this
+      },
+      html: function () {
+      
+      }
+    }
+    
+    
+    
+    window.$ = jQuery
+  })()
+
+
+</script>
+</body>
+</html>

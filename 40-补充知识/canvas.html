@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #canvas{
+      /*width: 800px;*/
+      /*height: 800px;*/
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="800"></canvas>
+<script>
+  /**
+   * es6 新出的标签
+   * canvas 画布: 图片 可以动的图片
+   *  做游戏等复杂的特效
+   *
+   * canvas出现的原因: dom很多很多的元素, 渲染 解决dom渲染的性能问题
+   *
+   * canvas 是一个标签, 标签里面包罗万象
+   *
+   * canvas 属性:
+   *  1. width height 请写出实际样式的宽高
+   *
+   *  需要获取绘制环境和绘制工具 context
+   *
+   *    canvas.getContext("2d") // "2d" 平面绘制环境
+   *
+   *    任何绘制:
+   *      1. 描述绘制路径
+   *      2. 描述绘制方法
+   *        2.1 stroke 描边
+   *        2.2 fill 填充
+   *
+   */
+  let canvas = document.querySelector("#canvas")
+  
+  let ctx = canvas.getContext("2d")
+
+  /**
+   * x 右
+   * y 下
+   *
+   * 画矩形
+   *    rect
+   *      矩形的位置
+   *      矩形的宽高
+   *      位置坐标x  位置坐标y 宽度w 高度h
+   *
+   * 画线
+   *
+   * 画圆
+   */
+  ctx.beginPath()
+  // 描述路径
+  ctx.rect(100, 100, 50, 150)
+  // 绘制线条
+  ctx.strokeStyle = "#6fc"
+  ctx.lineWidth = 8
+  ctx.stroke()
+  ctx.fill()
+
+  ctx.beginPath() // 开始绘制
+  ctx.strokeStyle = "red"
+  ctx.rect(500, 500, 150, 150)
+  ctx.stroke()
+  ctx.closePath() // 结束绘制
+  
+
+</script>
+</body>
+</html>
