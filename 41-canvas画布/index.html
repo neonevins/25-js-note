@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #canvas{
+      background-color: #ccc;
+      /* css 中渲染元素的大小 */
+      width: 800px;
+      height: 800px;
+    }
+  </style>
+</head>
+<body>
+<!--元素的实际尺寸-->
+<canvas id="canvas" width="800" height="800"></canvas>
+<script>
+  /**
+   * canvas 图片 js 代码进行编辑
+   *  canvas.getContext("2d")
+   *
+   *  inline 行内
+   *
+   *  矩形
+   *    rect(x, y, w, h)
+   */
+  let canvas = document.querySelector("#canvas")
+  
+  let ctx = canvas.getContext("2d")
+  
+  // 开始新的路径
+  // ctx.beginPath()
+  // // 描述路径
+  // ctx.rect(50, 50, 50, 50)
+  // ctx.strokeStyle = "red"
+  // ctx.stroke()
+  // // 关闭路径
+  // // ctx.strokeStyle ctx.fillStyle
+  // ctx.closePath()
+  
+  // ctx.beginPath()
+  // //
+  // ctx.strokeStyle = "red"
+  // ctx.moveTo(100, 200) // 起点
+  // ctx.lineTo(300, 300) // 终点
+  // ctx.stroke() // 绘制
+  //
+  // ctx.beginPath()
+  // ctx.moveTo(500, 500)
+  // ctx.lineTo(200, 300)
+  // ctx.stroke()
+
+  /**
+   * 做一个正四边形 , 中心位置 在 400, 400 的点的位置, 并且 每个顶点距离中心位置的长度为 150
+   */
+
+  // ctx.beginPath()
+  // ctx.moveTo(550, 400)
+  // ctx.lineTo(400, 250)
+  // ctx.lineTo(250, 400)
+  // ctx.lineTo(400, 550)
+  // ctx.lineTo(550, 400)
+  // ctx.stroke()
+
+  /**
+   * 做一个函数, draw 接受一个参数 n 表示绘制 正 n 边型 在 400, 400 的点的位置, 并且  每个顶点距离中心位置的长度为150
+   */
+  
+  // function draw(n){
+  //   // 应该求出 这个 n 个点的坐标
+  //   // 这个数组里面的每一项应该都是点的坐标 {x: 100, y: 200}
+  //   // 规定 第一个点永远在右边
+  //   // let pointArr = []
+  //   // 两个相邻点的角度差: 2 * Math.PI / n
+  //   // let point1 = {
+  //   //   x: 400 + 150 * Math.cos(Math.PI * 2 * 0 / n),
+  //   //   y: 400 - 150 * Math.sin(Math.PI * 2 * 0/ n)
+  //   // }
+  //   //
+  //   // let point2 = {
+  //   //   x: 400 + 150 * Math.cos(Math.PI * 2 * 1/ n),
+  //   //   y: 400 - 150 * Math.sin(Math.PI * 2 * 1/ n)
+  //   // }
+  //   //
+  //   // let point3 = {
+  //   //   x: 400 + 150 * Math.cos(Math.PI * 2 * 2 / n),
+  //   //   y: 400 - 150 * Math.sin(Math.PI * 2 * 2/ n)
+  //   // }
+  //   // let pointArr = []
+  //   for (let i = 0; i < n+1; i++) {
+  //     let point = {
+  //       x: 400 + 150 * Math.cos(Math.PI * 2 * i / n),
+  //       y: 400 - 150 * Math.sin(Math.PI * 2 * i / n)
+  //     }
+  //     ctx.lineTo(point.x, point.y)
+  //   }
+  //   ctx.stroke()
+  // }
+  
+  // 19 * 19 的围棋盘
+
+  /**
+   * 绘制圆的方法:
+   *  ctx.arc()
+   *    圆心的位置
+   *    半径
+   *    起始的绘制的点的角度
+   *    结束的绘制的点的角度
+   *
+   *    绘制的方向 (默认 false 表示 顺时针)
+   *
+   */
+  // 描述绘制的路径
+  // ctx.beginPath()
+  // ctx.arc(200, 500, 100, 0, Math.PI * 3 / 2)
+  // ctx.lineTo(200, 500)
+  // // ctx.stroke()
+  // ctx.fill()
+  
+  // 绘制图片
+  
+  // 加载图片
+  function loadImg(src) {
+    return new Promise(function (next) {
+      // 构造函数 实例化一个图片对象, 可以添加src
+      let img = new Image()
+      img.src = src
+      // 等待图片加载好才能绘制
+      img.onload = function () {
+        next(img)
+      }
+    })
+  }
+
+  loadImg("./imgs/5.jpg")
+    .then(drawImage)
+  
+  function drawImage(img){
+    /**
+     * 三个参数
+     *  img对象
+     *  x, y 坐标 绘制的左上角的坐标
+     */
+    // ctx.drawImage(img, 100, 100)
+
+    /**
+     * 五个参数的形式
+     *    img
+     *    x, y 坐标 绘制的左上角的坐标
+     *    w, h 绘制的宽高
+     */
+    // let height = img.height / img.width * 500
+    // ctx.drawImage(img, 100, 100, 500, height)
+
+    /**
+     * 九个参数的形式
+     *  从原始图片中裁剪一个矩形区域下来,在页面中显示
+     *    img
+     *    x, y 原始图片的裁剪开始位置
+     *    w, h 原始图片的裁剪宽高
+     *
+     *    x, y 页面绘制的开始
+     *    w, h 页面绘制的宽高
+     *
+     */
+    // ctx.drawImage(img, 500, 500, 900, 900, 100, 100, 600, 600)
+  }
+  
+  
+  
+
+
+
+</script>
+</body>
+</html>

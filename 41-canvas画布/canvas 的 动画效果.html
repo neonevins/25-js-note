@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    canvas{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+  /**
+   * canvas 的动画效果
+   */
+  let canvas = document.querySelector("#canvas")
+  // 根据浏览器的宽度和高度设置
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight
+  
+  let ctx = canvas.getContext("2d")
+  let x = 100
+  let y = 100
+  function drawRect() {
+    // 清除 一片矩形区域内的所有内容
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    // 绘制模块
+    ctx.beginPath()
+    ctx.rect(x, y, 100, 100)
+    ctx.fill()
+    // 数据更新模块
+    x += 3
+    requestAnimationFrame(drawRect)
+  }
+
+  drawRect()
+
+  /**
+   * 参考 弹球屏保, 需要大家加载气泡图片
+   *  去实现弹球屏保效果
+   *  用 canvas
+   *
+   *  面向对象, 点击 元素 添加小球 小球的 弹跳 重力
+   */
+
+
+</script>
+</body>
+</html>
