@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      height: 10000px;
+    }
+    .box{
+      margin: 200px;
+      border: 10px black solid;
+      padding: 30px;
+      width: 500px;
+      height: 500px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div class="box"></div>
+<script>
+  // let input = document.querySelector("input")
+  // input.onblur = function () {
+  //   this.value += "!"
+  // }
+  // input.onfocus = function () {
+  //   this.value = "@" + this.value
+  // }
+  let box = document.querySelector(".box")
+  // window.onload = function(){
+  //   box.style.width = window.innerWidth / 3 + "px"
+  //   box.style.height = window.innerHeight / 3 + "px"
+  // }
+  // window.onload = window.onresize = function () {
+  //   box.style.width = window.innerWidth / 3 + "px"
+  //   box.style.height = window.innerHeight / 3 + "px"
+  //   // console.log(window.innerWidth, window.innerHeight)
+  // }
+
+  
+  
+  /**
+   * 事件系统:
+   *    点击事件
+   *      onclick
+   *    加载事件
+   *      onload
+   *
+   *    通用的事件系统有什么样的模型:
+   *      onclick
+   *        事件名
+   *
+   *      onresize 事件 浏览器调整大小的时候 触发的事件
+   *        我们可以在这个地方修改元素的大小, 做自适应?
+   *
+   *
+   *        自适应: 根据不同的尺寸,发送不同的页面
+   *          当页面大小变化到 > 600 宽度的时候跳转到大的页面
+   *          当页面大小变化到 < 600 宽度的时候跳转到小的页面
+   *
+   *       onscroll 滚动事件
+   *
+   *
+   *       键盘事件:
+   *          任何键盘按下都会触发的事件
+   *
+   *          keydown
+   *
+   *          keyup
+   *
+   *        点击事件:
+   *           onclick  点击一下鼠标左键(抬起的时候触发)
+   *
+   *           oncontextmenu 右键点击元素触发
+   *              做自定义菜单栏
+   *
+   *        做拖拽
+   *
+   *           onmousedown 鼠标按下
+   *
+   *           onmousemove 鼠标移动
+   *
+   *           onmouseup   鼠标抬起
+   *
+   *
+   *        做选中和高亮, 定制化的操作
+   *           onmouseenter
+   *
+   *           onmouseleave
+   *
+   *         滚轮事件
+   *
+   *
+   */
+  
+  // 被按下
+  // let isDown = false
+  // // 针对每一个按键 去设置他自己的单独的按下状态
+  //
+  // window.onkeydown = function () {
+  //   if(isDown) return
+  //   isDown = true
+  //   console.log("键盘被按下")
+  // }
+  // window.onkeyup = function () {
+  //   isDown = false
+  //   console.log("键盘抬起")
+  // }
+  
+  
+  
+  // document.oncopy = function(){
+  //   alert("以下内容需要花钱")
+  //   return false
+  // }
+  // window.onscroll = function () {
+  //   console.log("滚动")
+  // }
+  
+  // box.onclick = function () {
+  //   console.log("click")
+  // }
+
+  // box.oncontextmenu = function (e) {
+  //   e.preventDefault() // 阻止默认行为
+  //   console.log("右键点击这个盒子")
+  // }
+  // 抓起
+  
+  // let drag = false
+  // box.onmousedown = function () {
+  //   drag = true
+  //   console.log("抓住")
+  // }
+  // box.onmousemove = function () {
+  //   if(drag){
+  //     console.log("挪动")
+  //   }
+  // }
+  // // 写到window上能保证放下操作是绝对会触发的
+  // window.onmouseup = function () {
+  //   drag = false
+  //   console.log("放下")
+  // }
+  
+  // 上述代码存在什么样的 bug
+  
+  // box.onmouseenter = function () {
+  //   box.style.backgroundColor = "#" + Math.random().toString(16).slice(2,8)
+  //   console.log("进入")
+  // }
+  //
+  // box.onmouseleave = function () {
+  //   box.style.backgroundColor = "red"
+  //   console.log("离开")
+  // }
+  
+  // box.onwheel = function () {
+  //   box.style.backgroundColor = "#" + Math.random().toString(16).slice(2,8)
+  //   console.log("滚轮滚")
+  // }
+
+
+  /**
+   * 只需要从一个事件出发, 推导, 所有的其他的事件都是在这个基础之上的
+   *
+   * 事件对象.
+   *    回调函数( 后面赋值的 函数 )的形参
+   */
+
+  /**
+   * 鼠标事件的一些属性
+   * ctrl + alt + shift 都被按下了 再点击这个盒子, 这个盒子会被删除掉
+   *   元素内部的点击偏移量
+   *   offsetX offsetY
+   *    点击事件触发的时候鼠标在元素中的坐标位置(相对于边框内部的左上角为起点)
+   *
+   *   点击位置相对于文档的偏移量
+   *   pageX pageY
+   *     点击事件触发的时候水保相对于page页面左上角的距离
+   *
+   *   点击位置相对于显示器的偏移量
+   *   screenX screenY
+   *      点击事件相对于屏幕的座上的坐标
+   *
+   *   点击位置相对于浏览器内容左上角的偏移量
+   *   x y
+   *      点击事件相对于浏览器窗口可视区域的左上角的距离
+   *   clientX clientY
+   *      点击位置相对于浏览器左上角的坐标 , 他和 x y 是相同的
+   *
+   */
+
+  box.onclick = function (e) {
+    console.log(e)
+    // if(e.offsetX < 230 && e.offsetY < 230){
+    //   this.innerHTML = "左上角"
+    // }
+    // if(e.offsetX >= 230 && e.offsetY < 230){
+    //   this.innerHTML = "右上角"
+    // }
+    // 坐下右下同理
+    // if(e.ctrlKey && e.altKey && e.shiftKey){
+    //   this.parentNode.removeChild(this)
+    // }
+  }
+
+  /**
+   * 事件的: 监听 捕获 冒泡 代理
+   */
+
+
+</script>
+</body>
+</html>

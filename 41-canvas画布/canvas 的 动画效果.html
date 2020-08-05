@@ -13,6 +13,7 @@
     }
     canvas{
       display: block;
+      background-color: #ccc;
     }
   </style>
 </head>
@@ -24,8 +25,10 @@
    */
   let canvas = document.querySelector("#canvas")
   // 根据浏览器的宽度和高度设置
-  canvas.width = window.innerWidth
-  canvas.height = window.innerHeight
+  window.onresize = window.onload = function(){
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+  }
   
   let ctx = canvas.getContext("2d")
   let x = 100
