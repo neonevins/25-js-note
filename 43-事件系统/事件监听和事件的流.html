@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .big-box{
+      width: 500px;
+      height: 500px;
+      background-color: #ff0000;
+    }
+    .middle-box{
+      width: 300px;
+      height: 300px;
+      background-color: #0f0;
+    }
+    .small-box{
+      width: 100px;
+      height: 100px;
+      background-color: #00f;
+    }
+  </style>
+</head>
+<body>
+<div class="big-box">
+  <div class="middle-box">
+    <div class="small-box"></div>
+  </div>
+</div>
+<a href="https://www.baidu.com">asdasd</a>
+<script>
+  /**
+   * on事件名 DOM 0级事件
+   *    事件 绑定
+   *    一个元素对一个事件 只能绑定一个操作行为
+   *    清空 = null
+   *
+   * 事件监听:
+   *    addEventListener
+   *      事件名称
+   *      事件处理函数
+   *      事件在什么阶段处理(布尔值) 在捕获阶段触发
+   *          默认: false 表示 冒泡阶段触发
+   *          true  表示 捕获阶段触发
+   */
+  // let box = document.querySelector(".box")
+  
+  // box.onclick = function () {
+  //   console.log("盒子被点击了1")
+  // }
+  //
+  // box.onclick = function () {
+  //   console.log("盒子被点击了2")
+  // }
+  //
+  // box.onclick = null
+  
+  // box.addEventListener("click", function (e) {
+  //   console.log("盒子被点了1")
+  // })
+  // box.addEventListener("click", function (e) {
+  //   console.log("盒子被点了2")
+  // })
+
+  /**
+   * 事件流的两个阶段:
+   *  点击的时候, 电脑首先判断
+   *      点击的是浏览器
+   *      点击的是document
+   *      点击的是html
+   *      点击的是body
+   *      点击的是盒子
+   *
+   *    捕获阶段
+   *       从 浏览器出发 -> 元素本身
+   *
+   *    冒泡阶段
+   *        从 元素本身出发 -> 浏览器上
+   *
+   *    写的事件都是在冒泡阶段触发的
+   */
+
+  let big = document.querySelector(".big-box")
+  let middle = document.querySelector(".middle-box")
+  let small = document.querySelector(".small-box")
+  
+  big.addEventListener("click", function (e) {
+    e.stopPropagation()
+    console.log("big")
+  }, true)
+  middle.addEventListener("click", function (e) {
+    e.stopPropagation()
+    console.log("middle")
+  }, false)
+  small.addEventListener("click", function (e) {
+    e.stopPropagation() // 阻止事件进一步传递
+    console.log("small")
+  }, false)
+  
+  
+  // 打印顺序: middle small big
+  
+  // removeEventListener
+  
+  // 用onclick 方法 封装 addEventListener 和 removeEventListener
+
+
+  /**
+   * 事件流的拦截:
+   *    e.stopPropagation()
+   *
+   *
+   *    e.preventDefault() 阻止默认行为
+   *
+   */
+
+  // let a = document.querySelector("a")
+  //
+  // a.addEventListener("click", function (e) {
+  //   e.preventDefault()
+  // })
+
+
+
+
+</script>
+</body>
+</html>

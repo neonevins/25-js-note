@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box{
+      /*width: 300px;*/
+      /*height: 300px;*/
+      /*background-color: #ccc;*/
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+  <p>当前页面同时按下 <span class="length"></span></p>
+  <ul class="list">
+  
+  </ul>
+</div>
+<script>
+  /**
+   * 鼠标事件:
+   *
+   *
+   * 键盘事件: 对document进行操作
+   *    按下的时候按下的是什么
+   */
+  // let box = document.querySelector(".box")
+  //
+  // document.onkeydown = function (e) {
+  //   if(e.key.toLowerCase() === "f12"){
+  //     e.preventDefault()
+  //   }
+  //   console.log(e.key)
+  // }
+    // 表示每一个键被按下的状态
+    // let map = {
+    //   "a": false,
+    //   "b": false,
+    //
+    // }
+  
+  // let map = {}
+  // for (let i = 97; i < 123; i++) {
+  //   map[String.fromCharCode(i)] = false
+  // }
+  //
+  //
+  // document.onkeydown = function (e) {
+  //   const key = e.key.toLowerCase()
+  //   map[key] = true
+  //   // render()
+  //   move(key)
+  // }
+  //
+  // document.onkeyup = function (e) {
+  //   const key = e.key.toLowerCase()
+  //   map[key] = false
+  //   // render()
+  //   move(key)
+  // }
+  
+  // 遍历map 查询看看有多少个键是为 true 的
+  // 怎么样遍历一个对象
+  
+  // 根据 wsad 上下左右
+  // 按键对应行为映射表
+  // let action = {
+  //   "w": "向前走",
+  //   "s": "向后退",
+  //   "a": "向左",
+  //   "d": "向右",
+  //   " ": "跳跃",
+  //   "q": "换武器"
+  // }
+  // function move(key){
+  //   console.log(action[key])
+  // }
+  
+  
+  
+  // 监测我们按了哪些键
+  // function render(){
+  //   let count = 0
+  //   let list = []
+  //   // 遍历一个对象  for in 方法
+  //   for (const mapKey in map) {
+  //     if(map[mapKey]){
+  //       count++
+  //       list.push(mapKey)
+  //     }
+  //   }
+  //   document.querySelector(".length").innerHTML = count
+  //   // console.log(list)
+  //   // 根据list数组渲染 ul标签, list里面有几个元素, ul里面就添加几个li
+  //   let ul = document.querySelector(".list")
+  //   ul.innerHTML = ""
+  //   list.forEach(key => {
+  //     let li = document.createElement("li")
+  //     li.innerHTML = key
+  //     ul.appendChild(li)
+  //   })
+  // }
+  
+  
+  
+  
+  // let date = null
+  // let keyDown = false
+  // document.onkeydown = function (e) {
+  //   if(keyDown) return
+  //   keyDown = true
+  //   if(e.key === " "){
+  //     console.log("开始")
+  //     date = new Date()
+  //   }
+  // }
+  //
+  // document.onkeyup = function (e) {
+  //   if(e.key === " "){
+  //     keyDown = false
+  //     console.log((new Date() - date) / 1000 + "s")
+  //   }
+  // }
+  
+  // 跳一跳游戏
+  
+  
+</script>
+</body>
+</html>
