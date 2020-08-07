@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .list{
+      width: 300px;
+      height: 300px;
+      background-color: #ccc;
+    }
+    .list li{
+      border: 1px black solid;
+    }
+  </style>
+</head>
+<body>
+<!--<div class="box"></div>-->
+
+<ul class="list">
+  <li>1asdas</li>
+  <li>qweqw2</li>
+  <li>31123</li>
+  <li>42131</li>
+  <li>123123</li>
+</ul>
+<script>
+  /**
+   *  事件监听:
+   *
+   *  事件监听的取消:
+   *    removeEventListener
+   *      和 addEventListener 参数是一致
+   *        事件类型
+   *        函数
+   *        捕获状态
+   */
+  // let box = document.querySelector(".box")
+  //
+  // function clickMethod(){
+  //   console.log("box 被点击了")
+  // }
+  // // 添加点击事件
+  // box.addEventListener("click", clickMethod)
+  // box.addEventListener("click", clickMethod)
+  
+  // 移除点击事件
+  // box.removeEventListener("click", clickMethod)
+
+  /**
+   * 可不可以自己实现以下 addEventListener 和 removeEventListener 功能
+   *
+   */
+  
+  
+  // 事件代理: 用到事件对象的 target 事件的目标
+  /**
+   * 设计模式:
+   *    观察者模式:
+   */
+  
+  // let liList = document.querySelectorAll(".list li")
+  // function foo(){
+  //   console.log(this.innerHTML)
+  // }
+  // liList.forEach(li => {
+  //   li.addEventListener("click", foo)
+  // })
+  
+  // 直接修改foo不就可以了吗? 不行
+  
+  // 不管怎么样都要再遍历所有的li依次解除 再重新绑定
+  
+  // let list = document.querySelector(".list")
+  // function fn(e){
+  //   let target = e.target
+  //   // 判断target 只有是 li 的时候才会打印
+  //   if(target.tagName.toLowerCase() === "li"){
+  //     if(/^\d+$/.test(target.innerHTML)){
+  //       console.log(target.innerHTML)
+  //     }
+  //   }
+  // }
+  // list.addEventListener("click", fn)
+  //
+  // // 后续添加
+  // let li = document.createElement("li")
+  // li.innerHTML = "123123"
+  // list.appendChild(li)
+  
+
+</script>
+</body>
+</html>

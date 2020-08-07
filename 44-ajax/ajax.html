@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * ajax: async javascript and xml
+   *  数据分离:
+   *      写模板:
+   *      加载数据:
+   *
+   *  xml: 描述的数据
+   *    1. 非常古老的描述数据的结构
+   *    2. 用来存储数据 或者是传输数据的
+   *
+   *
+   *  接口: api: 给前端访问拿数据的地方
+   *
+   *  api: application program interface
+   */
+  // 上古版本
+  // <person>
+  //    <name>银时</name>....
+  // </person>
+  
+    // 现在版本的数据格式: json javascript 对象的 数据格式 数据结构
+    // 前后端在数据交互的时候 只有字符串的格式
+    // JSON 是 js 对象的 严格 版本 (属性名 "" 双引号)
+    
+  // JSON 中不允许 存 函数 , 不能存 循环引用
+  
+  // let obj = {
+  //   "name": "银时",
+  //   "age": 19,
+  //   "list": ["1", "2", "3"]
+  // }
+  //
+  // let jsonStr = JSON.stringify(obj)
+  // let jsonObj = JSON.parse(jsonStr)
+
+
+  /**
+   * ajax: async javascript and xml
+   *
+   *  异步的获取数据
+   *
+   *  async: 异步
+   *
+   *  上古时期: 页面只有通过刷新 加载新的数据
+   *
+   *  缺点: 网页+数据 都是在后台拼接
+   *
+   * 解决: 假如有一个可以异步请求数据的工具?
+   *    ajax: 异步发送请求获取数据的功能
+   *
+   *    50% + 50%
+   *
+   * 原生的请求: 最纯粹最基础的方法.
+   *
+   *    XMLHttpRequest 构造函数 可以生成一个单独的 ajax对象
+   *
+   *    请求?
+   *       请求地址: (网络地址)
+   *
+   */
+
+  let xhr = new XMLHttpRequest()
+
+</script>
+</body>
+</html>
