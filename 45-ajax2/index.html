@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<input type="text">
+<script>
+  /**
+   * ajax 获取数据的艺术.
+   *
+   * ajax: async javascript and xml
+   *  1. xml 用标签格式做数据状态 存储 数据存储方式
+   *
+   *  前后端分离
+   *
+   *  前端, node.js 独立运行环境: 网络,请求,数据库,文件....
+   *
+   *  async 异步:
+   *
+   *  ajax 对象 一个可以向后台发送请求的对象
+   *
+   *  JS中向后台发起请求
+   *
+   *  XMLHttpRequest 这个是JS请求的: 万物之源
+   *
+   *  axios
+   *
+   *  如何 发起一个请求
+   *    接口 都是对外公开的: api
+   *
+   *  1. new
+   *  2. 对ajax对象进行一些初始化设置
+   *    2.1 请求方法:
+   *      当初设计之初的含义: restful
+   *        GET   得到, 获得 从服务器拿取数据   (也可以发送数据)
+   *        POST  发送, 发出 将数据发送给服务器 (也可以接受数据)
+   *
+   *        // 后续的这些请求都被阻止
+   *        OPTIONS
+   *        HEAD
+   *        DELETE
+   *        FETCH
+   *        PUT
+   *
+   *
+   *    地址: 服务器能够访问的位置: 网址
+   *      服务器的真实地址是 服务器的 ip 地址: 每个服务器都是唯一的
+   *      公网ip:
+   *
+   *      域名: 别名
+   *      https://www.baidu.com:8000/image/list?page=2&pageLength=10
+   *      协议名 + 域名 + 端口 + 路由 + 请求字段
+   *
+   *
+   *    跨域: 当前域下的"任何"请求不允许访问别的域下的资源
+   *
+   *       什么叫同源 ? (来自相同的源头)
+   *          协议名
+   *          域名
+   *          端口
+   *
+   *       http://www.baidu.com
+   *       http://www.baidu.com
+   *
+   *       怎么样解决跨域问题?
+   *          浏览器问题?
+   *          1. 浏览器上禁用掉跨域检测
+   *          2. 叫后台设置请求头
+   *          3. JSONP 方法绕过同源策略检测
+   *
+   *  3. 发送请求
+   *
+   *
+   *
+   *  readystate: ajax 对象的状态 一共有5个状态
+   *      0: ajax对象初始化完成,但是没有做请求配置
+   *      1: ajax对象进行基础配置, 并没有发送
+   *      2: ajax请求发送
+   *      3: ajax服务器处理,返回之前
+   *      4: ajax返回接受
+   *
+   *  请求状态码: xhr.status
+   *      100+: 未完成,一般不用
+   *      200+: 成功
+   *      300+: 重定向
+   *      304:  资源未更改, 不需要返回
+   *      400+: 失败, 多半是客户端的错误
+   *      500+: 服务器的问题导致拿不到数据
+   *
+   *
+   *  xhr.responseText ajax 返回的字段
+   *
+   */
+  // 初始化
+  let xhr = new XMLHttpRequest()
+  console.log(xhr.readyState)
+  // 基础配置
+  xhr.open("get", "http://www.baidu.com?page=2&pageLength=10")
+  console.log(xhr.readyState)
+
+  // 发送请求
+  xhr.send(null)
+  // 对后台返回的数据或者状态的接受
+  console.log(xhr.readyState)
+
+  // ajax 对象准备状态变化的时候会执行函数
+  xhr.onreadystatechange = function () {
+    if(xhr.readyState === 4){
+      if(xhr.status >= 200 && xhr.status < 300 || xhr.status === 304){
+        console.log(xhr.responseText)
+      }
+    }
+  }
+  
+</script>
+</body>
+</html>
