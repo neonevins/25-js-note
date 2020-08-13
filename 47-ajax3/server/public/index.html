@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  /**
+   * ajax
+   *  XMLHttpRequest
+   */
+  /**
+   * 服务器的相关知识 替换 实战
+   *
+   *
+   * key1=value1&key2=value2.....
+   */
+  
+  
+  
+  let obj = {
+    name: "yinshi",
+    age: 19,
+    a: 1,
+    b: 2
+  }
+  
+  // 将对象转换 url中的键值对形式
+  // function formate(obj){
+  //   // let arr = []
+  //   // for (const key in obj) {
+  //   //   arr.push([key, obj[key]])
+  //   // }
+  //   let arr = Object.entries(obj)
+  //   arr = arr.map(item => item[0]+"="+item[1])
+  //   return arr.join("&")
+  // }
+  //
+  // const url = "http://localhost:8000/data?"
+  //
+  //
+  // function request(type, url, data) {
+  //   return new Promise(function (next) {
+  //     let xhr = new XMLHttpRequest()
+  //     xhr.open(type, url + formate(data))
+  //     xhr.send(null)
+  //     xhr.onreadystatechange = function () {
+  //       if(xhr.readyState === 4){
+  //         if(xhr.status >= 200 && xhr.status < 300 || xhr.status === 304){
+  //           next(JSON.parse(xhr.responseText))
+  //         }
+  //       }
+  //     }
+  //   })
+  // }
+
+  // request("get", url, obj)
+  //   .then(res => {
+  //     console.log(res)
+  //   })
+
+  const url = "http://localhost:8000/info"
+
+  let xhr = new XMLHttpRequest()
+
+  xhr.open("post", url)
+  
+  // 发送post请求需要设置请求头
+  // ajax 设置请求头, 设置文档类型, 是form的格式
+  // xhr.setRequestHeader ("content-type", "application/x-www-form-urlencoded" )
+  xhr.setRequestHeader("content-type", "application/json" )
+  xhr.setRequestHeader("Access-Control-Allow-Origin", "*" )
+  xhr.send(JSON.stringify(obj))
+
+  xhr.onreadystatechange = function () {
+    if(xhr.readyState === 4){
+      if(xhr.status >= 200 && xhr.status < 300 || xhr.status === 304){
+        console.log(JSON.parse(xhr.responseText))
+      }
+    }
+  }
+  
+</script>
+</body>
+</html>

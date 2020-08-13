@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 构造一个前端的函数, 假设这个函数可以拿到数据
+  function getData(data){
+    console.log(data)
+  }
+  /**
+   * xhr 会有跨域问题  JSONP JSON with padding 后端的数据会包裹起来发送给我们
+   * 利用 某些标签的特性,结合后台一起实现跨域
+   * script 标签: 可以跨域请求资源的
+   *
+   * 约定: cb 表示前端的函数是什么
+   *
+   * 使用的是script标签发送请求
+   */
+  
+  let script = document.createElement("script")
+  // 向后端传输的是什么??
+  script.src = "http://localhost:8000/jsonp?cb=getData&key=2"
+  
+  document.body.appendChild(script)
+
+  script.onload = function () {
+    script.parentNode.removeChild(script)
+  }
+
+  /**
+   * 后端给我们的是 你传过去的函数名(他自己的数据)
+   */
+
+</script>
+</body>
+</html>

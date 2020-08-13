@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<input type="text">
+<ul class="list"></ul>
+<script>
+  const input = document.querySelector("input")
+  const list = document.querySelector(".list")
+  let timer = null
+  const fn = function (data) {
+    clearTimeout(timer)
+    timer = setTimeout(function () {
+      const tag = data && data.result && data.result.tag
+      list.innerHTML = ""
+      tag && tag.forEach(item => {
+        let li = document.createElement("li")
+        li.innerHTML = item.value
+        list.appendChild(li)
+      })
+    }, 1000)
+  }
+  
+  
+  input.oninput = function () {
+    
+    const key = input.value
+    const url = `https://s.search.bilibili.com/main/suggest?jsoncallback=fn&func=suggest&suggest_type=accurate&sub_type=tag&main_ver=v1&highlight=&userid=27656&bangumi_acc_num=1&special_acc_num=1&topic_acc_num=1&upuser_acc_num=3&tag_num=10&special_num=10&bangumi_num=10&upuser_num=3&term=${key}&rnd=0.4924598217560492&_=1597240402548`
+    const script = document.createElement("script")
+    script.src = url
+    document.body.appendChild(script)
+    script.onload = function () {
+      script.parentNode.removeChild(script)
+    }
+  }
+  
+  
+</script>
+</body>
+</html>

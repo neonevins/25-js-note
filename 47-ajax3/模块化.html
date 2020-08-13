@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<!--<script src="./js/a.js"></script>-->
+<script type="module">
+  /**
+   * 代码可以按需引入,相互之间的关联更加明显
+   *
+   * 单存通过script标签引入元素 是会很乱
+   *
+   * 使用模块化引入方式
+   *
+   *    导入
+   *
+   *    导出
+   *
+   *
+   * 主要学习思想:
+   *
+   *    代码的写法, sea.js
+   *
+   *
+   *
+   *  拆代码:
+   *     构造函数来拆
+   *
+   */
+  import obj from "./js/a.js"
+  import Box from "./js/b.js"
+
+  console.log(new Box())
+  obj.fn1()
+  obj.fn2()
+</script>
+</body>
+</html>
