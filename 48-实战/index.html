@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      background-color: #ccc;
+    }
+    #canvas{
+      display: block;
+      /*border: 1px black solid;*/
+      margin: 0 auto;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script type="module">
+  /**
+   * 游戏 游戏相关: canvas 性能
+   *    面向对象的思想 模块化的思想
+   *
+   *    抽象:
+   *      整体的游戏模块: 控制游戏的开始结束 暂停 ...
+   *
+   *      场景模块: 游戏的场景切换: 渲染不同的场景
+   *
+   *      背景模块, 地板模块, 柱子模块, 小鸟模块 ... 继承 一个可以绘制的 基础模块类
+   */
+  import Game   from "./js/Game.js"
+  let game = new Game(document.querySelector("#canvas")) // 游戏开始 游戏初始化
+
+  game.restart() // 游戏重新开始
+  
+</script>
+</body>
+</html>
