@@ -8,17 +8,26 @@ export default class Start {
     this.bg = new Background(this.ctx)
     this.logo = new Logo(this.ctx)
     this.button = new Button(this.ctx)
+    this.boxList = [
+      this.bg,
+      this.logo,
+      this.button
+    ]
     this.next = false // 表示当前场景没有结束
+    this.register()
   }
   render(){
     // 状态变更
     this.next = this.button.next
-
     // 渲染
     this.bg.render()
     this.logo.render()
     this.button.render()
   }
-
-
+  register(){
+    this.boxList.forEach(item => item.register())
+  }
+  unregister(){
+    this.boxList.forEach(item => item.unregister())
+  }
 }

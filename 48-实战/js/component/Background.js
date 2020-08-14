@@ -1,6 +1,8 @@
 import config from "../../config.js"
-export default class Background {
+import Basic  from "./basic/Basic.js"
+export default class Background extends Basic{
   constructor(ctx) {
+    super(ctx)
     this.ctx = ctx
     this.src = "../../flappybird/bg_day.png"
     this.img = new Image()

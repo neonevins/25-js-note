@@ -1,6 +1,8 @@
 import config from "../../config.js"
-export default class TitleReady {
+import Basic  from "./basic/Basic.js"
+export default class TitleReady extends Basic{
   constructor(ctx) {
+    super(ctx)
     this.ctx = ctx
     this.src = "../../flappybird/text_ready.png"
     this.img = new Image()
