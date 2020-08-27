@@ -20,14 +20,19 @@ export default class Bird extends Basic{
     this.g = 0.1
     this.registerFn = tools.debounce((e) => {
       this.jump()
-    }, 1000)
+    }, 500)
+
+    this.dead = false
+    setTimeout(() => {
+      this.dead = true
+    }, 3000)
   }
   render(){
     this.update()
     this.ctx.drawImage(this.img, this.x, this.y)
   }
   jump(){
-    this.vy = -4
+    this.vy = -3.5
   }
   update(){
     let s = Math.floor(this.step++ / 3) % 3
@@ -48,5 +53,44 @@ export default class Bird extends Basic{
   }
   register() {
     config.canvas.addEventListener("click", this.registerFn)
+  }
+
+
+  /**
+   * return boolean true: 碰撞 false 没有
+   */
+  checkCollide(pipe){
+    // 鸟的大小位置状态
+    let birdSize = {
+      x: this.x + 10,
+      y: this.y + 10,
+      w: this.width - 20,
+      h: this.height - 20
+    }
+    //
+    let pipeInfo = {
+      x: pipe.x,
+      w: pipe.width,
+      y: pipe.y,
+      size: pipe.size
+    }
+    // 如果 鸟都还没经过柱子, 直接就是false
+    if(
+      birdSize.x + birdSize.w < pipeInfo.x // 鸟在左边
+      ||
+      birdSize.x > pipeInfo.x + pipeInfo.w // 鸟在右边
+    ){
+      return false
+    }
+    // 一定是鸟正在经过柱子的时候
+    if(
+      birdSize.y > pipeInfo.y // 鸟撞不上上面
+      &&
+      birdSize.y + birdSize.h < pipeInfo.y + pipeInfo.size // 鸟撞不上下边
+    ){
+      return false
+    }
+
+    return true
   }
 }

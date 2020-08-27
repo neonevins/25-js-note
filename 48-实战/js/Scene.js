@@ -1,12 +1,14 @@
 import Ready from "./scene/Ready.js"
 import Start from "./scene/Start.js"
-import Gaming from "./scene/Gaming.js"
+import Gaming   from "./scene/Gaming.js"
+import GameOver from "./scene/GameOver.js"
 // 游戏场景类, 负责游戏场景选择切换
 export default class Scene{
   constructor(ctx) {
     this.ctx = ctx
-    this.status = 2
-    this.sceneArr = [Start, Ready, Gaming]
+    this.status = 0
+    this.gameOver = false
+    this.sceneArr = [Start, Ready, Gaming, GameOver]
     // this.sceneList = {
     //   start: Start, // 第一个场景
     //   ready: Ready,  // 第二个场景
@@ -18,6 +20,7 @@ export default class Scene{
   }
   // 场景的渲染
   render(){
+
     // 场景状态改变的判断
     if(this.stage.next){
       // 先把当前场景中的所有的元素注册过的事件全部取消掉

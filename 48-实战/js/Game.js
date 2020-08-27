@@ -14,8 +14,10 @@ export default class Game {
   }
   render(){
     // 调用渲染关键帧
-    requestAnimationFrame(() => this.render())
-    this.ctx.clearRect(0, 0, config.width, config.height)
-    this.scene.render()
+    if(!this.scene.gameOver){
+      requestAnimationFrame(() => this.render())
+      this.ctx.clearRect(0, 0, config.width, config.height)
+      this.scene.render()
+    }
   }
 }
